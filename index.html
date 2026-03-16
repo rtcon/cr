@@ -113,12 +113,24 @@
       <li>Correlations represented in records imply additional correlations.</li>
       <li>These implications are represented by closure operators defined over record structures.</li>
       <li>
-        Closure structure regulates the refinement relations among records and induces an invariant distinguishability measure called <em>closure distance</em>
+        Closure structure regulates the refinement relations among records, giving rise to a refinement partial order
+        \[
+          r_1 \preceq r_2
+        \]
+      </li>
+      
+      <li>
+        Record structures therefore form a refinement lattice.
+      </li>
+      
+      <li>
+        This structure induces an invariant distinguishability measure called <em>closure distance</em>
         \[
           d_c(r_1, r_2)
         \]
         representing the minimal restructuring required for one record to correspond to the correlations represented in another.
       </li>
+      
       <li>
         Closure distance accumulates discretely
         \[
@@ -126,7 +138,6 @@
         \]
         where \(\delta_c\) is the <em>closure quantum</em>, the minimal distinguishable increment of correlation capacity.
       </li>
-      <li>Record structures therefore form a refinement lattice, with closure distance corresponding to minimal refinement chains within this lattice.</li>
     </ul>
   </div>
 
