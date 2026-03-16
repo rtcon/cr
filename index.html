@@ -97,19 +97,13 @@
   <div class="postulate">
     <div class="postulate-title">Postulate 3 — Closure Geometry</div>
     <ul>
-      <li>Correlations among degrees of freedom may logically entail additional correlations.</li>
-      <li>These implications are represented by closure operators defined over record structures.</li>
-      <li>
-        <em>Closure operators</em> determine the admissible refinement relations among records, thereby defining a refinement partial order:
+      <li>Correlations among degrees of freedom may imply additional correlations.</li>
+      <li>A <em>closure operator</em> represents the implication structure among correlations and thereby defines the admissible refinement relations among records, forming a refinement partial order:
         \[
           r_1 \preceq r_2
         \]
       </li>
-      
-      <li>
-        Record structures therefore form a refinement lattice.
-      </li>
-      
+      <li>Record structures therefore form a refinement lattice.</li>
       <li>
         This structure induces an invariant distinguishability measure called <em>closure distance</em>:
         \[
@@ -117,7 +111,6 @@
         \]
         representing the minimal restructuring required for one record to correspond to the correlations represented in another.
       </li>
-      
       <li>
         Closure distance accumulates discretely:
         \[
