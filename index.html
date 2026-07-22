@@ -316,17 +316,17 @@
   </div>
 
   <div class="postulate">
-    <div class="postulate-title">Postulate 4 — Closure Laws and Closure Distance</div>
+    <div class="postulate-title">Postulate 4 — Closure Laws, Elementary Refinements, and Closure Distance</div>
     <ul>
-      <li>Correlations may imply additional correlations. Closure laws express this implication structure and order records by refinement, \(r_1 \preceq r_2\), forming a refinement partial order.</li>
-      <li>The structure carries a directed distinguishability measure, closure distance \(d_c(r \to r')\): the minimal physical restructuring required to refine \(r\) into \(r'\). It satisfies \(d_c(r \to r) = 0\) and the directed triangle inequality; refinement is directional, and no symmetry is assumed.</li>
+      <li>Correlations may imply additional correlations. Closure laws express this implication structure, order records by refinement, \(r_1 \preceq r_2\), and license a discrete family of <em>elementary refinements</em>: single-step restructurings, each encoding one minimal increment of correlational content.</li>
+      <li>Closure distance is defined, not separately postulated: \(d_c(r \to r')\) is the minimal number of elementary refinements carrying \(r\) to \(r'\) (scaled by \(\delta_c\)), infinite if no admissible chain exists. Its quasi-metric properties follow from the definition — the empty chain gives \(d_c(r \to r) = 0\), concatenation gives the directed triangle inequality — and refinement is directional. Structurally: insertion-only edit distance on the closure-law-constrained refinement graph.</li>
     </ul>
   </div>
 
   <div class="postulate">
     <div class="postulate-title">Postulate 5 — Closure Quantum</div>
     <ul>
-      <li>Closure distance accumulates discretely: along any refinement chain, \(d_c = N_{\mathrm{steps}}\,\delta_c\), where \(\delta_c\) is the closure quantum, the minimal distinguishable increment of correlation-encoding capacity.</li>
+      <li>Every elementary refinement encodes the same minimal distinguishable increment of correlation-encoding capacity, the closure quantum \(\delta_c\); closure distance therefore accumulates as \(d_c = N_{\mathrm{steps}}\,\delta_c\).</li>
       <li>Nothing fundamental is infinitesimal; all continuum descriptions of closure geometry are coarse-grained.</li>
     </ul>
   </div>
