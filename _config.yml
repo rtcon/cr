@@ -1,0 +1,14 @@
+# GitHub Pages build configuration.
+# The site is plain HTML; Jekyll passes all other files through unchanged.
+#
+# _archive is version-controlled provenance, not site content. Folders
+# beginning with an underscore are excluded by Jekyll's defaults already;
+# listing it here makes the exclusion declared rather than conventional.
+#
+# NOTE: do not add a .nojekyll file to this repository — that would disable
+# Jekyll and, with it, these exclusions, deploying everything verbatim.
+
+exclude:
+  - _archive        # provenance record: in git, never deployed
+  - README.md       # optional: repo documentation, not site content
+                    # (delete this line if you want /README.md served)
