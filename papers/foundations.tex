@@ -1,0 +1,475 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[colorlinks=true]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{postulate}{Postulate}
+\newtheorem{assumption}{Assumption}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{example*}{Example}
+
+\newcommand{\partheader}[1]{\clearpage\begin{center}{\LARGE\bfseries #1}\end{center}\vspace{1em}}
+\newenvironment{openproblem}[1]{\begin{quote}\small\textbf{Open Problem (#1).}\ \itshape}{\end{quote}}
+
+\title{Configuration Realism:\\ Foundations and Research Program\\[0.5em]
+\large A finite, timeless configuration ontology: postulates, the Born exponent\\ as a counting theorem, and conjectures toward emergent time and geometry}
+\author{Russell Tillitt\\ \small Independent Researcher, San Francisco, California}
+\date{July 2026 (draft v5)}
+\begin{document}\maketitle
+
+\begin{abstract}
+We propose Configuration Realism (CR): physical reality consists of a finite, timeless configuration space, each configuration a complete arrangement of fundamental degrees of freedom. Phase enters at two levels: it attaches additively to degrees of freedom, and it is relational---defined for a configuration relative to a stage of an observer chain, accumulated along the refinement ordering. Configurations do not evolve. Information exists only as finite physical records---lossy encodings of correlations---and each record defines a compatibility class, the configurations it cannot distinguish. Closure laws express the implication structure among correlations and order records by refinement; observers are chains of record-bearing stages along this ordering; change is difference read along a refinement chain, and time is the emergent coordinate that labels it. Closure distance, accumulating in discrete quanta, measures the physical restructuring refinement requires. The paper is organized by epistemic status. Its derived core, developed in two companion papers, is quantum probability as counting: the population of an outcome class is proved to equal $N|\alpha|^2$ under named structural assumptions, with the frequency reading consuming exactly one typicality principle; and the CHSH quantity assembled from integer counts reaches the quantum value $2\sqrt{2}$, the ontology pricing counterfactual definiteness in the plain Bell scenario---and the absoluteness of outcomes where Wigner's-friend extensions demand it---rather than locality or free settings. Direct consequences follow for entropy (two entropies of opposite sign along refinement, the arrow of time carried by the increasing one), for the classical limit, and for objectivity as redundancy. The remainder is a labeled research program: causal structure, Lorentzian geometry, geodesic dynamics, and horizon thermodynamics as conjectured continuum limits of closure geometry, with the constructions that would establish them stated as open problems. Every claim in the paper is tabulated with its status---postulate, theorem, verified, argument, conjecture, or open.
+\end{abstract}
+
+\partheader{PART 0 --- MOTIVATION: TAKING THE LAWS SERIOUSLY}
+Three of the best-confirmed results in physics, read at face value, each suggest a feature of fundamental ontology that their surface form conceals. This paper is what results from accepting all three readings. Each is an \emph{adopted reading of a contested inference}, and the debts are itemized before they are spent.
+
+\textbf{Relativity, taken seriously.} The relativity of simultaneity leaves no invariant fact about which events are ``now.'' Taken ontically, this is the Rietdijk--Putnam argument for the block universe: all events exist; none is privileged as present \cite{Rietdijk1966,Putnam1967}. The inference is contested---Stein's response remains the standard rebuttal \cite{Stein1968}---and we do not claim relativity \emph{proves} the block universe. We adopt the ontic reading and explore what it buys.
+
+\textbf{The Wheeler--DeWitt constraint, taken seriously.} Canonical quantum gravity yields a constraint equation with no external time parameter: physical states do not evolve against time \cite{DeWitt1967}. The problem-of-time literature offers many ways to interpret this away---internal times, deparameterizations \cite{Isham1992,Kuchar1992}. Taken at face value instead, it eliminates fundamental temporal evolution, and the problem it leaves---recovering the appearance of dynamics---is the problem this paper answers by ordered difference along record refinement (Part I).
+
+\textbf{The Born exponent, taken seriously.} The quadratic law of quantum probability, if the \emph{exponent} is a fact about the world rather than a principle about the credences of observers, requires a canonical measure over the outcome classes it counts, and a canonical measure requires either finiteness or additional structure whose choice re-imports conventionality (Section~\ref{sec:necessity}). Since the derivation consumes only the sizes of compatibility classes---never the size of $\Omega$ itself---what an ontic Born exponent strictly dictates is hereditarily \emph{finite classes}; a globally finite configuration space is the parsimonious ontology that secures them, and the one this framework adopts. One may retain infinite compatibility classes or an ontic Born exponent, but not both. Taken ontically, the Born law points to a countable, finite-classed world---and the companion paper \cite{TillittBorn} exhibits the mechanism, deriving the quadratic form from the conserved cardinality of such classes.
+
+These three readings are ordinarily declined: the block universe softened by presentist re-readings, the frozen formalism supplemented with external clocks, the Born rule re-founded on rationality or self-location. Configuration Realism is the framework obtained by declining the declining. Its postulates (Part I) are the minimal ontology consistent with the three laws so read: a timeless (readings 1--2), finite (reading 3) configuration space, with records and closure structure supplying what the acceptance costs---the recovery of time, probability, and objectivity as emergent structure.
+
+One relation must be stated precisely, because it looks circular and is not. Part 0 uses the ontic Born exponent to motivate finiteness; Part II derives the Born exponent from finiteness. The two directions are different arguments with different premises: the necessity direction (Section~\ref{sec:necessity}) is an informal argument consuming only the ontic reading; the derivation direction is a theorem consuming finiteness \emph{plus} the structural assumptions [AS], [LC], [PR] of the companion. Together they form a consistency loop---the ontology's most speculative commitment is the premise of its first theorem---not a bootstrap: neither argument uses the other's conclusion.
+
+\partheader{PART I --- ONTOLOGY AND FRAMEWORK}
+\emph{Status of this Part: foundational commitments---the postulates and definitions on which everything else rests, together with the closure geometry they induce. Nothing here is derived; everything here is priced in the ledger of Section~\ref{sec:ledger}.}
+
+\section{Introduction}\label{sec:intro}
+Modern physics achieves extraordinary predictive success, yet its conceptual foundations remain unsettled. Quantum mechanics provides accurate probabilistic predictions but leaves unresolved the ontological status of superposition, measurement, and probability. General relativity provides a precise description of spacetime geometry and causal structure, while canonical quantum gravity eliminates fundamental time entirely, even though observers encounter ordered succession. These tensions suggest that time, dynamics, and spacetime geometry may not be fundamental, but may instead correspond to deeper structural relations governing how physical systems represent and access correlations.
+
+All physically accessible information exists as records: finite physical arrangements of degrees of freedom corresponding to correlations with other systems. No finite subsystem can represent the full correlation structure of the universe, so any physical description is necessarily partial. Configuration Realism takes this finiteness of records as foundational. Rather than treating time or dynamical evolution as primitive, it begins with a timeless configuration space together with the correlations represented in finite records, and locates dynamics in ordered difference rather than evolution: an observer is not a fixed subsystem moving through configuration space but a family of subsystems of distinct configurations, ordered by refinement of the records they include. Change is difference read along this ordering; time is the emergent coordinate that labels it. Dynamics is thereby fully real---a relation among configurations rather than a process undergone by them.
+
+The paper is organized by epistemic status. Part I states the postulates and develops closure geometry (Sections~\ref{sec:post}--\ref{sec:geometry}). Part II presents the derived results: the necessity of a canonical measure (Section~\ref{sec:necessity}), the Born exponent from counting with its Bell extension (Section~\ref{sec:born}), and the classical limit (Section~\ref{sec:classical}). Part III develops direct consequences: entropy and the arrow of time (Section~\ref{sec:entropy}), structural complexity (Section~\ref{sec:complexity}), objectivity (Section~\ref{sec:objectivity}), and self-referential records (Section~\ref{sec:self}). Part IV states the conjectural program: causal structure and emergent spacetime (Section~\ref{sec:causal}), dynamics and gravitation (Section~\ref{sec:dynamics}), consistency targets (Section~\ref{sec:targets}), and the open frontier (Section~\ref{sec:frontier}). Section~\ref{sec:related} relates the framework to existing work; Section~\ref{sec:ledger} tabulates the status of every claim; Section~\ref{sec:conclusion} concludes. Appendix~A presents the formal structure in counting form. The Born derivation and the Bell demonstration are given in full in the companion papers \cite{TillittBorn,TillittCHSH}; this paper integrates them.
+
+\section{Postulates of Configuration Realism}\label{sec:post}
+
+\begin{postulate}[Timeless finite configuration space with relational phase]\label{post:omega}
+Physical reality consists of a timeless configuration space $\Omega$ with $|\Omega| < \infty$. Each configuration $\omega \in \Omega$ specifies a complete arrangement of fundamental degrees of freedom. Configurations do not evolve, and none is created or destroyed: every admissible partition is a partition of the same configurations.
+
+Configuration space carries phase structure, at two levels. \emph{Phase attaches to degrees of freedom}: the arrangements of individual degrees of freedom carry phase, and a configuration's phase content composes additively from its independent parts. \emph{Phase is relational}: no configuration carries an absolute, context-free phase; what exists is the phase of a configuration relative to a stage of an observer chain---an angle $S_r(\omega)$, defined modulo $2\pi$ for $\omega \in \Omega_r$, accumulated along the closure structure connecting the stage's correlational content to $\omega$, with successive stages related by increments. Only phase differences within a stage are physical.
+\end{postulate}
+
+\begin{remark}
+Three consequences are drawn in the companion paper \cite{TillittBorn} rather than assumed: phase additivity for independent subsystems is a lemma of the first clause; the relational clause is \emph{forced}---a context-free per-configuration phase assignment is provably inconsistent with the existence of nontrivial devices; and the packaging of phases as unimodular exponentials $e^{iS_r(\omega)}$, summed coherently over classes, is derived. Finiteness is likewise not a technical convenience; its motivation and consequences are the subject of Section~\ref{sec:necessity}.
+\end{remark}
+
+\begin{postulate}[Finite physical records]\label{post:records}
+Information exists only in the form of physical records. A record is a finite physical arrangement of degrees of freedom whose structure corresponds to correlations among degrees of freedom within configuration space. Perfect representation of correlations would require reproducing the correlated structure itself; records are therefore necessarily lossy with respect to the correlations present in configuration space.
+\end{postulate}
+
+\begin{postulate}[Compatibility classes]\label{post:classes}
+Each record $r$ defines its compatibility class,
+\[ \Omega_r = \{\, \omega \in \Omega : \omega \ \text{compatible with the correlations in}\ r \,\}, \]
+the set of configurations indistinguishable with respect to the correlations represented in $r$. For a fixed record-bearing subsystem, the classes of its distinguishable record states partition $\Omega$; classes defined by \emph{different} records, or borne by different subsystems, generally overlap. Compatibility classes are defined by records alone; they are observer-relative only derivatively, because observers are subsystems whose degrees of freedom include records.
+\end{postulate}
+
+\begin{postulate}[Closure laws and closure distance]\label{post:closure}
+Correlations among degrees of freedom may imply additional correlations. Closure laws express this implication structure and define refinement relations among records, $r_1 \preceq r_2$, forming a refinement partial order whose chains are admissible refinement sequences. This structure carries a directed distinguishability measure, closure distance $d_c(r \to r')$, quantifying the minimal physical restructuring required to refine $r$ into $r'$. Closure distance is postulated to satisfy $d_c(r \to r) = 0$ and the directed triangle inequality $d_c(r \to r'') \le d_c(r \to r') + d_c(r' \to r'')$; it is a quasi-metric---refinement is directional, and no symmetry $d_c(r \to r') = d_c(r' \to r)$ is assumed.
+\end{postulate}
+
+\begin{postulate}[Closure quantum]\label{post:quantum}
+Closure distance accumulates discretely: along any refinement chain, $d_c = N_{\mathrm{steps}}\,\delta_c$, where $\delta_c$ is the closure quantum, the minimal distinguishable increment of correlation-encoding capacity. Nothing fundamental is infinitesimal; all continuum descriptions of closure geometry are coarse-grained.
+\end{postulate}
+
+\begin{remark}
+Discreteness is a major physical commitment and is stated as its own postulate rather than as a rider. The conjecture that $\delta_c$ is Planck-scale---suggested by the horizon-entropy material of Section~\ref{sec:dynamics}---is exactly that, a conjecture, and is priced as such in the ledger.
+\end{remark}
+
+\begin{postulate}[Observer chains, closure dynamics, and measurement]\label{post:observers}
+An observer stage is a structured subsystem within a configuration whose internal degrees of freedom include records. Observers are defined purely structurally; no assumption of consciousness or subjective experience is made. \emph{Configurations exist that contain structurally related observer stages whose records are ordered by refinement}; this ordered family is an observer chain. An observer is not a fixed subsystem translated through configuration space: ``the observer'' is the identification across an observer chain, connected by closure structure alone---the records of each stage refine, and represent, the correlational content of prior stages. Change is difference read along a refinement ordering; time is the emergent coordinate labeling that ordering; closure dynamics is this observer-relative ordered difference structure. A measurement is closure dynamics in which the compatibility class defined by the observer's records changes.
+\end{postulate}
+
+\begin{remark}[What this postulate actually costs]\label{rem:obscost}
+The postulate's definitional clauses---what ``stage,'' ``chain,'' and ``measurement'' mean---are vocabulary, and vocabulary cannot be false. Its substantive commitment is the italicized existence clause, matching the companion paper's Postulate of the same name \cite{TillittBorn}: that configurations containing refinement-ordered observer stages exist at all. A model of Postulates~\ref{post:omega}--\ref{post:quantum} could lack them, and then nothing downstream that is observer-relative---emergent time, probability, the whole of Parts II--III as read by anyone---would have a subject. The ledger prices the existence clause separately for this reason; the explicit model of Part II realizes chains by construction.
+\end{remark}
+
+\medskip\noindent\textit{The postulates as answers.} Postulate~\ref{post:omega}'s timelessness answers the first two readings of Part 0; its finiteness answers the third. Postulates~\ref{post:records}--\ref{post:observers} supply the machinery that makes the acceptance livable: records and compatibility classes ground emergent probability (Part II), and closure structure with observer chains grounds emergent time and dynamics (Sections~\ref{sec:ontology}--\ref{sec:geometry}), so that nothing the block-universe and Wheeler--DeWitt readings eliminated is left unexplained.
+
+\section{Ontology}\label{sec:ontology}
+Configuration space contains everything, including records; nothing stands outside it. Configurations differ from one another; they do not change into one another. Closure laws order certain of these differences by refinement, and closure distance measures them. Because configuration space is finite, all measures over configurations are counting measures: sizes of compatibility classes are cardinalities, and structural entropy is the logarithm of class cardinality (Section~\ref{sec:entropy}).
+
+An observer is a family of subsystems of distinct configurations---an observer chain---connected by nothing except closure structure: the records of each stage refine, and represent, the correlational content of prior stages. Persistence is this refinement relation; the experience of persistence is the represented content of the records. Motion is ordered difference in record content along the chain; a record can represent a trajectory, but nothing traverses one.
+
+\begin{quote}\textbf{Remark (Sequential language, anchored once).} Nothing in this ontology moves or evolves. Change is difference read along a refinement ordering; time is the emergent coordinate labeling that ordering (Sections~\ref{sec:geometry} and~\ref{sec:causal}). All sequential language in this paper---``refinement proceeds,'' ``a device is applied,'' ``entropy accumulates,'' ``observers construct clocks,'' ``downstream''---is shorthand for position in the refinement ordering of an observer chain, never for temporal process. The shorthand is anchored here once, licensed globally, and cashed out formally by the definitions of this Part; wherever a sentence appears to reintroduce evolution, this remark is its reading.\end{quote}
+
+Two closure notions must be distinguished. The \emph{total closure} $\mathrm{cl}(r)$ of a record is the maximal record content implied by $r$ under the closure laws; it is observer-independent and need not be includable in any finite record. The \emph{accessible closure} $\mathrm{cl}_O(r)$ is the maximal refinement of $r$ realizable within observer $O$'s finite capacity. The classes are ordered $\Omega_{\mathrm{cl}(r)} \subseteq \Omega_{\mathrm{cl}_O(r)} \subseteq \Omega_r$: total closure refines at least as far as any accessible closure. Closure saturation is the condition in which accessible closure admits no further refinement while falling short of total closure; horizons correspond to closure-saturation boundaries (Section~\ref{sec:dynamics}). Neither notion is a temporal process; both are structural relations among record states.
+
+\begin{remark}[Closure as a Galois connection]\label{rem:galois}
+``Closure'' acts in two directions, and the formal structure relating them is a Galois connection between the record lattice and the lattice of configuration sets. On record \emph{content}, closure is extensive: $r \preceq \mathrm{cl}(r)$---more correlations are implied than are written. On configuration \emph{sets}, the induced map is antitone: richer content is compatible with fewer configurations, $\Omega_{\mathrm{cl}(r)} \subseteq \Omega_r$. Extensivity on content and contraction on classes are the two faces of one adjunction, and Appendix~A states the axioms in this form. The direction matters: a closure operator axiomatized directly on configuration sets would point extensivity the wrong way, and the adjunction is what keeps both faces coherent.
+\end{remark}
+
+\section{Record Refinement and Closure Geometry}\label{sec:geometry}
+
+\subsection{Refinement and its physical cost}
+A refinement of record $r$ is a record $r'$ with $\Omega_{r'} \subseteq \Omega_r$: additional correlations encoded in the observer's internal structure, distinguishing configurations previously indistinguishable. Because records are finite and lossy, refinement cannot uniquely identify configurations; it progressively shrinks compatibility classes while preserving multiplicity within them.
+
+Records are physical arrangements, so refinement requires physical rearrangement of degrees of freedom: correlations must be encoded, internal structure must differ between the configurations containing successive stages, and finite subsystems can encode only bounded correlation per step. These constraints are what closure distance quantifies: the restructuring cost of carrying one record into another. Closure distance is local (refinement requires local rearrangement), finite (finite subsystems encode finite correlations per refinement), and cumulative (chains of refinements accumulate cost). These three features are what give rise to causal structure in Part IV.
+
+\subsection{Discreteness and the continuum limit}
+By Postulate~\ref{post:quantum}, closure distance accumulates in units of $\delta_c$; nothing in the ontology is infinitesimal. The geometric structures of this section and of Part IV are coarse-grained descriptions, valid when the number of accumulated closure quanta is large. Along a refinement chain whose successive records differ by single quanta, accumulated closure distance varies slowly relative to the step size over many-step segments, and it becomes convenient to introduce smooth coordinates $R^a$ on record space together with an effective quadratic form $d\tau^2 = g_{ab}\,dR^a dR^b$ whose geodesic lengths approximate step-counted closure distances. The metric $g_{ab}$ is not fundamental structure; it is the continuum summary of discrete distinguishability counts, in the same sense in which hydrodynamic fields summarize molecular populations.
+
+Three consequences follow. First, all geometric statements in Part IV inherit this status: effective descriptions with corrections of order $1/N_{\mathrm{steps}}$, with $\delta_c$ the natural cutoff below which the geometric description has no referent. Second, the emergence order is fixed: discreteness is not a quantization of a prior continuum; the continuum is a limit of prior discreteness. Third, the closure quantum links geometry to the counting results of Part II: the same discreteness that makes configuration multiplicities well-defined makes closure distance well-defined, and the residues of both are of the same $1/N$ character.
+
+\begin{openproblem}{Continuum limit}
+The formal construction of $g_{ab}$ from the discrete refinement lattice---conditions on chains under which the continuum limit exists and is unique---is open. All of Part IV's geometry is conditional on it. See Section~\ref{sec:frontier}.
+\end{openproblem}
+
+\subsection{Geodesics and emergent temporal structure}
+Refinement sequences connecting records correspond to paths in record space, with accumulated closure distance $\tau[\gamma] = \int_\gamma \sqrt{g_{ab}(R)\, dR^a dR^b}$ in the coarse-grained description. Among all refinement paths between records, those minimizing accumulated closure distance are geodesics of the effective geometry: refinement sequences requiring minimal physical restructuring, and hence the structurally preferred paths---the origin, in this framework, of variational principles (Section~\ref{sec:dynamics}).
+
+Along any refinement sequence $r_0 \prec r_1 \prec r_2 \prec \dots$, accumulated closure distance increases monotonically. This ordering is the quantitative realization of emergent time: experienced duration corresponds to closure distance accumulated along the chain, connecting temporal structure directly to the physical restructuring of records. Clocks, constructed by observers from subsystems whose record states co-vary reliably with refinement, are the subject of Section~\ref{sec:causal}.
+\partheader{PART II --- DERIVED RESULTS: QUANTUM PROBABILITY FROM COUNTING}
+\emph{Status of this Part: theorems---proven under named assumptions in the companion papers \cite{TillittBorn,TillittCHSH} and verified by literal enumeration in an explicit finite model. This Part integrates the results into the framework; the companions are self-contained.}
+
+\section{Finiteness and the Necessity of a Canonical Measure}\label{sec:necessity}
+The finiteness postulate is not a technical convenience; it is the load-bearing wall of Part II. In an infinite ontology, ``the fraction of configurations in an outcome class'' is undefined without a choice of measure: countably infinite sets admit bijections with proper subsets, so ratios of infinite cardinalities have no meaning, and continua quantify size only relative to a measure $d\mu$, whose choice is mathematically equivalent to choosing the probability rule. Conservation of ``the amount of configuration space'' is then a statement relative to a convention---and conventions force nothing.
+
+\begin{proposition}[Necessity: canonically measurable classes]\label{prop:necessity}
+The Born exponent can be a theorem about the world---derived rather than decreed---only in an ontology whose outcome classes carry a canonical measure: one available without further choice. Finite cardinality is the unique assumption-free case; and since the derivation consumes only the sizes of compatibility classes---$|\Omega|$ itself never enters---what an ontic Born exponent dictates is the hereditary finiteness of compatibility classes. Global finiteness of $\Omega$ is the parsimonious way to secure it, and is independently motivated, but is not forced by this argument alone.
+\end{proposition}
+
+\begin{remark}[The symmetry objection, anticipated]\label{rem:haar}
+An infinite ontology with sufficient symmetry does carry an invariant measure: normalized Haar measure on a compact homogeneous space, the Fubini--Study measure on projective Hilbert space. The proposition is therefore stated with care: what such an ontology cannot do is get its measure for free. The symmetry structure is itself an ontological posit, and choosing it is choosing the measure---the conventionality is relocated, not removed. It should be conceded at once that positing finiteness is also a posit; the asymmetry claimed is comparative, not absolute---cardinality is the only measure that comes with \emph{no further} structure beyond the set itself, whereas every infinite alternative requires selecting structure whose selection is measure-equivalent. A continuum can host the quadratic measure as a brute fact---Bohmian quantum equilibrium postulates exactly this \cite{Durr1992}---but cannot force it.
+\end{remark}
+
+Independent physical motivation for finiteness comes from the Bekenstein bound \cite{Bekenstein1981}, the finite entropy of de Sitter space \cite{Banks2001}, and the case for a finite-dimensional fundamental state space \cite{CarrollSingh2018} (Section~\ref{sec:related}).
+
+\section{The Born Exponent from Counting, and Its Bell Extension}\label{sec:born}
+Probability in Configuration Realism is literal counting: the probability of an outcome, relative to the observer stage bearing record $r$, is the fraction of configurations compatible with the refinements borne by later stages, $P(r_i \mid r) = |\Omega_{r_i}|/|\Omega_r|$, and measurement update is elimination---counting over the configurations that remain. Writing $N = |\Omega_r|$ for the class being partitioned and $n_i = |\Omega_{r_i}|$ for the population of outcome class $r_i$, every probabilistic statement in this framework is a ratio of populations. This section states what the companion papers prove about those populations.
+
+\subsection{The population theorem}\label{sec:popthm}
+Each outcome class carries, besides its cardinality, one further canonical aggregate. The companion derivation \cite{TillittBorn} shows---it does not assume---that the admissible aggregate is the coherent sum of stage-relative phases: additivity over disjoint unions forces a per-configuration sum; the requirement that independent subsystems' joint summary be determined by their marginal summaries forces, with phase additivity, the summand to be a character of the circle, canonically $e^{iS_r(\omega)}$; and the physicality of phase differences alone forces the population rule to consume only the modulus. The \emph{arrow} $\alpha_i$ of a class is this coherent sum at a \emph{parent-relative} scale---one scale per parent class per stage; the companion proves that a single global scale is inconsistent across nesting levels.
+
+Phase additivity is a lemma of Postulate~\ref{post:omega}'s first clause, not an independent assumption. Three structural assumptions are carried, collected here as the companion states them. \textbf{[AS] Aggregate structure}: class summaries are physical---bounded-capacity (a summary that grows with the class is not a record), additive over disjoint unions, determined by marginals for independent subsystems, and continuous in the phases. \textbf{[LC] Linear composition, with attainability}: preparation devices, as correlation structures, compose linearly and invertibly on arrows; nontrivial (superposition-forming) devices exist---the assumption that interference occurs, whose quantitative law is then derived; and the attainable arrow magnitudes fill an interval (jointly on independent pairs), the attained vectors dense in direction---an idealization every finite ontology realizes to $O(1/N)$, with the theorems holding correspondingly in robust form. On the relational phase postulate, [LC] has an ontological reading: a device's phase increments are uniform at record level, which is what makes it a matrix. \textbf{[PR] Existence and universality of the population rule}: a single strictly monotone $f$ with $n_i/N = f(|\alpha_i|)$, common to all systems and composites. [LC] is where the linear structure of quantum mechanics enters the framework; its origin belongs to the reconstruction program \cite{Hardy2001,CDP2011,MasanesMuller2011} and is the deepest open problem (Section~\ref{sec:frontier}).
+
+Two theorems then fix everything, each by contradiction. Multiplicativity: counting multiplies over independent subsystems---joint classes are Cartesian products, so cardinalities multiply while arrows multiply by phase additivity---and a population rule that is not a pure power $f(x) = x^p$ would assign the one joint class two different cardinalities. Conservation: a device stands between two stages of an observer chain whose records differ by no outcome information, so the two stages share one compatibility class---the same fixed set of $N$ configurations, partitioned upstream one way and downstream another, with only the stage-relative phase assignment differing between them. (On a context-free phase picture this same-set reading was inconsistent, which is the companion's proof that phase must be relational.) Re-partitioning a fixed finite set cannot change its cardinality, so $\sum_i n_i = N$ on both sides, free of charge; substituting the power rule makes every device a linear isometry of the $\ell^p$ norm, and for $p \neq 2$ the only such isometries are generalized permutations \cite{Lamperti1958}, which form no superpositions---contradicting [LC]. Hence
+\[ n_i = N\,|\alpha_i|^2 . \]
+The square in the Born rule is the statement that a device's stages share one fixed, finite class. Two corollaries deserve their own sentences. The normalization $\sum_i |\alpha_i|^2 = 1$ is \emph{forced}, not conventional: it is the counting identity $\sum_i n_i = N$ read through the derived rule, and it fixes the parent-relative scale, whose partition-invariance within each parent the theory then proves. And norm-preservation of devices is a consequence of counting conservation, not an assumption: a finite counting ontology with linear devices either admits no interference at all, or obeys the Born exponent.
+
+Interference is the non-additivity of $|\cdot|^2$ over coherent sub-partitions; decoherence is the disjointness of classes distinguished by a record; conditionalization is counting over survivors; and \emph{where} a record sits in the refinement ordering determines which sums are taken---the placement-dependence exhibited by the two-slit example, which recurs as the engine of the Bell analysis below.
+
+\subsection{What the theorems establish, and what they do not}\label{sec:twotier}
+Two claims must be kept distinct, here as in the companion. The \emph{Born exponent}---populations graded as $N|\alpha_i|^2$---is a theorem consuming no principle about credence, rationality, or typicality. The \emph{frequency reading}---that the outcome frequencies observers record track the population fractions---consumes exactly one further principle, stated in the companion as Assumption \textbf{[T]} (Typicality): among configurations bearing stored outcome counts, the population concentrates overwhelmingly near the Born frequencies (a counting theorem), and the deviant sub-populations are not the ones to reason from (the principle; not a theorem, there or anywhere). [T] is the counting analog of Bohmian quantum equilibrium \cite{Durr1992}, in the weakest form on record: typicality by literal cardinality over equally real fundamental entities. The value of the exponent does not depend on it. Configurations bearing deviant records are a prediction of the framework, not a liability: a rare outcome sequence has small population, not zero, exactly as the rule requires.
+
+\subsection{Stability and the scope of the rule}\label{sec:stability}
+A partition is recordable if correlating a fresh register with it leaves all downstream observer statistics unchanged; its redundancy capacity is the number of independent copies that can be so correlated without degradation; a record is stable if recordable with unbounded redundancy. Stable partitions are exactly those whose classes carry no downstream cross-interference: on them the record-level description closes and the population rule applies; unstable partitions support no persistent records and hence no observer-relative outcome facts. Probability attaches exactly to the partitions that can carry stable records---the preferred basis, the measurement problem, and the scope of the Born rule are one question with one answer. Three quantitative consequences are verified by counting: the zero-disturbance recording basis is selected by the criterion (einselection \cite{Zurek2003}); $k$ partial records at strength $\chi$ leave fringe visibility $(\cos\chi)^k$ (redundancy \cite{Zurek2009}); and visibility and distinguishability from integer counts obey $V^2 + D^2 = 1$ \cite{WoottersZurek1979,Englert1996}.
+
+\subsection{Entanglement, Bell, and the status of outcomes}\label{sec:bell}
+A finite ensemble of definite, equally real configurations looks like a local hidden-variable model, and Bell's theorem \cite{Bell1964,CHSH1969} therefore looks fatal to it. The second companion paper \cite{TillittCHSH} shows why it is not, and demonstrates the escape by literal enumeration. The argument has four layers, summarized here.
+
+\emph{Outcomes are records, relative to chains.} An outcome is a record---a correlation between an analyzer sector and a register---and records are borne by observer chains. On the ledger of the observer-independence no-go theorems \cite{Brukner2018,FrauchigerRenner2018,Bong2020}, the framework keeps locality (no refinement anywhere alters counts outside its refinement cone) and free settings, and denies the absoluteness of observed events; the relational precedent is Rovelli's \cite{Rovelli1996,DiBiagio2021}, and what the counting ontology adds is a denominator---relative facts with cardinalities.
+
+\begin{example*}[EPR at one light-year]
+Alice and Bob share a singlet-type pair and separate by a light-year. Downstream of Alice's measurement, her compatibility class contains only configurations in which Bob's particle-sector is anti-correlated with her registered value: relative to her records, his future same-basis outcome is fixed. Relative to Bob's records nothing has changed---superposition is a property of a class relative to a record, not of a particle---and when their records later become correlated, agreement is guaranteed structurally: no configuration with matching same-basis spins exists. The textbook question ``what happens to Bob's state at the moment Alice measures?'' presupposes a fact about distant simultaneity that relativity denies (Part 0, reading 1) and this timeless ontology never introduces. The framework does not answer the question; it dissolves it.
+\end{example*}
+
+\emph{Exclusion is basis-relative.} Structural exclusion---which configurations exist---fixes the aligned-basis correlations, and only those: at skew analyzer angles the ``forbidden'' same-spin configurations exist with population $\frac{N}{2}\sin^2\frac{a-b}{2}$, in exactly the Born proportion. Exclusion alone is Bertlmann's socks \cite{Bell1981}; the Bell-relevant physics lives at skew angles.
+
+\emph{Configurations are not hidden variables.} A configuration contains outcome records only for the devices its correlation structure contains; no configuration answers two incompatible settings on one wing, so no joint distribution over the four CHSH observables exists, and by Fine's theorem \cite{Fine1982} the Bell inequality has no derivation. Denying counterfactual values is not superdeterminism \cite{tHooft2016}: each choice of settings is its own preparation with its own full complement of configurations, and nothing constrains the choice.
+
+\emph{The violation is carried by phases.} The singlet-type class is one compatibility class spanning two sectors with a stage-relative phase difference of $\pi$; the composed device re-partitions it, each joint-outcome arrow receives contributions from both sectors, and the cross terms deform the populations away from the product form---the two-slit cross term, evaluated at four pairs of angles. Computed by enumeration under the derived rule \cite{TillittCHSH}: counted correlators track $-\cos(a-b)$; at $N = 4.2 \times 10^6$ the CHSH quantity from integer counts is $|S| = 2.8284267$, within $5 \times 10^{-7}$ of $2\sqrt{2}$ \cite{Tsirelson1980}; and with a sector record inserted---the which-path analog, which restores the joint distribution in Fine's sense---the same configurations and devices yield $|S| = 1.4142$, below the local bound. Each wing's marginal counts are computed from that wing's structure alone, so the counting form of no-signaling holds by construction and is tested exactly. The residue $||S| - 2\sqrt{2}|$ scales as $O(1/N)$; its scale is robust, while its sign---the counted value lands on both sides of the Tsirelson bound---is conditional on the model's integer-apportionment rule, a postulate whose selection by the ontology is open (Section~\ref{sec:targets}). A division of labor is worth recording: for the plain Bell scenario the operative escape is the Fine blockage above; the denial of absolute outcomes is priced where it is needed, in the Wigner's-friend extensions \cite{Brukner2018,Bong2020}, whose theorems carry their own additional assumptions.
+
+\subsection{Computational verification}\label{sec:verification}
+Every Part II claim is checked by literal enumeration in an explicit finite model: configurations as tuples with lattice phases (3{,}600 values), probabilities computed by materializing configuration lists and counting elements, the counting rule fixed before any case was computed, preparation parameters entering only through correlation structure. The model's phase bookkeeping is stage-relative---class phases are re-derived at each stage from the device's increments, exactly as Postulate~\ref{post:omega} prescribes, and necessarily so, since a context-free assignment is provably inconsistent with the devices the model applies. Verified to counting precision: unequal and three-outcome splits ($\theta = 15^\circ$: 933{,}013 of $10^6$ configurations against $\cos^2 15^\circ = 0.9330127$); Mach--Zehnder fringes at visibility $1.0000$ with which-path records driving visibility to $0.0000$; conditionalization by elimination; the quantum eraser with conditional fringes of opposite phase; the two-constraint discrimination table (products eliminate non-powers, conservation eliminates $p \neq 2$); the stability suite; the CHSH suite of Section~\ref{sec:bell}; and the $O(1/N)$ rational residue (measured log--log slope $-1.06$; CHSH residue slope $-1.14$). The model also serves as an existence proof in the robust sense: an explicit structure satisfying the postulates exactly and realizing the assumptions to the $O(1/N)$ tolerances the theorems' robust forms require, establishing consistency and non-vacuity of the axiom set.
+
+\section{Classical Limit, Decoherence, and Macroscopic Stability}\label{sec:classical}
+\emph{Status: consequence-level argument, quantitative where it touches the verified stability results, qualitative elsewhere.}
+
+Macroscopic systems possess large numbers of degrees of freedom organized into arrangements capable of sustaining stable records---solid objects, measurement devices, organisms, environmental structures. Their compatibility classes are correspondingly refined: continuous interaction with surrounding subsystems (photon scattering, thermal contact, structural coupling) correlates environmental degrees of freedom with macroscopic structure, and each such correlation is a record refinement. The stability criterion of Section~\ref{sec:stability} governs which macroscopic alternatives can be so recorded: partitions aligned with the zero-disturbance basis are copied redundantly at no cost, while phase relations across differently-recorded subsets become inaccessible to every observer whose records include the environmental correlations. Interference between macroscopic alternatives is thereby not destroyed but unlicensed---the counting form of decoherence, with the $(\cos\chi)^k$ redundancy law quantifying the approach.
+
+Macroscopic persistence and effective determinism follow from the same structure. Because macroscopic records involve many degrees of freedom, large closure distance separates them from records of distinct macroscopic structure: small perturbations do not cross the barrier, which is why classical objects persist. And because extensive correlation structure leaves very few closure-consistent refinements, macroscopic refinement chains are nearly unique: effectively deterministic trajectories, ordered along closure-distance-minimizing chains---the geodesics of Section~\ref{sec:geometry}---which is where the variational structure of classical mechanics originates (Section~\ref{sec:dynamics}). Objectivity, the inter-observer face of the same facts, is developed in Section~\ref{sec:objectivity}.
+
+\partheader{PART III --- CONSEQUENCES}
+\emph{Status of this Part: direct consequences of the ontology and the Part II results. Section~\ref{sec:entropy} is close to theorem-grade; Sections~\ref{sec:complexity}--\ref{sec:self} are structural arguments, priced as such in the ledger.}
+
+\section{Entropy, Irreversibility, and the Arrow of Time}\label{sec:entropy}
+Records are finite and lossy; this section derives from that fact a convention-free definition of entropy, a separation of two entropies with opposite signs along refinement, and an arrow of time grounded in the increasing one.
+
+\subsection{Record entropy}
+Because configuration space is finite, the size of a compatibility class is a cardinality, and the entropy of a record is defined without any choice of measure:
+\[ S(r) = \log |\Omega_r| . \]
+Record entropy is the logarithm of the observer's indifference: the number of configurations among which the record fails to distinguish. The logarithm is not stipulated---it is forced by count multiplicativity (Section~\ref{sec:popthm}): independent subsystems' class cardinalities multiply, so any additive entropy must be logarithmic in cardinality. The same Cartesian-product theorem thus feeds the Born chain and thermodynamics.
+
+\subsection{Refinement decreases record entropy}
+Refinement shrinks compatibility classes, so record entropy strictly decreases along refinement chains: refinement is learning, and the indifference set contracts. (Verified at the counting level: a refinement eliminating one quarter of a class lowers record entropy by exactly $\log(4/3)$.) Any account of the thermodynamic arrow must therefore locate the increasing quantity elsewhere.
+
+\subsection{Historical entropy and the arrow}
+The increasing quantity is supplied by the other half of the record postulate: lossiness. Records of earlier stages are themselves records---finite, compressed, degraded along the chain. Define the historical entropy of a stage as the log-cardinality of the set of past record-state sequences compatible with the stage's encoded representation of its predecessors. Because compression discards detail no later record can recover, historical entropy is non-decreasing along refinement chains: indifference about fine-grained past detail grows even as indifference about the recorded present shrinks. Irreversibility is structural, not dynamical---many prior record states are compatible with one refined record, so refinement cannot generally be inverted---a consequence of finite capacity alone. The arrow of time is the direction of refinement ordering, and its thermodynamic character derives from historical entropy: observers build clocks and histories from record sequences, and the direction in which histories lose micro-detail is the direction they call the future. One mechanism---lossy encoding---with two entropies of opposite sign, and the arrow carried by the increasing one.
+
+\begin{openproblem}{Quantized entropy increments}
+What exactly one closure quantum bounds---configurations eliminated, or log-count---awaits derivation; upon completion this section states the arrow of time as literally countable. See Section~\ref{sec:frontier}.
+\end{openproblem}
+
+\subsection{Maximum entropy and thermodynamics}
+Finiteness implies a maximum: $S \le \log|\Omega|$ for every record, the entropy of total indifference. This is a contact point, not an embarrassment: the physical motivations for finiteness---the Bekenstein bound \cite{Bekenstein1981} and the finite entropy of de Sitter space---are themselves maximum-entropy statements, and the framework returns one natively. Thermodynamic entropy is the multiplicity of configurations compatible with macroscopic records---Boltzmann's counting, obtained from record structure rather than statistical postulates, with $W$ a literal cardinality.
+
+\section{Emergence of Structural Complexity}\label{sec:complexity}
+Observers encounter increasingly complex structure along refinement chains, and in this framework that is a consequence of what record encoding requires, not an independent posit. Correlation capacity scales with the number and organization of a subsystem's degrees of freedom: few degrees of freedom encode few correlations. Sustained refinement therefore requires increasingly structured arrangements, and \emph{stable} refinement---in the formal sense of Section~\ref{sec:stability}: recordable with redundancy---requires arrangements that resist disruption by local interaction: bound atomic and molecular systems, crystals, biological structures, measurement devices. Structured subsystems in turn compose into larger record-bearing structures, producing hierarchy---atoms to molecules to macroscopic bodies to observers to measurement networks---with correlation capacity compounding at each scale. Refinement paths through such structures are precisely the closure-distance-efficient ones: unstructured arrangements cannot encode many correlations per quantum of restructuring, so the geodesics of record space run through structured configurations. Observers, as high-capacity record structures, sit at the top of this hierarchy by definition rather than by accident; and the structured world observers encounter is the structural face of their own compatibility classes, which highly refined records restrict to highly organized configurations.
+
+\section{Emergence of Objectivity and Inter-Observer Agreement}\label{sec:objectivity}
+Records and compatibility classes are defined relative to subsystems, which raises the question of how a shared, objective world emerges. The framework's answer has a qualitative half and a quantitative half, and the quantitative half is the load-bearing one.
+
+Qualitatively: observers capable of sustaining complex records share structural features---many degrees of freedom, stable organization, hierarchical correlation structure---and therefore partition configuration space at comparable resolution. Observers embedded in a common environment encode correlations with the same external subsystems, so their compatibility classes overlap on the configurations consistent with the shared structure; and when observers exchange information---mutual record refinement---configurations on which they disagree are eliminated from the jointly refined classes. Agreement is manufactured by correlation, not presupposed. These convergence claims are structural arguments, and the ledger prices them as such.
+
+Quantitatively: the stability analysis of Part II gives agreement teeth. A stable record can be correlated with arbitrarily many independent registers with zero degradation of any observer's statistics: objectivity \emph{is} unbounded redundancy. A record that cross-cuts coherent structure degrades geometrically---$k$ partial copies at strength $\chi$ leave visibility $(\cos\chi)^k$, verified by counting at every tested point. Many observers agree about the world because the facts they record are exactly those that can be redundantly copied without disturbance; this is the counting form of quantum Darwinism \cite{Zurek2009}, and it grounds the overlap structure asserted qualitatively above. No fundamental observer-independent state selection is required: objectivity is redundancy, and redundancy is counted.
+
+\section{Self-Referential Records and Observer Self-Location}\label{sec:self}
+Observers are subsystems within configuration space, and their internal degrees of freedom are part of the same structure whose correlations they encode; closure laws act uniformly on all degrees of freedom. Nothing in the definition of records restricts correlations to external subsystems, so observers may encode records of their own internal record states. Self-reference is structurally permitted, and with it recursion: a record of a record of a record, each level costing closure distance, with finite capacity bounding recursion depth. Ordered sequences of self-referential record states are observer histories, and clock records---subsystems tracking refinement structure---label them; temporal ordering, at the level of experience, is the structural ordering among recursive self-referential record states.
+
+Self-referential records also ground a structural notion of self-location. A compatibility class constrained by records of the observer's own internal state identifies the observer as a specific structural position within configuration space: the observer is identified by its class, with no need for unique configuration membership. Measurement outcomes are definite \emph{relative to} such classes---each chain's records encode one outcome, though configuration space contains configurations bearing every outcome---which is the observer-relative definiteness that Part II's Bell analysis prices explicitly, obtained without collapse or branching worlds.
+
+On experience, the framework's claims are deliberately modest. Structural self-location is the framework's candidate \emph{correlate} of perspective: it says where, structurally, a perspective is located and what its records can contain. Whether structural self-location amounts to subjective experience is the hard problem of consciousness, and this framework neither needs nor offers a solution to it; the physics of Parts I--II is complete without one. What can be said is modest: perspectives, insofar as they are physical, are self-referential record structures, and their finitude, their recursion bounds, and their relative outcome facts are all counted quantities.
+\partheader{PART IV --- CONJECTURES AND RESEARCH PROGRAM}
+\emph{Status of this Part: framework-supported conjectures and scheduled derivations---claims with structural plausibility and, where noted, a derivation path, but without the theorem status of Part II. Stating the difference is deliberate. Each conjecture below is a candidate for the Part 0 method: a structure which, taken seriously, would dictate further features of the ontology.}
+
+\section{Causal Structure and Emergent Spacetime Geometry}\label{sec:causal}
+\emph{Status: conjectural. The causal and geometric structures below are effective descriptions in the sense of Section~\ref{sec:geometry}, conditional on the open continuum-limit construction.}
+
+\subsection{Locality, bounds, and causal cones}
+Records are localized physical arrangements, so encoding correlations between separated subsystems requires restructuring intervening degrees of freedom: record refinement is an ordered sequence of local rearrangements, a constraint that is structural, not temporal. Because restructuring proceeds over finite local degrees of freedom, the closure distance required to correlate subsystems grows with their structural separation, which motivates a lower bound: there exists a constant $c$ such that subsystems at structural distance $\Delta x$ require closure distance
+\[ \Delta C \;\ge\; \frac{\Delta x}{c} \]
+to become correlated. The bound defines causal structure in closure terms: for a given record and closure-distance increment $\Delta C$, only subsystems within $\Delta x \le c\,\Delta C$ can become correlated through refinement---a causal cone in record space---and refinements separated by insufficient closure distance cannot encode mutual correlations. If refinement $r_2$ requires correlations encoded in $r_1$, then $d_c(r_0 \to r_1) < d_c(r_0 \to r_2)$: causal ordering as closure ordering.
+
+\subsection{Clocks, invariant speed, and Lorentzian structure}
+Observers construct clocks from subsystems whose internal records undergo distinguishable refinement sequences; clock readings are internal record states, and temporal duration is closure distance accumulated along the clock's chain. Time is a constructed label; closure distance is the invariant. Relative to observer clocks, the closure bound appears as a limit on correlation propagation, $\Delta x \le c\,\Delta\tau$, with $c$ an invariant causal speed: invariant because closure-distance constraints are observer-independent even though clocks are not.
+
+\begin{conjecture}[Invariant speed as maximal refinement rate]\label{conj:speed}
+The constant $c$ is derivable as a statement about the maximal refinement rate---closure quanta per clock tick---rather than postulated.
+\end{conjecture}
+
+In emergent coordinates $(\tau, x^i)$, the conjectured invariant interval takes the Lorentzian form
+\[ ds^2 = c^2\, d\tau^2 - g_{ij}\, dx^i dx^j , \]
+with timelike separations the causally connectible refinements, spacelike separations those requiring closure distance in excess of the bound, and null separations the causal limit. The signature is put in by the competition between temporal and spatial refinement for closure resources; it is not yet derived, and the ledger says so. Geodesics of this interval extremize $\int ds$ and coincide, by Section~\ref{sec:geometry}, with closure-distance-minimizing refinement chains: the structural origin of inertial motion.
+
+\subsection{Relation to causal set theory}
+The nearest existing program must be named. Causal set theory \cite{BLMS1987} also derives Lorentzian geometry from a discrete partial order, and possesses the theorems this Part still lacks: causal order plus volume information determines the metric \cite{Malament1977,HKM1976}. The structural difference is the interpretation of the order. A causal set's order is primitive causal precedence among events; CR's refinement order is implication structure among \emph{records}, with events, causality, and volume all downstream of what finite subsystems can encode about one another---and with an independent quantity, closure distance, supplying the metric data that causal sets obtain from element counting. Whether the closure lattice of a CR world defines a causal set in the technical sense, and whether the Malament-type reconstruction theorems then transfer, is a sharp open question and the natural bridge between the programs.
+
+\section{Toward Dynamics and Gravitation: Analytical Sketches}\label{sec:dynamics}
+\emph{Status: conjectural throughout. These are dictionary entries---demonstrations that if closure distance has the stated form, familiar dynamics is recovered---not derivations of that form. The functional forms are inputs; deriving them from closure structure is the program.}
+
+The variable called ``time'' below is the observer-constructed clock label of Section~\ref{sec:causal}. Its role is that of a unit of account: in a barter economy, exchanges are real and pairwise, and the dollar does not cause them---it labels and organizes them, so relationships can be written as equations rather than networks. Likewise refinement relations among records are the reality; clock labels are the shared coordinate that lets those relations be written as differential equations. Nothing below evolves \emph{in} time; everything below is structure \emph{parameterized by} clock labels.
+
+\subsection{Newtonian dynamics from closure-distance minimization}
+Let an observer encode records $R = (x, \tau)$ of a subsystem's position together with a clock label. Posit (dictionary entry) the closure-distance functional
+\[ C[x(\tau)] \;=\; \int \left[ \frac{m}{2}\left(\frac{dx}{d\tau}\right)^{\!2} - V(x) \right] d\tau . \]
+Closure-consistent refinement chains minimize accumulated closure distance, $\delta C = 0$, giving
+\[ m\,\frac{d^2 x}{d\tau^2} \;=\; -\,\frac{dV}{dx} , \]
+Newton's second law, with inertial motion $x(\tau) = v\tau + x_0$ in the free case. On this dictionary, mass is resistance to record restructuring and force is the gradient of closure-distance density. What is conjectured is the functional form of $C$; what is demonstrated is that the variational structure of mechanics is the geodesic structure of Section~\ref{sec:geometry} in clock coordinates.
+
+\subsection{Relativity from closure-interval geometry}
+Posit the closure interval
+\[ \Delta C^2 \;=\; c^2 (\Delta\tau)^2 - (\Delta x)^2 , \]
+expressing the competition of spatial and clock refinement for closure resources. Closure-null refinements, $\Delta C^2 = 0$, propagate at $|dx/d\tau| = c$; the transformations preserving the interval are the Lorentz transformations
+\[ x' = \gamma\,(x - v\tau), \qquad \tau' = \gamma\left(\tau - \frac{v}{c^2}\,x\right), \]
+and Lorentz symmetry is the symmetry of closure geometry expressed in clock coordinates. As in Section~\ref{sec:causal}, the signature is posited, not derived.
+
+\subsection{Quantum dynamics as a continuum limit}
+Define the amplitude of a record family $R(x,\tau)$ as the coherent sum of Part II, and posit that local refinement structure composes amplitudes by a kernel,
+\[ \psi(x, \tau) = \frac{1}{A} \sum_{\omega \in \Omega_{R(x,\tau)}} e^{iS(\omega)}, \qquad
+\psi(x, \tau + \Delta\tau) = \int K(x, x')\, \psi(x', \tau)\, dx' .\]
+In the continuum limit the conjectured result is the Schr\"odinger equation,
+\[ i\hbar\, \frac{\partial \psi}{\partial \tau} \;=\; -\,\frac{\hbar^2}{2m}\, \frac{\partial^2 \psi}{\partial x^2} + V(x)\,\psi , \]
+mirroring the treatment of the metric: a discrete-refinement structure whose coarse-grained description is the familiar continuum law. This is the only place $\hbar$ appears in the framework: it enters as the continuum-limit conversion between closure phase and action, and it belongs to the same open construction as $g_{ab}$.
+
+\subsection{Black holes as closure saturation}
+Observers possess finite record capacity, so a sharp structural question arises: can a subsystem's internal correlations exceed what any external observer can encode? The framework predicts yes. Where the closure distance required to encode further internal correlations exceeds external record capacity, externally accessible compatibility classes admit no further refinement with respect to interior structure. This saturation is the framework's structural rendering of a black hole; the boundary between externally refinable and non-refinable structure is its rendering of the horizon. External observers encode correlations through boundary degrees of freedom only, so externally accessible entropy is capped by boundary-encodable correlations, motivating the area scaling
+\[ S \propto A \]
+as a count of boundary-encodable closure quanta---structurally parallel to Bekenstein--Hawking \cite{Bekenstein1973,Hawking1975}, and the neighborhood of the thermodynamic derivations of gravity \cite{Jacobson1995,Verlinde2011,VanRaamsdonk2010}, to which the closure program owes an explicit comparison. An observer crossing the horizon retains full local refinement capacity: the horizon is an observer-relative boundary in record accessibility, not an absolute structural discontinuity.
+
+\begin{conjecture}[Horizon equivalence]\label{conj:horizon}
+In the geometric limit, closure-saturation boundaries coincide with the event horizons of the emergent metric: the boundary beyond which external observers cannot refine compatibility classes is the boundary beyond which causal influence cannot reach them.
+\end{conjecture}
+
+This coincidence is a \emph{requirement} the program must meet, stated as a conjecture with a plausibility argument---causal accessibility in the emergent geometry just is the ability to encode correlations by refinement---not a result. The conjectured resolutions of Section~\ref{sec:targets} (information, singularities) are conditional on it.
+
+\subsection{Singularities as breakdown of the emergent description}
+If geometry is the coarse-grained description of closure structure, it is valid only where refinement can be smoothly parameterized by observer clock labels. Where closure saturation prevents further external refinement, the geometric parameterization loses its referent---and the singularities of general relativity are then read as artifacts of extending an effective description beyond its domain, not as divergences in configuration structure, which remains finite and well-defined throughout. Interior observers, whose records remain correlated with interior degrees of freedom, retain locally valid descriptions. This reading is conditional on Conjecture~\ref{conj:horizon} and on the continuum-limit construction, and is priced accordingly.
+
+\section{Consistency Targets and Potential Observational Consequences}\label{sec:targets}
+Configuration Realism is \emph{constructed to be consistent with} the empirical content of quantum mechanics and relativistic physics, and this section states what that requires, distinguishing throughout between what is established and what the program must yet deliver.
+
+\emph{Quantum phenomena: established at the level derived.} Within the finite-dimensional interferometric regime, the counting rule reproduces Born statistics, interference, decoherence, conditionalization, entanglement correlations, and CHSH violation, as theorems plus enumeration (Part II). Recovering continuous-variable quantum mechanics and Hilbert-space dynamics is the Schr\"odinger-limit conjecture of Section~\ref{sec:dynamics}, not an established result.
+
+\emph{Relativistic and gravitational phenomena: targets.} Time dilation, length contraction, invariant signal speed, gravitational redshift, lensing, orbital dynamics, and horizon phenomenology are consistency targets for the closure-geometric program: the conjectured structures of Sections~\ref{sec:causal}--\ref{sec:dynamics} are shaped to yield them, and would yield them if the continuum-limit construction, the signature, and Conjecture~\ref{conj:horizon} are established. None is currently derived, and this paper claims none of them as results.
+
+\emph{Conjectured resolutions.} On the black-hole information problem, the framework's position---conditional on Conjecture~\ref{conj:horizon}---is that information is never destroyed: all configurations remain in configuration space, and horizon ``loss'' is closure inaccessibility relative to exterior observers. On singularities, likewise conditionally: no divergence exists in configuration structure; the divergence is in an effective description pushed past its domain. These are conjectured dissolutions, offered as evidence of the program's coherence, not as established resolutions.
+
+\emph{The classical limit and cosmology.} Effectively classical macroscopic behavior follows from the stability results at the argument level (Section~\ref{sec:classical}); cosmological consistency---expansion, background structure---is at present an unexamined target, listed for completeness and honesty.
+
+\emph{Distinctive predictions.} Three commitments distinguish the framework from continuum quantum mechanics, all consequences of Part II and stated in indicative mood. (1) \emph{Rational probabilities}: every probability is $m/N$, so Born statistics hold to accuracy $O(1/N)$---empirically invisible for astronomical $N$, falsifiable in principle. (2) \emph{Maximum entropy}: no record's entropy exceeds $\log|\Omega|$, aligning natively with the Bekenstein and de Sitter bounds that motivate finiteness. (3) \emph{Tsirelson deviations of order $1/N$}: the counted CHSH quantity differs from $2\sqrt{2}$ by $O(1/N)$---the scale is robust, following from rationality of counted correlators alone, while the sign (the counted value can land \emph{above} the bound, as it does in the model) is conditional on the integer-apportionment rule, a model postulate whose selection by the ontology is open. Even so, a possible excess over Tsirelson by an amount set by the world's denominator is a statement no continuum formulation makes, and in principle an experimental lower bound on $N$ \cite{TillittCHSH}.
+
+\section{The Frontier}\label{sec:frontier}
+The open problems, in descending order of centrality. \emph{First, the arrow problem}: deriving [LC]---the existence of arrows and linear composition---from deeper CR primitives; the relational phase postulate supplies [LC]'s meaning (record-level uniformity of phase increments) but not its derivation, and the stability results show what selects among arrow structures, not why arrows exist. \emph{Second, the continuum limit}: the formal construction of $g_{ab}$ (and the Schr\"odinger kernel, and the Lorentzian signature) from the discrete closure lattice, on which all of Part IV depends---including the causal-set bridge question of Section~\ref{sec:causal}. \emph{Third}, the base-level phase texture: what determines the stage-relative increments $\Delta S$ that [LC] organizes, and that generic admissible textures exist; with this belongs the origin of [AS] and of the integer-apportionment rule the model postulates. \emph{Fourth}, the $\delta_c$--entropy statement gating the countable form of the arrow of time (Section~\ref{sec:entropy}). Phase additivity requires no entry here, being a lemma of Postulate~\ref{post:omega}; the Bell question is answered by the second companion \cite{TillittCHSH}. Each remaining item is research, not patchwork; none undermines the Part II results, which are conditional on assumptions stated where they are used.
+
+\section{Relation to Existing Frameworks}\label{sec:related}
+\emph{Interpretations of quantum mechanics.} Against Copenhagen: measurement is record refinement---elimination in a fixed configuration space---reproducing the operational structure of collapse without physical discontinuity. Against Everett \cite{Wallace2012}: CR shares the rejection of collapse and of fundamental probability postulates, but posits no branching; all configurations coexist timelessly in one space, and apparent branching is the partitioning of compatibility classes. The probability comparison is structural: branch counting fails because branch number is coarse-graining-relative \cite{Graham1973,Wallace2012}, which is why the surviving Everettian derivations are epistemic---decision theory \cite{Deutsch1999,Wallace2007}, envariance \cite{Zurek2005}, self-locating uncertainty \cite{SebensCarroll2018}; CR restores the denominator at the level of ontology, with the credence-facing residue confined to [T]. Against Bohmian mechanics \cite{Durr1992}: quantum equilibrium hosts the $|\psi|^2$ measure by postulate over a continuum; Proposition~\ref{prop:necessity} explains why a continuum can host but not force it, and [T] is the counting analog of the equilibrium hypothesis in the weakest form on record. Against relational quantum mechanics \cite{Rovelli1996,DiBiagio2021}: CR shares outcome-relativity (Section~\ref{sec:bell}) while maintaining an observer-independent configuration structure that observers select from rather than create---relative facts with cardinalities. Against QBism \cite{Fuchs2014}: compatibility classes are physical correlation structures, not credence states; probability is counting, not betting. The path-integral formulation is structurally echoed in phase-weighted sums over classes, with closure distance playing the action's role in the classical limit; decoherence theory \cite{Zurek2003,Zurek2009} is recovered in counting form by the stability results.
+
+\emph{Uniqueness and reconstruction.} Gleason-type theorems \cite{Gleason1957,Busch2003} force the quadratic measure given Hilbert-space structure; Masanes--Galley--M\"uller \cite{MGM2019} show the measurement postulates operationally redundant given the rest of quantum theory; the conservation argument of Part II is a cousin of the observation that only the 2-norm supports continuous norm-preserving families \cite{Aaronson2004,Lamperti1958}, with the difference that CR conserves a number of things rather than a normalization convention. The reconstruction program \cite{Hardy2001,CDP2011,MasanesMuller2011} is where [LC]'s origin belongs. The closest structural relative is Many Interacting Worlds \cite{HDW2014}: a finite ensemble whose density is driven to $|\psi|^2$ dynamically, where CR's stability criterion selects statically; the origin of linear structure is open in both.
+
+\emph{Spacetime and gravity.} The timeless setting is the tradition of Wheeler--DeWitt \cite{DeWitt1967}, Page--Wootters \cite{PageWootters1983}, and Barbour \cite{Barbour1999}---whose time capsules, records that represent history, are the closest precedent for CR's record-grounded time, with change as ordered difference in the lineage of the at--at account of motion \cite{Russell1903}. Page--Wootters recovers dynamics by conditioning on a clock subsystem; CR recovers it from the refinement ordering itself, with clocks as downstream coordinate devices. Causal set theory \cite{BLMS1987,Malament1977,HKM1976} is the nearest discrete-geometry program (Section~\ref{sec:causal}); the thermodynamic route to the Einstein equation \cite{Jacobson1995,Verlinde2011,VanRaamsdonk2010} is the nearest neighbor of the closure-saturation material; and finiteness draws on \cite{Bekenstein1981,Banks2001,CarrollSingh2018}.
+
+\section{Status of Every Claim}\label{sec:ledger}
+Statuses: \textbf{P} postulate $\cdot$ \textbf{Def} definition $\cdot$ \textbf{D} derived (theorem, conditional on named assumptions) $\cdot$ \textbf{V} verified by enumeration $\cdot$ \textbf{A} argument (explicit but informal) $\cdot$ \textbf{C+} conjecture with stated derivation path $\cdot$ \textbf{C} conjecture $\cdot$ \textbf{O} open.
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Claim & Status & Where\\
+\midrule
+Timeless finite $\Omega$; two-level relational phase & P & Post.~\ref{post:omega}\\
+No context-free phase assignment possible & D \cite{TillittBorn} & Post.~\ref{post:omega} rem.\\
+Phase additivity & D (lemma of Post.~\ref{post:omega}) & \S\ref{sec:popthm}\\
+{[AS]} aggregate structure & Assumption (four named clauses) & \S\ref{sec:popthm}\\
+Records as sole information; lossiness & P (lossiness: A from finiteness) & Post.~\ref{post:records}\\
+Compatibility classes; partition/overlap structure & Def & Post.~\ref{post:classes}\\
+Closure laws; refinement order & P & Post.~\ref{post:closure}\\
+Closure distance, quasi-metric properties & P & Post.~\ref{post:closure}\\
+Closure quantum $\delta_c$ (discreteness) & P & Post.~\ref{post:quantum}\\
+$\delta_c$ Planck-scale & C & Post.~\ref{post:quantum} rem.\\
+Observer stages, chains, measurement & Def (vocabulary) & Post.~\ref{post:observers}\\
+Existence of observer chains & P & Post.~\ref{post:observers}, Rem.~\ref{rem:obscost}\\
+Time as refinement-order label & Def $+$ interpretation & Post.~\ref{post:observers}, \S\ref{sec:ontology}\\
+Closure as Galois connection & Def & Rem.~\ref{rem:galois}, App.~A\\
+Necessity of canonical measure; finiteness & A (with Haar caveat) & Prop.~\ref{prop:necessity}\\
+Coherent sum $e^{iS_r}$ as class aggregate & D under [AS] \cite{TillittBorn} & \S\ref{sec:popthm}\\
+Parent-relative scale (global scale inconsistent) & D \cite{TillittBorn} & \S\ref{sec:popthm}\\
+Same-set conservation across devices & D (relational phase) & \S\ref{sec:popthm}\\
+Born exponent: $n_i = N|\alpha_i|^2$ & D under [AS],[LC],[PR] $+$ V & \S\ref{sec:popthm}\\
+Normalization forced (per parent) & D & \S\ref{sec:popthm}\\
+Frequencies track $|\alpha_i|^2$ & A $+$ [T] ($k \lesssim \log N$) & \S\ref{sec:twotier}\\
+Interference, decoherence, conditionalization & D $+$ V & \S\ref{sec:popthm}\\
+Stability criterion; preferred basis; scope & D (sketch) $+$ V & \S\ref{sec:stability}\\
+Einselection; $(\cos\chi)^k$; $V^2{+}D^2{=}1$ & V & \S\ref{sec:stability}\\
+Outcomes relative; absoluteness denied & Def consequence $+$ commitment & \S\ref{sec:bell}\\
+Locality: no-signaling by counting & By construction $+$ tested & \S\ref{sec:bell}\\
+Free settings (independence schema inapplicable) & A & \S\ref{sec:bell}\\
+Exclusion basis-relative & D $+$ V \cite{TillittCHSH} & \S\ref{sec:bell}\\
+No counterfactual values; Fine blockage & A (via \cite{Fine1982}) & \S\ref{sec:bell}\\
+CHSH $|S| = 2\sqrt2$ to $O(1/N)$ by counting & Computed by enumeration \cite{TillittCHSH} & \S\ref{sec:bell}\\
+Sector record restores $|S| \le 2$ & Computed by enumeration \cite{TillittCHSH} & \S\ref{sec:bell}\\
+Model: postulates exactly; assumptions to $O(1/N)$ & V (robust sense) & \S\ref{sec:verification}\\
+Classical limit via record proliferation & A & \S\ref{sec:classical}\\
+Record entropy $\log|\Omega_r|$ decreasing & D & \S\ref{sec:entropy}\\
+Historical entropy non-decreasing; arrow & A (near-D; formalization open) & \S\ref{sec:entropy}\\
+Entropy quantized in $\delta_c$ & C+ & \S\ref{sec:entropy}\\
+Max entropy $\log|\Omega|$ & D & \S\ref{sec:entropy}\\
+Complexity growth along refinement & A/C & \S\ref{sec:complexity}\\
+Objectivity: redundancy mechanism & V & \S\ref{sec:objectivity}\\
+Objectivity: observer convergence & A/C & \S\ref{sec:objectivity}\\
+Self-reference; recursion bounds; self-location & A & \S\ref{sec:self}\\
+Causal cones; invariant speed & C+ (Conj.~\ref{conj:speed}) & \S\ref{sec:causal}\\
+Lorentzian signature; Lorentz symmetry & C (form posited) & \S\ref{sec:causal}--\ref{sec:dynamics}\\
+Continuum limit ($g_{ab}$, kernel, $\hbar$) & O & \S\ref{sec:geometry}, \ref{sec:dynamics}, \ref{sec:frontier}\\
+Newtonian / relativistic dictionary entries & C & \S\ref{sec:dynamics}\\
+Schr\"odinger equation as continuum limit & C+ & \S\ref{sec:dynamics}\\
+Horizons as closure saturation; $S \propto A$ & C+ & \S\ref{sec:dynamics}\\
+Horizon equivalence & C (Conj.~\ref{conj:horizon}) & \S\ref{sec:dynamics}\\
+Information / singularity dissolutions & C (conditional on Conj.~\ref{conj:horizon}) & \S\ref{sec:targets}\\
+$O(1/N)$ Born deviation; $\log|\Omega|$ cap & Prediction & \S\ref{sec:targets}\\
+Tsirelson deviation: $O(1/N)$ scale & Prediction (robust) & \S\ref{sec:targets}\\
+Tsirelson deviation: sign (two-sidedness) & Conditional on apportionment rule & \S\ref{sec:targets}\\
+Apportionment rule & Model postulate; selection open & \S\ref{sec:frontier}\\
+Origin of [LC], [AS]; phase texture ($\Delta S$) & O & \S\ref{sec:frontier}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Conclusion}\label{sec:conclusion}
+Configuration Realism begins from a single refusal---nothing evolves---and builds outward: a finite, timeless configuration space with phase structure; records as the sole form of information; compatibility classes as the shape of indifference; closure laws ordering difference into the appearance of change. The refusal might have remained a bare stipulation. It is load-bearing: because configurations exist timelessly and are neither created nor destroyed, their number is conserved under every re-partitioning, and that conservation---together with the multiplicativity of counting---forces the Born exponent; the same ontology, asked the Bell question, answers it by pricing the absoluteness of outcomes and paying with counted relative facts. The framework's most speculative commitment turned out to be the premise of its first theorem.
+
+The organization by epistemic status states the position honestly: an ontology (Part I); a derived core---quantum probability as counting, its scope fixed by which records can exist, its Bell extension enumerated (Part II); consequences for entropy, complexity, and objectivity (Part III); and a program---spacetime, dynamics, gravitation---whose claims are conjectures with stated derivation paths (Part IV), the whole priced line by line in Section~\ref{sec:ledger}. What the framework offers is a reversal of explanatory direction: time, probability, objectivity, and entropy are not inputs but what finitude looks like from inside---the view available to a lossy record of a world that contains it. Physical law, on this account, is closure structure: not rules by which the universe changes, but the implication order of what, timelessly, exists.
+
+Part 0 opened with three laws taken at their word; the paper closes having returned one of them as a theorem. The block universe and the Wheeler--DeWitt constraint were accepted as pointing to a static ontology; the Born exponent, accepted as ontic, pointed to one with finite compatibility classes, of which a globally finite configuration space is the parsimonious form; and within that static, finite ontology the Born exponent re-emerged as a counting theorem, with the Bell correlations counted after it. The method and the framework are thereby the same thing seen twice: Configuration Realism is what taking the laws seriously builds, and the derivation of the Born exponent is that seriousness, repaid.
+
+\appendix
+\section{Formal Structure in Counting Form}\label{app:formal}
+The framework's primitives, stated once, in counting form throughout: no measure is posited beyond cardinality, and no integral appears.
+
+\paragraph{A.1 Configuration space.} A finite set $\Omega$; elements $\omega$ are configurations, complete arrangements of all degrees of freedom. A phase map $S : \Omega \to [0, 2\pi)$, with only differences physical. No temporal ordering, no evolution, no privileged configuration. All set functions used below are counting: the size of $E \subseteq \Omega$ is $|E|$.
+
+\paragraph{A.2 Subsystems.} A subsystem $O$ is a subset of the degrees of freedom, inducing a projection $\pi_O : \Omega \to \Sigma_O$, where $\Sigma_O$ is the set of arrangements of $O$'s degrees of freedom; $\pi_O(\omega)$ is $\omega$'s restriction to $O$. Subsystems may overlap or be nested.
+
+\paragraph{A.3 Records and compatibility classes.} A record state of $O$ is an element $R \in \Sigma_O$ physically distinguishable within $O$. Its compatibility class is the preimage $\Omega_R = \{\omega : \pi_O(\omega) = R\}$. For fixed $O$ the classes $\{\Omega_R\}_{R \in \Sigma_O}$ partition $\Omega$; classes of different subsystems or different records generally overlap. Records are finite and lossy (Postulate~\ref{post:records}): $|\Sigma_O| \ll |\Omega|$, so classes generically contain many configurations, and no subsystem's records distinguish all of $\Omega$.
+
+\paragraph{A.4 Observers, refinement, measurement.} $O$ is an observer iff $\Sigma_O$ contains at least two record states with distinct classes. A refinement is a pair $R \preceq R'$ with $\Omega_{R'} \subseteq \Omega_R$; measurement is refinement borne along an observer chain (Postulate~\ref{post:observers}); no configuration is eliminated from $\Omega$---elimination is always relative to a class.
+
+\paragraph{A.5 Closure as a Galois connection.} Let $\mathcal{R}$ be the set of record contents ordered by inclusion of encoded correlations, and $\mathcal{P}(\Omega)$ the configuration sets ordered by inclusion. The compatibility map $\Gamma : \mathcal{R} \to \mathcal{P}(\Omega)$, $r \mapsto \Omega_r$, is antitone: more content, fewer compatible configurations. The content map $\Delta : \mathcal{P}(\Omega) \to \mathcal{R}$ assigns to each configuration set the correlations shared by all its members; it is antitone likewise, and the pair $(\Gamma, \Delta)$ is a Galois connection: $r \preceq \Delta(E) \iff E \subseteq \Gamma(r)$. Total closure is the induced closure operator on content, $\mathrm{cl} = \Delta \circ \Gamma$: extensive ($r \preceq \mathrm{cl}(r)$), idempotent, monotone---extensivity on \emph{content}, with the corresponding map on classes contractive, resolving the direction of Remark~\ref{rem:galois}. Accessible closure $\mathrm{cl}_O$ is $\mathrm{cl}$ truncated to $O$'s capacity: $\Omega_{\mathrm{cl}(r)} \subseteq \Omega_{\mathrm{cl}_O(r)} \subseteq \Omega_r$.
+
+\paragraph{A.6 Closure distance.} A map $d_c$ on ordered record pairs with $d_c(r \to r) = 0$ and the directed triangle inequality; discreteness $d_c = N_{\mathrm{steps}}\,\delta_c$ per Postulate~\ref{post:quantum}. Properties are postulated (Postulate~\ref{post:closure}); the continuum form $g_{ab}$ is the open construction of Section~\ref{sec:geometry}.
+
+\paragraph{A.7 Arrows and populations (Part II interface).} For a class $\Omega_r$ partitioned at a stage into outcome classes $\{\Omega_{r_i}\}$: populations $n_i = |\Omega_{r_i}|$; arrows $\alpha_i = \frac{1}{A_r} \sum_{\omega \in \Omega_{r_i}} e^{iS_r(\omega)}$, with $S_r$ the stage-relative phase of Postulate~\ref{post:omega} and $A_r > 0$ a parent-relative scale, one per parent class per stage (a single global scale is inconsistent across nesting levels \cite{TillittBorn}); probability $P(r_i \mid r) = n_i / |\Omega_r|$ by definition. The companion theorems \cite{TillittBorn} yield, under [AS], [LC], [PR] (phase additivity being a lemma of Postulate~\ref{post:omega}): $f(x) = x^p$ (multiplicativity of counting), $p = 2$ (conservation of cardinality across the stages a device connects), $\sum_i |\alpha_i|^2 = 1$ (forced normalization, fixing $A_r$ per parent), and devices as 2-norm isometries; the stability criterion fixes the rule's domain; the CHSH extension \cite{TillittCHSH} covers entangled classes. Structural entropy: $S(r) = \log|\Omega_r|$, with additivity over independent subsystems inherited from the Cartesian-product structure.
+
+\begin{thebibliography}{99}\small
+\bibitem{Aaronson2004} S. Aaronson, ``Is Quantum Mechanics An Island In Theoryspace?'' arXiv:quant-ph/0401062 (2004).
+\bibitem{Banks2001} T. Banks, ``Cosmological breaking of supersymmetry?'' Int. J. Mod. Phys. A \textbf{16}, 910 (2001).
+\bibitem{Barbour1999} J. Barbour, \emph{The End of Time} (Oxford University Press, 1999).
+\bibitem{Bekenstein1973} J. D. Bekenstein, ``Black holes and entropy,'' Phys. Rev. D \textbf{7}, 2333 (1973).
+\bibitem{Bekenstein1981} J. D. Bekenstein, ``Universal upper bound on the entropy-to-energy ratio for bounded systems,'' Phys. Rev. D \textbf{23}, 287 (1981).
+\bibitem{Bell1964} J. S. Bell, ``On the Einstein Podolsky Rosen paradox,'' Physics Physique Fizika \textbf{1}, 195 (1964).
+\bibitem{Bell1981} J. S. Bell, ``Bertlmann's socks and the nature of reality,'' J. Phys. Colloques \textbf{42}, C2-41 (1981).
+\bibitem{BLMS1987} L. Bombelli, J. Lee, D. Meyer, and R. D. Sorkin, ``Space-time as a causal set,'' Phys. Rev. Lett. \textbf{59}, 521 (1987).
+\bibitem{Bong2020} K.-W. Bong et al., ``A strong no-go theorem on the Wigner's friend paradox,'' Nat. Phys. \textbf{16}, 1199 (2020).
+\bibitem{Brukner2018} \v{C}. Brukner, ``A no-go theorem for observer-independent facts,'' Entropy \textbf{20}, 350 (2018).
+\bibitem{Busch2003} P. Busch, ``Quantum states and generalized observables: a simple proof of Gleason's theorem,'' Phys. Rev. Lett. \textbf{91}, 120403 (2003).
+\bibitem{CarrollSingh2018} S. M. Carroll and A. Singh, ``Mad-Dog Everettianism: Quantum Mechanics at Its Most Minimal,'' arXiv:1801.08132 (2018).
+\bibitem{CDP2011} G. Chiribella, G. M. D'Ariano, and P. Perinotti, ``Informational derivation of quantum theory,'' Phys. Rev. A \textbf{84}, 012311 (2011).
+\bibitem{CHSH1969} J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, ``Proposed experiment to test local hidden-variable theories,'' Phys. Rev. Lett. \textbf{23}, 880 (1969).
+\bibitem{Deutsch1999} D. Deutsch, ``Quantum theory of probability and decisions,'' Proc. R. Soc. Lond. A \textbf{455}, 3129 (1999).
+\bibitem{DeWitt1967} B. S. DeWitt, ``Quantum theory of gravity. I. The canonical theory,'' Phys. Rev. \textbf{160}, 1113 (1967).
+\bibitem{DiBiagio2021} A. Di Biagio and C. Rovelli, ``Stable facts, relative facts,'' Found. Phys. \textbf{51}, 30 (2021).
+\bibitem{Durr1992} D. D\"urr, S. Goldstein, and N. Zangh\`i, ``Quantum equilibrium and the origin of absolute uncertainty,'' J. Stat. Phys. \textbf{67}, 843 (1992).
+\bibitem{Englert1996} B.-G. Englert, ``Fringe visibility and which-way information: an inequality,'' Phys. Rev. Lett. \textbf{77}, 2154 (1996).
+\bibitem{Fine1982} A. Fine, ``Hidden variables, joint probability, and the Bell inequalities,'' Phys. Rev. Lett. \textbf{48}, 291 (1982).
+\bibitem{FrauchigerRenner2018} D. Frauchiger and R. Renner, ``Quantum theory cannot consistently describe the use of itself,'' Nat. Commun. \textbf{9}, 3711 (2018).
+\bibitem{Fuchs2014} C. A. Fuchs, N. D. Mermin, and R. Schack, ``An introduction to QBism with an application to the locality of quantum mechanics,'' Am. J. Phys. \textbf{82}, 749 (2014).
+\bibitem{Gleason1957} A. M. Gleason, ``Measures on the closed subspaces of a Hilbert space,'' J. Math. Mech. \textbf{6}, 885 (1957).
+\bibitem{Graham1973} N. Graham, ``The measurement of relative frequency,'' in B. S. DeWitt and N. Graham (eds.), \emph{The Many-Worlds Interpretation of Quantum Mechanics} (Princeton University Press, 1973).
+\bibitem{HDW2014} M. J. W. Hall, D.-A. Deckert, and H. M. Wiseman, ``Quantum phenomena modelled by interactions between many classical worlds,'' Phys. Rev. X \textbf{4}, 041013 (2014).
+\bibitem{Hardy2001} L. Hardy, ``Quantum theory from five reasonable axioms,'' arXiv:quant-ph/0101012 (2001).
+\bibitem{Hawking1975} S. W. Hawking, ``Particle creation by black holes,'' Commun. Math. Phys. \textbf{43}, 199 (1975).
+\bibitem{HKM1976} S. W. Hawking, A. R. King, and P. J. McCarthy, ``A new topology for curved space-time which incorporates the causal, differential, and conformal structures,'' J. Math. Phys. \textbf{17}, 174 (1976).
+\bibitem{Isham1992} C. J. Isham, ``Canonical quantum gravity and the problem of time,'' arXiv:gr-qc/9210011 (1992).
+\bibitem{Jacobson1995} T. Jacobson, ``Thermodynamics of spacetime: the Einstein equation of state,'' Phys. Rev. Lett. \textbf{75}, 1260 (1995).
+\bibitem{Kuchar1992} K. V. Kucha\v{r}, ``Time and interpretations of quantum gravity,'' in \emph{Proc. 4th Canadian Conf. on General Relativity and Relativistic Astrophysics} (World Scientific, 1992).
+\bibitem{Lamperti1958} J. Lamperti, ``On the isometries of certain function-spaces,'' Pacific J. Math. \textbf{8}, 459 (1958).
+\bibitem{Malament1977} D. B. Malament, ``The class of continuous timelike curves determines the topology of spacetime,'' J. Math. Phys. \textbf{18}, 1399 (1977).
+\bibitem{MasanesMuller2011} L. Masanes and M. P. M\"uller, ``A derivation of quantum theory from physical requirements,'' New J. Phys. \textbf{13}, 063001 (2011).
+\bibitem{MGM2019} L. Masanes, T. D. Galley, and M. P. M\"uller, ``The measurement postulates of quantum mechanics are operationally redundant,'' Nat. Commun. \textbf{10}, 1361 (2019).
+\bibitem{PageWootters1983} D. N. Page and W. K. Wootters, ``Evolution without evolution: Dynamics described by stationary observables,'' Phys. Rev. D \textbf{27}, 2885 (1983).
+\bibitem{Putnam1967} H. Putnam, ``Time and physical geometry,'' J. Phil. \textbf{64}, 240 (1967).
+\bibitem{Rietdijk1966} C. W. Rietdijk, ``A rigorous proof of determinism derived from the special theory of relativity,'' Phil. Sci. \textbf{33}, 341 (1966).
+\bibitem{Rovelli1996} C. Rovelli, ``Relational quantum mechanics,'' Int. J. Theor. Phys. \textbf{35}, 1637 (1996).
+\bibitem{Russell1903} B. Russell, \emph{The Principles of Mathematics} (Cambridge University Press, 1903), ch.~54.
+\bibitem{SebensCarroll2018} C. T. Sebens and S. M. Carroll, ``Self-locating uncertainty and the origin of probability in Everettian quantum mechanics,'' Brit. J. Phil. Sci. \textbf{69}, 25 (2018).
+\bibitem{Stein1968} H. Stein, ``On Einstein--Minkowski space-time,'' J. Phil. \textbf{65}, 5 (1968).
+\bibitem{tHooft2016} G. 't Hooft, \emph{The Cellular Automaton Interpretation of Quantum Mechanics} (Springer, 2016).
+\bibitem{TillittBorn} R. Tillitt, ``The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology,'' companion paper, draft v5 (2026).
+\bibitem{TillittCHSH} R. Tillitt, ``CHSH by Counting: Bell Violation in a Finite Configuration Ontology,'' companion paper, draft v2 (2026).
+\bibitem{Tsirelson1980} B. S. Cirel'son, ``Quantum generalizations of Bell's inequality,'' Lett. Math. Phys. \textbf{4}, 93 (1980).
+\bibitem{VanRaamsdonk2010} M. Van Raamsdonk, ``Building up spacetime with quantum entanglement,'' Gen. Rel. Grav. \textbf{42}, 2323 (2010).
+\bibitem{Verlinde2011} E. Verlinde, ``On the origin of gravity and the laws of Newton,'' JHEP \textbf{04}, 029 (2011).
+\bibitem{Wallace2007} D. Wallace, ``Quantum probability from subjective likelihood: improving on Deutsch's proof of the probability rule,'' Stud. Hist. Phil. Mod. Phys. \textbf{38}, 311 (2007).
+\bibitem{Wallace2012} D. Wallace, \emph{The Emergent Multiverse} (Oxford University Press, 2012).
+\bibitem{WoottersZurek1979} W. K. Wootters and W. H. Zurek, ``Complementarity in the double-slit experiment,'' Phys. Rev. D \textbf{19}, 473 (1979).
+\bibitem{Zurek2003} W. H. Zurek, ``Decoherence, einselection, and the quantum origins of the classical,'' Rev. Mod. Phys. \textbf{75}, 715 (2003).
+\bibitem{Zurek2005} W. H. Zurek, ``Probabilities from entanglement, Born's rule from envariance,'' Phys. Rev. A \textbf{71}, 052105 (2005).
+\bibitem{Zurek2009} W. H. Zurek, ``Quantum Darwinism,'' Nat. Phys. \textbf{5}, 181 (2009).
+\end{thebibliography}
+
+\vspace{1em}
+\noindent\small Code and data: \texttt{cr\_toy\_model.py}, \texttt{step1\_multiplicativity.py}, \texttt{step4\_stability.py}, \texttt{chsh\_by\_counting.py} (available with this draft).
+
+\end{document}

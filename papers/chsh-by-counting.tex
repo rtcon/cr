@@ -1,0 +1,197 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[colorlinks=true]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{example*}{Example}
+
+\title{CHSH by Counting:\\ Bell Violation in a Finite Configuration Ontology}
+\author{Russell Tillitt\\ \small Independent Researcher, San Francisco, California}
+\date{July 2026 (draft v2)}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A finite ensemble of definite, equally real configurations looks like it must obey the Bell inequalities: definite values, counted, are the textbook picture of a local hidden-variable model. We show that the instinct fails, and exhibit the failure by literal enumeration. In the finite, timeless configuration ontology of the companion papers---where probability is counting, phase is stage-relative, and the population of an outcome class is proved to equal $N|\alpha|^2$---the CHSH quantity assembled from ratios of integer counts reaches the quantum value $2\sqrt{2}$ to $O(1/N)$; at $N = 4.2 \times 10^6$, counted $|S| = 2.8284267$. The instinct fails for three separable reasons, each with a counting formulation: structural exclusion (which configurations exist) is relative to the instantiated measurement bases and fixes only the aligned-basis correlations; configurations bear outcome records only for devices their correlation structure contains, so no configuration answers two incompatible settings and, by Fine's theorem, no Bell inequality can be derived; and the skew-angle statistics are carried by the phase structure of the class---the same cross terms that carry two-slit interference. A control run makes the mechanism visible: inserting a sector record, the which-path analog, forces per-class summation, the cross terms never form, and counted $|S|$ falls below the local bound. Marginal counts are computed for each wing from that wing's structure alone, so the counting form of no-signaling holds by construction and is tested exactly, including at small $N$. On the no-go ledger the ontology keeps locality and free settings; for the plain Bell scenario its operative escape is the absence of counterfactual values, with the denial of absolute outcomes priced where it is actually needed, in Wigner's-friend extensions. One in-model prediction distinguishes the framework from continuum quantum mechanics: $||S| - 2\sqrt{2}| = O(1/N)$, with the residue's scale robust and its sign conditional on the model's integer-apportionment rule, which is flagged as a postulate. This paper is a demonstration and a disentangling, not a new theorem: given the companion results, the violation is guaranteed; what is shown is why a counting ontology is entitled to it.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+Bell's theorem \cite{Bell1964} is commonly glossed as a prohibition on ensembles: if measurement outcomes reveal pre-existing values carried by the members of a statistical ensemble, and the ensemble is sampled independently of the analyzer settings, then the CHSH combination of correlators \cite{CHSH1969} is bounded by 2. Experiment finds $2\sqrt{2}$ \cite{Aspect1982,Hensen2015}. The gloss produces an instinct: any ontology whose probabilities are literal counts over a finite set of definite, equally real elements---each element a complete arrangement of physical facts---must be a local hidden-variable model, and is therefore refuted before it starts.
+
+The companion papers develop exactly such an ontology. Configuration Realism \cite{TillittCR} consists of a finite, timeless configuration space in which probability is defined as counting, and the companion derivation \cite{TillittBorn} proves that the population of an outcome class equals $N|\alpha|^2$, with $\alpha$ the coherent sum of stage-relative configuration phases over the class. Every configuration is definite; every probability is a ratio of cardinalities; the denominator the Everettian branch-counting program lacks \cite{Graham1973,Wallace2012} is restored. The instinct says this framework cannot survive Bell.
+
+This paper shows that the instinct is wrong, and shows it twice: conceptually, by locating the three assumptions of the hidden-variable reading that the ontology does not satisfy, each stated in counting terms; and demonstratively, by literal enumeration---the CHSH quantity, assembled from ratios of integer counts computed under the derived counting rule, reaches $2\sqrt{2}$ to $O(1/N)$, and falls below the local bound the moment a which-sector record is inserted.
+
+\paragraph{What is shown, and what is not.}
+Candor about the status of the result, in the manner of the companion papers.
+\begin{itemize}
+\item \emph{Not a new theorem.} Given the companion's Born theorem and a singlet-type correlation structure, the quantum value of CHSH is mathematically guaranteed; the enumeration is a computation under the derived rule, executed with every step exposed---not an independent verification that could have come out otherwise, and the paper says ``computed,'' not ``verified,'' wherever that distinction bites.
+\item \emph{The contribution is the entitlement.} What is argued here is why a finite ensemble of definite configurations is \emph{entitled} to violate the Bell bound: which premise of the hidden-variable reading fails (Section~\ref{sec:nohv}), what exclusion does and does not fix (Section~\ref{sec:excl}), what carries the correlations instead (Section~\ref{sec:phases}), and how the outcome-relativity of the ontology divides the labor---for the plain Bell scenario the operative escape is the absence of counterfactual values, via Fine's theorem; the denial of absolute outcomes is priced where it is needed, in Wigner's-friend extensions (Section~\ref{sec:outcomes}).
+\item \emph{One in-model prediction.} Finiteness makes every correlator a ratio of integers, so $||S| - 2\sqrt{2}| = O(1/N)$. The $O(1/N)$ scale is robust; which side of the Tsirelson bound \cite{Tsirelson1980} the counted value lands on is conditional on the model's integer-apportionment rule, which is a postulate of the model, flagged as such (Section~\ref{sec:pred}).
+\end{itemize}
+
+\paragraph{Scope.}
+Everything here is conditional on the companion results and their assumptions ([AS] aggregate structure, [LC] linear composition, [PR] the population rule; phase additivity is a lemma of the two-level phase postulate; frequencies consume the typicality assumption [T]) \cite{TillittBorn}. The phase texture instantiated in the model is an admissible one, not a derived one; that generic textures are admissible is the companion's open problem and is not addressed here. The demonstrated regime is the finite-dimensional interferometric one: two-outcome analyzers on a two-sector entangled class.
+
+\paragraph{Plan.}
+Section~\ref{sec:defs} compresses the ontology to what is needed. Section~\ref{sec:outcomes} states the status of outcomes. Sections~\ref{sec:excl}--\ref{sec:phases} give the three-part disentangling. Section~\ref{sec:verif} reports the enumeration; Section~\ref{sec:pred} the finite-$N$ prediction; Section~\ref{sec:ledger} the status of every claim; Section~\ref{sec:related} relations to prior work; Section~\ref{sec:concl} limitations and conclusion.
+
+\section{The Ontology, Compressed}\label{sec:defs}
+Full statements are in the companions \cite{TillittBorn,TillittCR}; what follows is the minimum this paper consumes.
+
+Physical reality is a timeless configuration space $\Omega$, $|\Omega| < \infty$; each configuration is a complete arrangement of fundamental degrees of freedom. Phase enters at two levels: it attaches additively to degrees of freedom (making phase additivity a lemma), and it is \emph{relational}---the phase of a configuration is defined relative to a stage of an observer chain, accumulated along the refinement ordering, with successive stages related by increments; the companion proves that no context-free per-configuration phase assignment is consistent with nontrivial devices \cite{TillittBorn}. Information exists only as records; a record $r$ defines its compatibility class $\Omega_r$, the configurations compatible with the correlations it encodes. An observer is a record-bearing subsystem; ``the observer'' is an identification across a chain of stages ordered by record refinement, and all sequential language below is position in that ordering, never temporal process. Probability is counting: $P(r_i \mid r) = |\Omega_{r_i}|/|\Omega_r|$, with $N = |\Omega_r|$ the population of the class being partitioned. A \emph{preparation is a correlation structure}: a constraint on which configurations exist and what phases they carry relative to the preparing stage; device parameters enter only through this structure, never as weights.
+
+The companion theorems then give: the population of outcome class $r_i$ is $n_i = N|\alpha_i|^2$, where $\alpha_i$ is the coherent stage-relative phase sum over the class at the parent-relative scale; coherent sums add over disjoint unions of classes while squared moduli do not, and the cross term is interference; a record distinguishing sub-classes forces per-class summation and removes the cross term, which is decoherence; and \emph{where} a record sits in the refinement ordering determines which sums are taken---the placement-dependence exhibited by the two-slit example, which is the engine of everything below.
+
+\section{Outcomes Are Records}\label{sec:outcomes}
+In this ontology an outcome is not a primitive event. An outcome \emph{is} a record---a correlation between an apparatus-sector degree of freedom and a registered value---and records are borne by subsystems, stage by stage along observer chains. Outcome facts are therefore relative to the chain whose records they are. This is not an interpretive gloss added to evade Bell; it is forced by the definitions: there is nothing else in the ontology an outcome could be.
+
+\begin{example*}[EPR at one light-year]
+Alice and Bob share a singlet-type pair and separate by one light-year. Alice's analyzer fires; downstream of that refinement, her compatibility class contains only configurations in which Bob's particle-sector is anti-correlated with her registered value---so relative to \emph{her} records, Bob's future same-basis outcome is fixed. Relative to \emph{Bob's} records nothing has changed: his class still spans both sectors, and superposition---a property of a class relative to a record, not of a particle---persists for him. When their records eventually become correlated, at light speed or slower, agreement is guaranteed structurally: no configuration with matching same-basis spins exists to be found (Section~\ref{sec:excl}). Nothing propagates, and nothing collapses at a distance.
+
+One question from the textbook discussion does not survive translation. ``At the moment Alice measures, what happens to Bob's state?'' presupposes a fact about distant simultaneity that relativity denies and this timeless ontology never introduces: the anti-correlation is a fact about position in the refinement ordering of Alice's chain, not about a spacelike hypersurface. The framework does not answer the question; it dissolves it.
+\end{example*}
+
+The modern no-go theorems make the commitments here precise, and it is worth stating the division of labor exactly. For the \emph{plain} Bell scenario---one outcome per wing per run, compared after the fact---the operative escape is not outcome-relativity but the absence of counterfactual values (Section~\ref{sec:nohv}): the joint counts of Section~\ref{sec:verif} are perfectly good facts, and nothing in plain CHSH forces the framework to relativize them. Where outcome-relativity earns its keep is in the Wigner's-friend extensions: Brukner's no-go \cite{Brukner2018} (which additionally assumes the universal validity of quantum theory) and the local-friendliness theorem of Bong et al.\ \cite{Bong2020} (which additionally assumes ``Friendliness''---that an observed friend's outcome is a fact) show that observer-independent outcome facts, locality, and free settings cannot all be maintained once observers are themselves measured; the Frauchiger--Renner argument presses the same point through nested reasoning \cite{FrauchigerRenner2018}. Configuration Realism's position on that ledger, stated on the record: \textbf{locality is kept}---no record refinement anywhere alters counts elsewhere, and in the enumeration each wing's marginal counts are computed from that wing's structure alone and tested for exact setting-independence (Section~\ref{sec:verif}); \textbf{free settings are kept} (Section~\ref{sec:nohv}); and \textbf{absoluteness of observed events is denied}, with the denial doing its work in the friend-type regime: outcomes are records, records are relative to chains, and a measured observer's outcome is a fact for that observer's chain without being an unconditional fact of the world. The relational precedent is Rovelli's \cite{Rovelli1996,DiBiagio2021}; the Everettian precedent is the branch-relative outcome \cite{Wallace2012}. What the counting ontology adds is a denominator: relative facts here come with cardinalities, and the statistics of Section~\ref{sec:verif} are ratios of them.
+
+One bookkeeping remark belongs here rather than in a footnote. The enumeration of Section~\ref{sec:verif} materializes a single joint outcome table---a bird's-eye roster of both wings' results. This is not a lapse back into absoluteness: the roster is the bookkeeping of the facts relative to the \emph{joined} chain, the stage at which Alice's and Bob's records have become correlated and their classes intersected, which is exactly where CHSH statistics are in practice assembled (no single earlier stage holds all four correlators). The ontology licenses the table at that stage; it declines to backdate it.
+
+\section{Exclusion Is Basis-Relative}\label{sec:excl}
+The entangled preparation is a correlation structure in the strict sense: it determines which configurations exist. For the singlet-type pair measured in a common basis, configurations in which both wings register the same value do not exist---the class has two sectors, $(\mathrm{u},\mathrm{d})$ and $(\mathrm{d},\mathrm{u})$, and nothing else. Call this \emph{structural exclusion}. It is tempting to summarize the framework's answer to Bell as ``the forbidden configurations simply do not exist.'' The summary is wrong, and the way it is wrong is instructive.
+
+\begin{proposition}[Exclusion is relative to the instantiated bases]\label{prop:excl}
+For the singlet-type class measured with analyzers at angles $a$ and $b$: the same-spin joint outcome classes have populations
+\[ n({+}{+}) = n({-}{-}) = \tfrac{N}{2}\sin^2\!\Big(\frac{a-b}{2}\Big) \]
+to integer rounding. Exclusion is exact at $a = b$ and only there; at skew angles the ``forbidden'' configurations exist, in exactly the Born proportion.
+\end{proposition}
+\begin{proof}
+Immediate from the companion Born theorem applied to the joint outcome partition: the composed device (Section~\ref{sec:phases}) carries the two-sector arrow vector to the four joint-outcome arrows, whose squared moduli are $\frac{1}{2}\sin^2\frac{a-b}{2}$ for the same-spin classes and $\frac{1}{2}\cos^2\frac{a-b}{2}$ for the opposite-spin classes; populations are $N$ times these. Computed by enumeration under the derived rule in Section~\ref{sec:verif}: at $a - b = 45^\circ$, each same-spin class counts $307{,}538$ configurations of $4.2 \times 10^6$, against a Born value of $307{,}537.9$ per class.
+\end{proof}
+
+Exclusion therefore fixes the aligned-basis correlations---and nothing else. That much a common-cause model also delivers: Bell's Bertlmann, finding one sock pink, knows the other is not \cite{Bell1981}, and no inequality is threatened. The Bell-relevant physics lives entirely at skew angles, where exclusions do not determine the counts. What does is the subject of Section~\ref{sec:phases}; what \emph{blocks the classical derivation} is the subject of Section~\ref{sec:nohv}.
+
+\section{Configurations Are Not Hidden Variables}\label{sec:nohv}
+The hidden-variable reading of this ontology would be: each configuration $\omega$ carries an answer to every question---a value $v_\omega(\theta) \in \{+,-\}$ for each wing and every analyzer angle $\theta$---and measurement reveals the value. Were that the ontology, Bell's theorem would apply and experiment would refute it: pre-assigned values at all angles, anti-correlated at equal angles, imply $|S| \le 2$.
+
+It is not the ontology, and the failure is definitional, not tactical. A preparation is a correlation structure, and an outcome is a record: a correlation between an analyzer-sector degree of freedom and a register. A configuration contains outcome records only for the devices its correlation structure contains. A configuration in which Alice's analyzer is set at angle $a$ contains an answer at angle $a$; it contains no degree of freedom encoding ``what Alice would have gotten at $a'$,'' because no $a'$-device structure exists in it to be correlated with. Different settings are different correlation structures---different preparations, different classes of configurations---and there is no cross-configuration fact identifying ``the same particle's answer at the other angle'': the ontology supplies no identity tags across preparations, and their absence is principled, since such tags are exactly what would reopen counterfactual definiteness. Spin-along-$a$ is record-level structure only when the $a$-oriented device is part of the configuration: this is the same move as the two-slit example, where slit-membership is or is not record-level depending on whether a which-path register exists. It is the counting form of contextuality.
+
+\begin{proposition}[No joint distribution, hence no Bell bound]\label{prop:fine}
+In this ontology no joint probability distribution exists over the outcomes of incompatible settings on one wing. Consequently, by Fine's theorem, the CHSH inequality has no derivation.
+\end{proposition}
+\begin{proof}[Argument]
+A joint distribution over the four CHSH observables $(a, a', b, b')$ would require a partition of some class by simultaneous values of $a$ and $a'$ on Alice's wing. Classes are defined by records; a record of an $a$-outcome and a record of an $a'$-outcome for one particle would require a configuration whose correlation structure contains both device orientations for that wing, which no configuration has. The partition does not exist, so neither does the distribution. Fine \cite{Fine1982} showed that the Bell--CHSH inequalities hold if and only if a joint distribution for all four observables exists returning the measured single and pair distributions; in its absence the inequality is not derivable, and the counted value of $S$ is unconstrained by it. (By the same biconditional, \emph{every} empirically adequate model lacks such a joint distribution; the framework's claim is not that this blockage differentiates it, but that in a counting ontology the blockage has an ontological ground---the absence of the partition---rather than being a brute feature of the statistics.)
+\end{proof}
+
+\begin{remark}[Free settings are kept]\label{rem:free}
+Denying counterfactual values is not superdeterminism \cite{tHooft2016}. It is true that on Bell's schema the ``hidden state'' would be the configuration, and configuration sets for different settings are disjoint---but this observation mislocates the schema, not the physics. The setting-\emph{independent} ontic structure is the pair's correlation structure itself: the two-sector class with its relative phase, which is common to every setting choice and is what ``the same preparation, measured differently'' refers to. What varies with the settings is which refinements of that structure exist, and there is nothing left over for a setting-correlation to exploit: no response function reads a pre-setting state, so the statistical-independence condition of Bell's schema has no referent here rather than a violated value. The honest ledger entry is therefore not ``statistical independence: satisfied'' but ``statistical independence: schema inapplicable''---the framework evades Bell's framework at this joint rather than winning within it---while the choice of settings itself remains free: within every setting-preparation the counts obey the same derived rule, with no dependence on how the setting was chosen.
+\end{remark}
+
+\section{The Violation Is Carried by Phases}\label{sec:phases}
+With the classical derivation blocked, something must still produce the skew-angle correlations, and in a counting ontology it can only be the one graded structure classes possess besides cardinality: phase.
+
+The singlet-type class has two sectors with a stage-relative phase difference of $\pi$---the singlet's relative sign, carried as configuration phase relative to the preparing stage. Crucially, \emph{no record distinguishes the sectors}: like the two slits with no which-path apparatus, sector-membership is sub-record structure, so the class is one compatibility class, and coherent sums span it. The composed device $U(a) \otimes U(b)$---settings entering only as correlation structure---re-partitions the class into four joint outcome classes; each joint arrow receives contributions from \emph{both} sectors; and the cross terms between the sector contributions are what deform the populations away from the product form. Carrying out the arithmetic of the companion's interference corollary, the counted correlator is
+\[ E(a,b) \;=\; \frac{n({+}{+}) + n({-}{-}) - n({+}{-}) - n({-}{+})}{N} \;=\; -\cos(a-b) + O(1/N), \]
+and at the standard settings $(a, a', b, b') = (0^\circ, 90^\circ, 45^\circ, 135^\circ)$,
+\[ S \;=\; E(a,b) + E(a',b) + E(a',b') - E(a,b') \;=\; -2\sqrt{2} + O(1/N). \]
+
+The control experiment makes the attribution exact. Insert a sector record---one register degree of freedom correlated with sector-membership, the which-path apparatus of this setup. Sector-membership is now record-level; the class is, at the level any record can access, two disjoint classes; every downstream sum proceeds per class; the cross terms never form. Each sector is then a product-type class, its counted correlator is $-\cos a \cos b$---the common-cause form---and the counted $|S|$ falls below the local bound. In Fine's terms, the sector record \emph{restores} the joint distribution (each sector carries definite correlational structure for both wings jointly), and with it the inequality. Same configurations, same devices, same counting rule; one record inserted; $2\sqrt{2}$ becomes $\sqrt{2}$. The Bell violation is the two-slit cross term, evaluated at four pairs of angles.
+
+\section{The Enumeration}\label{sec:verif}
+The demonstration extends the companion's suite under its discipline, stated here exactly. Configurations are materialized as explicit lists (sector, phase-index) with stage-relative phases on a lattice of 3{,}600 values---no micro-identities: the ontology supplies no cross-preparation identity tags, and their absence is principled (Section~\ref{sec:nohv}). Pre-device arrows are computed by literally summing $e^{iS(\omega)}$ over the lists at the parent-relative scale; the device stage then applies the counting rule the companion derives---populations $N|\beta|^2$, integer-apportioned---so what follows is a \emph{computation under the derived rule, executed by enumeration}, with nothing left implicit, not an independent verification that could have failed. Integer apportionment is margins-first: each wing's marginal counts are computed from that wing's marginal weights alone, so the counting form of no-signaling holds by construction, and the joint table is filled subject to both margins. The apportionment rule itself is a postulate of the model (Section~\ref{sec:pred}). Analyzer settings enter only through the device's correlation structure; every correlator is a ratio of integer counts. Code: \texttt{chsh\_by\_counting.py}.
+
+\begin{itemize}
+\item \emph{Aligned bases.} At $a = b$, the same-spin count is $0$ of $4{,}200{,}000$. Two facts are involved and kept distinct: the \emph{preparation-level} exclusion is structural---only the $(\mathrm{u,d})$ and $(\mathrm{d,u})$ sectors exist in the class---while the outcome-level zero at $a=b$ is the derived rule evaluated at vanishing weight (Proposition~\ref{prop:excl}).
+\item \emph{Skew bases.} At $a - b = 45^\circ$: $n({+}{+}) = 307{,}538$ per same-spin class against the Born value $N\sin^2(22.5^\circ)/2 = 307{,}537.9$---the configurations the naive exclusion reading forbids, present in exactly the counted proportion.
+\item \emph{Correlator sweep.} Counted $E$ tracks $-\cos(a-b)$ across the full range of analyzer separations (Fig.~\ref{fig:chsh}, left); with the sector record inserted, counted $E$ tracks the common-cause form $-\cos a \cos b$ instead.
+\item \emph{CHSH, coherent class.} At $N = 4{,}200{,}000$ and the standard settings: the four counted correlators are $\pm 0.7071067$ and $|S| = 2.8284267$, a deviation of $-4.6 \times 10^{-7}$ from $2\sqrt{2}$ (Fig.~\ref{fig:chsh}, center).
+\item \emph{CHSH, control.} With the sector record inserted, same configurations and devices: $|S| = 1.4142133$, below the local bound. The entire violation is carried by the cross terms the record removes.
+\item \emph{No-signaling by counting.} Each wing's marginal counts are identical across the other wing's settings---tested exactly, at $N = 20$ (the remainder-tie regime where a joint largest-remainder rule can leak), $N = 2{,}000$, and $N = 4.2 \times 10^6$: setting-independence holds without exception, by construction of the margins-first rule.
+\item \emph{Residue scaling.} $||S| - 2\sqrt{2}|$ across $N = 2 \times 10^3$ to $2 \times 10^7$: log--log slope $-1.14$ against the $O(1/N)$ prediction (Fig.~\ref{fig:chsh}, right), with counted values landing on both sides of the Tsirelson bound (e.g., $|S| = 2.8320$ at $N = 2{,}000$); see Section~\ref{sec:pred} for what is and is not robust in this.
+\end{itemize}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{chsh_results.png}
+\caption{CHSH by counting. Left: correlators from integer counts track $-\cos\Delta$ for the coherent class and the common-cause form for the sector-recorded control. Center: counted $|S|$ against the local and Tsirelson bounds---one record inserted is the entire difference. Right: $||S| - 2\sqrt{2}|$ scales as $O(1/N)$, with counted values landing on both sides of the Tsirelson bound (filled: above; open: below).}
+\label{fig:chsh}
+\end{figure}
+
+\section{Prediction: Finite-$N$ Deviations Around the Tsirelson Bound}\label{sec:pred}
+Every population is an integer, so every correlator is a rational number with denominator $N$, and the counted $S$ differs from $-2\sqrt{2}$---an irrational value---at every finite $N$:
+\[ \big|\,|S| - 2\sqrt{2}\,\big| \;=\; O(1/N). \]
+Two layers of this claim must be separated, because they have different standing. The \emph{scale} of the deviation is robust: it follows from rationality of counted correlators alone, independent of any apportionment detail, and it is the CHSH instance of the companion's rational-probability prediction. The \emph{sign}---whether a counted value lands above or below the Tsirelson bound at a given $N$, as it does on both sides in the enumeration---is conditional on the model's integer-apportionment rule, which is a postulate: nothing in the ontology yet selects largest-remainder, margins-first, or any other rounding of $N|\alpha|^2$ to integers, and different admissible rules place the residue differently. Which rule the ontology selects is an open problem, listed in the ledger. With that flagged, the two-sided possibility remains a statement no continuum formulation makes---in continuum quantum mechanics the Tsirelson bound is exact for expectation values \cite{Tsirelson1980}---and a caution accompanies it in the other direction: experimental CHSH estimates carry $O(1/\sqrt{M})$ statistical fluctuation over $M$ trials on both sides of $2\sqrt{2}$ under continuum quantum mechanics too, so distinguishing an ontic $O(1/N)$ structure from sampling noise would require $M \gtrsim N^2$ trials. ``An experimental lower bound on $N$'' is therefore an in-principle statement about the framework's falsifiability, not a near-term proposal.
+
+\section{Status of Every Claim}\label{sec:ledger}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Item & Status & Where\\
+\midrule
+Ontology; counting rule; Born populations & Inherited (proved in companion) & \S\ref{sec:defs}, \cite{TillittBorn}\\
+Assumptions consumed: [AS], [LC], [PR], ([T]) & Inherited assumptions & \cite{TillittBorn}\\
+Outcomes are records, relative to chains & Definitional consequence & \S\ref{sec:outcomes}\\
+Locality: no-signaling by counting & By construction $+$ tested exactly & \S\ref{sec:verif}\\
+Absoluteness of observed events & Denied; priced for friend-type cases & \S\ref{sec:outcomes}\\
+Statistical independence & Schema inapplicable; settings free & Rem.~\ref{rem:free}\\
+Exclusion basis-relative; skew populations & Proved $+$ computed by enumeration & Prop.~\ref{prop:excl}\\
+No counterfactual values; no identity tags & Definitional consequence & \S\ref{sec:nohv}\\
+No joint distribution $\Rightarrow$ no Bell bound & Argued, via Fine's theorem & Prop.~\ref{prop:fine}\\
+$E = -\cos(a-b) + O(1/N)$ by counting & Corollary of companion $+$ computed & \S\ref{sec:phases}, \S\ref{sec:verif}\\
+$|S| = 2\sqrt{2}$ to $O(1/N)$, coherent class & Computed by enumeration & \S\ref{sec:verif}\\
+Sector record restores $|S| \le 2$ & Computed by enumeration & \S\ref{sec:verif}\\
+$||S| - 2\sqrt{2}| = O(1/N)$: scale & Prediction (robust) & \S\ref{sec:pred}\\
+Residue sign (two-sidedness) & Conditional on apportionment rule & \S\ref{sec:pred}\\
+Apportionment rule & Model postulate; selection open & \S\ref{sec:verif}, \S\ref{sec:pred}\\
+Admissible phase texture instantiated & Assumption (companion open problem) & \S\ref{sec:intro}, \cite{TillittBorn}\\
+No new theorem beyond companion & Owned explicitly & \S\ref{sec:intro}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Relation to Prior Work}\label{sec:related}
+The theorem landscape is fixed by Bell \cite{Bell1964} and CHSH \cite{CHSH1969}, the quantum ceiling by Tsirelson \cite{Tsirelson1980}, and the experimental verdict by \cite{Aspect1982,Hensen2015}. Fine's theorem \cite{Fine1982} supplies the precise sense in which Proposition~\ref{prop:fine} blocks the inequality: joint distributions over incompatible settings, not locality alone, are what Bell-type derivations consume, and the counting ontology has none---with an ontological ground for the absence rather than a brute statistical fact. Bell's own later view that the theorem's target is broader than determinism \cite{Bell1981,BrownTimpson2016} is consistent with the position taken here: the assumption this framework prices is not determinism (configurations are definite) but counterfactual definiteness for the plain scenario and the absoluteness of outcomes for the friend-type extensions, the latter as isolated---under their respective additional assumptions---by the observer-independence no-gos \cite{Brukner2018,FrauchigerRenner2018,Bong2020}. Hardy's excess-baggage theorem, engaged in the companion \cite{TillittBorn}, is blocked by the same absence of counterfactual response probabilities. Among relational and perspectival programs, Rovelli's relational quantum mechanics \cite{Rovelli1996,DiBiagio2021} is the closest precedent for outcome-relativity, and the Everettian literature contains both the branch-relative outcome \cite{Wallace2012} and the demonstration that quantum theory admits local accounts of Bell correlations at the price of non-absolute outcomes \cite{DeutschHayden2000,WallaceTimpson2010}. What the present framework adds to that family is specific: relative facts with cardinalities. Outcome-relativity is usually purchased at the cost of a probability problem; here the counting ontology that makes outcomes relative is the same one that makes their probabilities literal counts \cite{TillittBorn}, and the Bell correlations are exhibited as ratios of integers. Superdeterminism \cite{tHooft2016} purchases Bell violation by abandoning statistical independence; Remark~\ref{rem:free} states why this framework instead renders the independence condition inapplicable while keeping settings free. Bohmian mechanics purchases it with explicit nonlocality and quantum equilibrium \cite{Durr1992}; the present account keeps locality and prices counterfactuals and (where needed) absoluteness instead.
+
+\section{Limitations and Conclusion}\label{sec:concl}
+The result is a demonstration inside a conditional framework, and the conditions are the companion's: [AS], [LC], [PR] assumed, [T] for the frequency reading, phase texture instantiated rather than derived, and the integer-apportionment rule a model postulate whose selection by the ontology is open. Within them, the finding is clean, and it is two findings.
+
+First, the instinct that counting ontologies are hidden-variable models fails for a reason worth stating in general form. A hidden-variable model needs its elements to answer questions that are never asked. Configurations answer only the questions their correlation structure poses: outcome facts exist where device structure exists, exclusion is relative to the bases instantiated, and the correlations at angles nothing was asked about are carried by stage-relative phase structure---which is not a value, aligns with no partition, and supports no joint distribution. Fine's theorem then says there is no inequality to violate. A finite ensemble of definite, equally real configurations is not a Bell-bounded object, and the enumeration exhibits one exceeding the bound by the full quantum margin, falling back inside it the moment a single record makes sector-membership a fact---while each wing's marginal counts, computed from that wing's structure alone, never register the other wing's setting at all.
+
+Second, the framework's prices are named, and named where they are actually paid. For plain CHSH: counterfactual definiteness, denied definitionally. For Wigner's-friend extensions: absoluteness of observed events, denied because outcomes are records and records are chain-relative---the no-go theorems certify, under their stated assumptions, that some such price is unavoidable there. The counting ontology's distinctive contribution is that its relative facts are counted facts---each chain's outcome comes with a population, the populations obey the Born rule as a theorem, and the Bell correlations of this paper are what those populations, and nothing else, add up to. The bound the world respects is then not exactly Tsirelson's but Tsirelson's to one part in $N$---with the sign of the discrepancy a property of how the world rounds, which the framework does not yet know---and that is the kind of statement only a finite world makes.
+
+\begin{thebibliography}{99}\small
+\bibitem{Aspect1982} A. Aspect, J. Dalibard, and G. Roger, ``Experimental test of Bell's inequalities using time-varying analyzers,'' Phys. Rev. Lett. \textbf{49}, 1804 (1982).
+\bibitem{Bell1964} J. S. Bell, ``On the Einstein Podolsky Rosen paradox,'' Physics Physique Fizika \textbf{1}, 195 (1964).
+\bibitem{Bell1981} J. S. Bell, ``Bertlmann's socks and the nature of reality,'' J. Phys. Colloques \textbf{42}, C2-41 (1981).
+\bibitem{Bong2020} K.-W. Bong, A. Utreras-Alarc\'on, F. Ghafari, Y.-C. Liang, N. Tischler, E. G. Cavalcanti, G. J. Pryde, and H. M. Wiseman, ``A strong no-go theorem on the Wigner's friend paradox,'' Nat. Phys. \textbf{16}, 1199 (2020).
+\bibitem{BrownTimpson2016} H. R. Brown and C. G. Timpson, ``Bell on Bell's theorem: the changing face of nonlocality,'' in M. Bell and S. Gao (eds.), \emph{Quantum Nonlocality and Reality} (Cambridge University Press, 2016).
+\bibitem{Brukner2018} \v{C}. Brukner, ``A no-go theorem for observer-independent facts,'' Entropy \textbf{20}, 350 (2018).
+\bibitem{CHSH1969} J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, ``Proposed experiment to test local hidden-variable theories,'' Phys. Rev. Lett. \textbf{23}, 880 (1969).
+\bibitem{DeutschHayden2000} D. Deutsch and P. Hayden, ``Information flow in entangled quantum systems,'' Proc. R. Soc. Lond. A \textbf{456}, 1759 (2000).
+\bibitem{DiBiagio2021} A. Di Biagio and C. Rovelli, ``Stable facts, relative facts,'' Found. Phys. \textbf{51}, 30 (2021).
+\bibitem{Durr1992} D. D\"urr, S. Goldstein, and N. Zangh\`i, ``Quantum equilibrium and the origin of absolute uncertainty,'' J. Stat. Phys. \textbf{67}, 843 (1992).
+\bibitem{Fine1982} A. Fine, ``Hidden variables, joint probability, and the Bell inequalities,'' Phys. Rev. Lett. \textbf{48}, 291 (1982).
+\bibitem{FrauchigerRenner2018} D. Frauchiger and R. Renner, ``Quantum theory cannot consistently describe the use of itself,'' Nat. Commun. \textbf{9}, 3711 (2018).
+\bibitem{Graham1973} N. Graham, ``The measurement of relative frequency,'' in B. S. DeWitt and N. Graham (eds.), \emph{The Many-Worlds Interpretation of Quantum Mechanics} (Princeton University Press, 1973).
+\bibitem{Hensen2015} B. Hensen et al., ``Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres,'' Nature \textbf{526}, 682 (2015).
+\bibitem{Rovelli1996} C. Rovelli, ``Relational quantum mechanics,'' Int. J. Theor. Phys. \textbf{35}, 1637 (1996).
+\bibitem{tHooft2016} G. 't Hooft, \emph{The Cellular Automaton Interpretation of Quantum Mechanics} (Springer, 2016).
+\bibitem{TillittBorn} R. Tillitt, ``The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology,'' companion paper, draft v5 (2026).
+\bibitem{TillittCR} R. Tillitt, ``Configuration Realism: Foundations and Research Program,'' companion paper, draft v5 (2026).
+\bibitem{Tsirelson1980} B. S. Cirel'son, ``Quantum generalizations of Bell's inequality,'' Lett. Math. Phys. \textbf{4}, 93 (1980).
+\bibitem{Wallace2012} D. Wallace, \emph{The Emergent Multiverse} (Oxford University Press, 2012).
+\bibitem{WallaceTimpson2010} D. Wallace and C. G. Timpson, ``Quantum mechanics on spacetime I: spacetime state realism,'' Brit. J. Phil. Sci. \textbf{61}, 697 (2010).
+\end{thebibliography}
+
+\vspace{1em}
+\noindent\small Code and data: \texttt{chsh\_by\_counting.py}, \texttt{chsh\_figure.py} (available with this draft), extending the companion suite \texttt{cr\_toy\_model.py}, \texttt{step1\_multiplicativity.py}, \texttt{step4\_stability.py}.
+
+\end{document}

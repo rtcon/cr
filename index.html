@@ -5,6 +5,7 @@
   <meta name="robots" content="noai, noimageai, nosnippet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuration Realism</title>
+  <meta name="description" content="Configuration Realism: a finite, timeless configuration ontology — the Born exponent as a counting theorem, Bell violation by counting, and a labeled research program toward emergent time and geometry." />
   <script>
     MathJax = {
       tex: {
@@ -39,6 +40,7 @@
     nav li { margin: 0.2rem 0; }
     nav a { text-decoration: none; color: #0057b8; }
     nav a:hover { text-decoration: underline; }
+    a { color: #0057b8; }
     .postulate {
       padding-left: 1rem;
       margin: 1.5rem 0;
@@ -46,134 +48,403 @@
     .postulate-title { font-weight: bold; font-size: 1.05rem; margin-bottom: 0.5rem; }
     ul { padding-left: 1.4rem; }
     hr { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
-    .placeholder {
-      color: #666;
-      font-style: italic;
-      background: #f5f5f5;
-      border: 1px dashed #ccc;
+    .paper {
+      border: 1px solid #ddd;
       border-radius: 4px;
-      padding: 1rem 1.25rem;
+      background: #fff;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
     }
+    .paper h3 { margin-top: 0; }
+    .paper .meta { color: #666; font-size: 0.92rem; margin: 0.2rem 0 0.8rem; }
+    .paper .links { font-size: 0.95rem; margin-bottom: 0.9rem; }
+    .abstract {
+      font-size: 0.95rem;
+      color: #333;
+      border-left: 3px solid #ddd;
+      padding-left: 1rem;
+      margin: 0;
+    }
+    .abstract .label { font-weight: bold; }
+    .model { margin: 2rem 0; }
+    .model h3 { margin-bottom: 0.3rem; }
+    .model .file { font-family: "Courier New", monospace; font-size: 0.9rem; color: #555; }
+    .results { font-size: 0.97rem; }
+    figure { margin: 1.2rem 0; }
+    figure img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #fff;
+    }
+    figcaption { font-size: 0.88rem; color: #666; margin-top: 0.4rem; }
+    code { font-family: "Courier New", monospace; font-size: 0.92em; background: #f0f0f0; padding: 0.05rem 0.3rem; border-radius: 3px; }
+    pre {
+      background: #f0f0f0; border: 1px solid #ddd; border-radius: 4px;
+      padding: 0.8rem 1rem; overflow-x: auto; font-size: 0.9rem;
+    }
+    .note { color: #666; font-size: 0.92rem; font-style: italic; }
   </style>
 </head>
 <body>
 
 <h1>Configuration Realism</h1>
-<p>A foundational ontology of physical reality grounded in timeless configuration space, finite records, and emergent dynamics.</p>
+<p>A finite, timeless configuration ontology for physics: quantum probability derived as a counting theorem, Bell violation exhibited by counting, and a labeled research program toward emergent time and geometry.</p>
 
 <nav>
   <p>Contents</p>
   <ol>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#papers">Papers</a></li>
     <li><a href="#postulates">Postulates</a></li>
-    <li><a href="#ontology">Ontology</a></li>
-    <li><a href="#derivations">Derivations</a></li>
+    <li><a href="#models">Toy Models &amp; Results</a></li>
+    <li><a href="#code">Code &amp; Data</a></li>
+    <li><a href="#about">Author, Citation, History</a></li>
   </ol>
 </nav>
 
 <!-- ================================================================ -->
+<section id="overview">
+  <h2>1. Overview</h2>
+  <p>
+    Configuration Realism (CR) is the framework obtained by taking three of the best-confirmed
+    results in physics at their word. The relativity of simultaneity, read ontically, yields a block
+    universe: all events exist, none privileged as present. The Wheeler&ndash;DeWitt constraint of
+    canonical quantum gravity, read at face value, eliminates fundamental temporal evolution. And the
+    Born rule of quantum probability, if its exponent is a fact about the world rather than a
+    principle about the credences of observers, requires outcome classes with a canonical measure
+    &mdash; which is to say, finite ones. CR is the minimal ontology consistent with all three
+    readings: a timeless, finite configuration space, in which information exists only as physical
+    records, probability is literal counting, and change is difference read along the refinement
+    ordering of an observer&rsquo;s records &mdash; with time as the emergent coordinate that labels it.
+  </p>
+  <p>
+    The work is organized by epistemic status, and every claim is priced &mdash; postulate, theorem,
+    verified, argument, conjecture, or open &mdash; in a ledger at the end of each paper. The derived
+    core is quantum probability: the population of an outcome class is proved to equal
+    \(N|\alpha|^2\) under named structural assumptions (the Born exponent as a counting theorem), and
+    the CHSH quantity assembled from ratios of integer counts reaches the quantum value
+    \(2\sqrt{2}\) &mdash; a finite ensemble of definite configurations is not a hidden-variable
+    model, and the papers show exactly why. The conjectural program &mdash; causal structure,
+    Lorentzian geometry, geodesic dynamics, horizon thermodynamics as continuum limits of closure
+    geometry &mdash; is stated as such, with its open problems named.
+  </p>
+</section>
+
+<!-- ================================================================ -->
+<section id="papers">
+  <h2>2. Papers</h2>
+  <p>Three papers, drafted July 2026. The two derivation papers are self-contained; the foundations paper states the full framework and integrates them.</p>
+
+  <div class="paper">
+    <h3>The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology</h3>
+    <p class="meta">Draft v5, July 2026</p>
+    <p class="links">
+      <a href="papers/born-exponent.pdf">PDF</a> &middot;
+      <a href="papers/born-exponent.tex">LaTeX source</a>
+    </p>
+    <p class="abstract"><span class="label">Abstract.</span>
+      We prove that, in a finite and timeless configuration ontology with relational phase structure,
+      the population of an outcome class &mdash; the number of configurations compatible with an
+      observer&rsquo;s records &mdash; equals \(N|\alpha|^2\), where \(N\) is the population of the
+      class being partitioned and \(\alpha\) is the coherent sum of stage-relative configuration
+      phases over the outcome class. Phase enters the ontology at two levels: it attaches additively
+      to degrees of freedom, which makes phase additivity a lemma rather than an assumption; and it
+      is relational &mdash; the phase of a configuration is defined relative to a stage of an
+      observer chain, accumulated along the refinement ordering. The relational character is not
+      optional: we prove that no context-free phase assignment is consistent with the existence of
+      nontrivial devices. The derivation then has two steps, each by contradiction: a population rule
+      that is not a pure power of \(|\alpha|\) contradicts the multiplicativity of counting for
+      independent subsystems; a power other than two contradicts the conservation of the number of
+      configurations &mdash; which is free of charge, because a device stands between two stages
+      whose records differ by no outcome information, and whose compatibility class is therefore one
+      fixed set. The mathematical core is classical; the contribution is the premise: the conserved
+      quantity is a cardinality, not a normalization convention. A necessity argument shows that an
+      ontic Born exponent requires canonically measurable &mdash; finite &mdash; outcome classes.
+      Because probability is defined as a counting ratio, the Born rule follows from the population
+      theorem; the further claim that observed frequencies track these ratios consumes exactly one
+      stated typicality assumption, on which the value of the exponent does not depend. All results
+      are verified by literal enumeration in an explicit finite model whose stage-relative phase
+      bookkeeping matches the ontology exactly.
+    </p>
+  </div>
+
+  <div class="paper">
+    <h3>CHSH by Counting: Bell Violation in a Finite Configuration Ontology</h3>
+    <p class="meta">Draft v2, July 2026</p>
+    <p class="links">
+      <a href="papers/chsh-by-counting.pdf">PDF</a> &middot;
+      <a href="papers/chsh-by-counting.tex">LaTeX source</a>
+    </p>
+    <p class="abstract"><span class="label">Abstract.</span>
+      A finite ensemble of definite, equally real configurations looks like it must obey the Bell
+      inequalities: definite values, counted, are the textbook picture of a local hidden-variable
+      model. We show that the instinct fails, and exhibit the failure by literal enumeration. In the
+      finite, timeless configuration ontology of the companion papers &mdash; where probability is
+      counting, phase is stage-relative, and the population of an outcome class is proved to equal
+      \(N|\alpha|^2\) &mdash; the CHSH quantity assembled from ratios of integer counts reaches the
+      quantum value \(2\sqrt{2}\) to \(O(1/N)\); at \(N = 4.2\times 10^6\), counted
+      \(|S| = 2.8284267\). The instinct fails for three separable reasons, each with a counting
+      formulation: structural exclusion (which configurations exist) is relative to the instantiated
+      measurement bases and fixes only the aligned-basis correlations; configurations bear outcome
+      records only for devices their correlation structure contains, so no configuration answers two
+      incompatible settings and, by Fine&rsquo;s theorem, no Bell inequality can be derived; and the
+      skew-angle statistics are carried by the phase structure of the class &mdash; the same cross
+      terms that carry two-slit interference. A control run makes the mechanism visible: inserting a
+      sector record, the which-path analog, forces per-class summation, the cross terms never form,
+      and counted \(|S|\) falls below the local bound. Marginal counts are computed for each wing
+      from that wing&rsquo;s structure alone, so the counting form of no-signaling holds by
+      construction and is tested exactly, including at small \(N\). On the no-go ledger the ontology
+      keeps locality and free settings; for the plain Bell scenario its operative escape is the
+      absence of counterfactual values, with the denial of absolute outcomes priced where it is
+      actually needed, in Wigner&rsquo;s-friend extensions. One in-model prediction distinguishes the
+      framework from continuum quantum mechanics: \(\bigl||S| - 2\sqrt 2\bigr| = O(1/N)\), with the
+      residue&rsquo;s scale robust and its sign conditional on the model&rsquo;s integer-apportionment
+      rule, which is flagged as a postulate. This paper is a demonstration and a disentangling, not a
+      new theorem: given the companion results, the violation is guaranteed; what is shown is why a
+      counting ontology is entitled to it.
+    </p>
+  </div>
+
+  <div class="paper">
+    <h3>Configuration Realism: Foundations and Research Program</h3>
+    <p class="meta">Draft v5, July 2026 &mdash; postulates, the derived core, consequences, and conjectures, with every claim priced</p>
+    <p class="links">
+      <a href="papers/foundations.pdf">PDF</a> &middot;
+      <a href="papers/foundations.tex">LaTeX source</a>
+    </p>
+    <p class="abstract"><span class="label">Abstract.</span>
+      We propose Configuration Realism (CR): physical reality consists of a finite, timeless
+      configuration space, each configuration a complete arrangement of fundamental degrees of
+      freedom. Phase enters at two levels: it attaches additively to degrees of freedom, and it is
+      relational &mdash; defined for a configuration relative to a stage of an observer chain,
+      accumulated along the refinement ordering. Configurations do not evolve. Information exists
+      only as finite physical records &mdash; lossy encodings of correlations &mdash; and each record
+      defines a compatibility class, the configurations it cannot distinguish. Closure laws express
+      the implication structure among correlations and order records by refinement; observers are
+      chains of record-bearing stages along this ordering; change is difference read along a
+      refinement chain, and time is the emergent coordinate that labels it. Closure distance,
+      accumulating in discrete quanta, measures the physical restructuring refinement requires. The
+      paper is organized by epistemic status. Its derived core, developed in two companion papers, is
+      quantum probability as counting: the population of an outcome class is proved to equal
+      \(N|\alpha|^2\) under named structural assumptions, with the frequency reading consuming
+      exactly one typicality principle; and the CHSH quantity assembled from integer counts reaches
+      the quantum value \(2\sqrt 2\), the ontology pricing counterfactual definiteness in the plain
+      Bell scenario &mdash; and the absoluteness of outcomes where Wigner&rsquo;s-friend extensions
+      demand it &mdash; rather than locality or free settings. Direct consequences follow for entropy
+      (two entropies of opposite sign along refinement, the arrow of time carried by the increasing
+      one), for the classical limit, and for objectivity as redundancy. The remainder is a labeled
+      research program: causal structure, Lorentzian geometry, geodesic dynamics, and horizon
+      thermodynamics as conjectured continuum limits of closure geometry, with the constructions that
+      would establish them stated as open problems. Every claim in the paper is tabulated with its
+      status &mdash; postulate, theorem, verified, argument, conjecture, or open.
+    </p>
+  </div>
+</section>
+
+<!-- ================================================================ -->
 <section id="postulates">
-  <h2>1. Postulates</h2>
-  <p>The theory rests on five foundational postulates.</p>
+  <h2>3. Postulates</h2>
+  <p>The framework rests on six postulates. Condensed statements follow; full statements, with the remarks that price them, are in the <a href="papers/foundations.pdf">foundations paper</a>.</p>
 
   <div class="postulate">
-    <div class="postulate-title">Postulate 1 — Configuration Space</div>
+    <div class="postulate-title">Postulate 1 — Timeless Finite Configuration Space with Relational Phase</div>
     <ul>
-      <li>Physical reality consists of a timeless <em>configuration space</em> \(\Omega\).</li>
-      <li>Each configuration \(\omega \in \Omega\) specifies a complete arrangement of fundamental degrees of freedom.</li>
-      <li>Configurations do not evolve in time.</li>
-      <li>Configuration space carries complex phase structure.</li>
+      <li>Physical reality consists of a timeless configuration space \(\Omega\) with \(|\Omega| < \infty\).</li>
+      <li>Each configuration \(\omega \in \Omega\) specifies a complete arrangement of fundamental degrees of freedom. Configurations do not evolve, and none is created or destroyed.</li>
+      <li>Phase enters at two levels. <em>Phase attaches to degrees of freedom</em>: a configuration&rsquo;s phase content composes additively from its independent parts (making phase additivity a lemma, not an assumption). <em>Phase is relational</em>: what exists is the phase of a configuration relative to a stage of an observer chain, \(S_r(\omega)\), accumulated along the refinement ordering; only phase differences within a stage are physical. A context-free per-configuration phase is provably inconsistent with the existence of nontrivial devices.</li>
     </ul>
   </div>
 
   <div class="postulate">
-    <div class="postulate-title">Postulate 2 — Records</div>
+    <div class="postulate-title">Postulate 2 — Finite Physical Records</div>
     <ul>
-      <li>Information exists only in the form of physical records.</li>
-      <li>A <em>record</em> \(r\) is a finite physical arrangement of degrees of freedom whose structure corresponds to correlations among degrees of freedom within configuration space.</li>
-      <li>Perfect representation of correlations would require reproducing the correlated structure itself. Records are therefore necessarily lossy with respect to the correlations present in configuration space.</li>
+      <li>Information exists only in the form of physical records: finite arrangements of degrees of freedom whose structure corresponds to correlations.</li>
+      <li>Perfect representation of correlations would require reproducing the correlated structure itself; records are therefore necessarily lossy.</li>
     </ul>
   </div>
 
   <div class="postulate">
     <div class="postulate-title">Postulate 3 — Compatibility Classes</div>
     <ul>
-      <li>Each record corresponds to the set of configurations compatible with the correlations included in that record.</li>
-      <li>This set defines the <em>compatibility class</em>:</li>
+      <li>Each record \(r\) defines its compatibility class,
         \[
-          \Omega_r = \{\, \omega \in \Omega \mid \omega \text{ is compatible with the correlations encoded in } r \,\}.
+          \Omega_r = \{\, \omega \in \Omega \mid \omega \text{ is compatible with the correlations encoded in } r \,\},
         \]
-      <li>Compatibility classes represent the configurations indistinguishable with respect to the correlations represented in the record.</li>
-    </ul>
-  </div>
-  
-  <div class="postulate">
-  
-  <div class="postulate-title">Postulate 4 — Closure Geometry</div>
-    <ul>
-      <li>Correlations among degrees of freedom may imply additional correlations.</li>
-      <li>A <em>closure operator</em> represents the implication structure among correlations and thereby defines the refinement relations among records, forming a refinement partial order whose chains represent admissible record refinements:
-        \[
-          r_1 \preceq r_2
-        \]
-      </li>
-      <li>Record structures therefore form a refinement lattice.</li>
-      <li>
-        This structure induces an invariant distinguishability measure called <em>closure distance</em>:
-        \[
-          d_c(r_1, r_2)
-        \]
-        representing the minimal restructuring required for one record to correspond to the correlations represented in another.
-      </li>
-      <li>
-        Closure distance accumulates discretely:
-        \[
-          d_c = N\,\delta_c
-        \]
-        where \(\delta_c\) is the <em>closure quantum</em>, the minimal distinguishable increment of correlation capacity.
-      </li>
+        the configurations indistinguishable with respect to \(r\).</li>
+      <li>For a fixed record-bearing subsystem, the classes of its distinguishable record states partition \(\Omega\); classes borne by different subsystems generally overlap.</li>
     </ul>
   </div>
 
   <div class="postulate">
-    <div class="postulate-title">Postulate 5 — Observers, Closure Dynamics and Measurement</div>
+    <div class="postulate-title">Postulate 4 — Closure Laws and Closure Distance</div>
     <ul>
-      <li>An <em>observer</em> is a structured subsystem within configurations whose internal degrees of freedom include records. Observers are defined purely structurally; no assumption of consciousness or subjective experience is made.</li>
-      <li><em>Closure dynamics</em> is the observer-relative evolution of an observer’s record state as it traverses configuration space along refinement chains defined by closure operators.</li>
-      <li>A <em>measurement</em> corresponds to closure dynamics in which the observer’s records change such that the compatibility class defined by those records changes.</li>
-      <li>Closure dynamics, rather than any fundamental evolution of configurations, corresponds to observer-relative change. Observer-relative quantum amplitudes and probabilities emerge from the inherited complex phase structure of compatibility classes, while classical time, motion, and spacetime trajectories emerge as coordinate representations of closure distance along record refinement chains.</li>
+      <li>Correlations may imply additional correlations. Closure laws express this implication structure and order records by refinement, \(r_1 \preceq r_2\), forming a refinement partial order.</li>
+      <li>The structure carries a directed distinguishability measure, closure distance \(d_c(r \to r')\): the minimal physical restructuring required to refine \(r\) into \(r'\). It satisfies \(d_c(r \to r) = 0\) and the directed triangle inequality; refinement is directional, and no symmetry is assumed.</li>
+    </ul>
+  </div>
+
+  <div class="postulate">
+    <div class="postulate-title">Postulate 5 — Closure Quantum</div>
+    <ul>
+      <li>Closure distance accumulates discretely: along any refinement chain, \(d_c = N_{\mathrm{steps}}\,\delta_c\), where \(\delta_c\) is the closure quantum, the minimal distinguishable increment of correlation-encoding capacity.</li>
+      <li>Nothing fundamental is infinitesimal; all continuum descriptions of closure geometry are coarse-grained.</li>
+    </ul>
+  </div>
+
+  <div class="postulate">
+    <div class="postulate-title">Postulate 6 — Observer Chains, Closure Dynamics, and Measurement</div>
+    <ul>
+      <li>An observer stage is a structured subsystem whose internal degrees of freedom include records; observers are defined purely structurally, with no assumption of consciousness or experience.</li>
+      <li>Configurations exist that contain structurally related observer stages whose records are ordered by refinement: observer chains exist. &ldquo;The observer&rdquo; is the identification across a chain &mdash; a family of subsystems of distinct configurations connected by closure structure alone.</li>
+      <li>Change is difference read along a refinement ordering; time is the emergent coordinate labeling it; a measurement is closure dynamics in which the compatibility class defined by the observer&rsquo;s records changes.</li>
     </ul>
   </div>
 </section>
 
 <!-- ================================================================ -->
-<section id="ontology">
-  <h2>2. Ontology</h2>
-  <div class="placeholder">Content for this section is forthcoming.</div>
-</section>
-
-<!-- ================================================================ -->
-<section id="derivations">
-  <h2>3. Derivations</h2>
-  <div class="placeholder">Content for this section is forthcoming.</div>
-</section>
-
+<section id="models">
+  <h2>4. Toy Models &amp; Results</h2>
   <p>
-<strong>Author</strong><br> 
+    Every derived claim is checked by literal enumeration in explicit finite models: configurations
+    are materialized as lists, probabilities are computed by counting elements, the counting rule was
+    fixed before any case was computed, and device parameters enter only through correlation
+    structure &mdash; never as weights on configurations. Phases are stage-relative throughout,
+    exactly as Postulate 1 prescribes. All figures below are generated by the scripts in
+    <a href="#code">Code &amp; Data</a>.
+  </p>
+
+  <div class="model">
+    <h3>Born by counting</h3>
+    <p class="file">code/cr_toy_model.py</p>
+    <p class="results">
+      Six tests of the counting rule \(n_i = N|\alpha_i|^2\) at class populations up to
+      \(4.2\times10^6\). Unequal beamsplitters: counted probability matches \(\cos^2\theta\) to
+      \(\sim 3\times10^{-7}\) (at \(\theta = 15^\circ\): 933,013 of \(10^6\) configurations against
+      0.9330127). Mach&ndash;Zehnder interference: fringe visibility 1.0000 by counting, tracking
+      \(\cos^2(\delta/2)\); inserting a which-path record drives visibility to 0.0000.
+      Conditionalization: measurement update as literal elimination reproduces conditional Born
+      values to \(5\times10^{-7}\). Three-outcome splitters: same law, no new ingredients. Exponent
+      uniqueness: with the scale calibrated once and held fixed, count conservation is violated by
+      15&ndash;41% for \(p \in \{1, 1.5, 2.5, 3\}\) and satisfied exactly at \(p = 2\) &mdash;
+      finiteness plus linearity force Born&rsquo;s square. Rational residue: the deviation from exact
+      Born statistics scales as \(O(1/N)\), measured log&ndash;log slope \(-1.06\).
+    </p>
+    <figure>
+      <img src="figures/toy_model_results.png" alt="Interference by counting; count conservation selecting p=2; O(1/N) residue" />
+      <figcaption>Interference by counting, with and without a which-path record (left); count conservation selecting \(p=2\) (center); \(O(1/N)\) residue (right).</figcaption>
+    </figure>
+  </div>
+
+  <div class="model">
+    <h3>Multiplicativity and entanglement</h3>
+    <p class="file">code/step1_multiplicativity.py</p>
+    <p class="results">
+      The two constraints of the Born derivation, separated numerically: product consistency across
+      independent subsystems eliminates every monotone non-power rule (violations at the
+      \(10^{-2}\) level), while count conservation eliminates every power but the square &mdash; the
+      two theorems of the derivation, each doing exactly its own work. Entanglement: multiplicativity
+      fails for a Bell-type state, as the derivation requires (its factorization lemma presupposes
+      independence); the entangled partner acts as a which-path record, driving unconditional fringe
+      visibility to 0.0000; conjugate-basis measurement restores conditional fringes at visibility
+      1.0000 with opposite phases &mdash; the quantum eraser, by counting.
+    </p>
+    <figure>
+      <img src="figures/step1_results.png" alt="Conditional fringes of the entangled configuration; product consistency and conservation jointly selecting x^2" />
+      <figcaption>Conditional fringes of the entangled configuration (left); product consistency and conservation jointly selecting \(x^2\) (right).</figcaption>
+    </figure>
+  </div>
+
+  <div class="model">
+    <h3>Stability, einselection, and duality</h3>
+    <p class="file">code/step4_stability.py</p>
+    <p class="results">
+      The domain of the Born rule, fixed by which partitions can carry stable records. Einselection
+      by counting: recording in a basis rotated by \(\xi\) from the coherent bundle disturbs
+      downstream fringes except at the bundle-aligned basis (\(\xi = 45^\circ\)), where recording
+      costs nothing &mdash; the stability criterion selects the recordable partition, not the
+      modeler. Objectivity as redundancy: \(k\) partial records at coupling strength \(\chi\) leave
+      visibility \((\cos\chi)^k\), verified at every grid point &mdash; stable records copy freely,
+      cross-cutting records degrade geometrically. Wave&ndash;particle duality: visibility and
+      distinguishability, both obtained from integer counts, satisfy \(V^2 + D^2 = 1\) with maximum
+      deviation \(3\times10^{-4}\).
+    </p>
+    <figure>
+      <img src="figures/step4_results.png" alt="Stability selects the recordable partition; redundancy decay; V^2+D^2=1 from integer counts" />
+      <figcaption>Stability selects the recordable partition (left); redundancy decay \(V = (\cos\chi)^k\) (center); \(V^2 + D^2 = 1\) from integer counts (right).</figcaption>
+    </figure>
+  </div>
+
+  <div class="model">
+    <h3>CHSH by counting</h3>
+    <p class="file">code/chsh_by_counting.py</p>
+    <p class="results">
+      Bell violation from a finite list of definite configurations. Aligned analyzers: same-spin
+      count exactly 0 of 4,200,000 &mdash; structural exclusion, in its basis. Skew analyzers: the
+      &ldquo;forbidden&rdquo; same-spin configurations exist, 307,538 per class against a Born value
+      of 307,537.9 &mdash; exclusion is basis-relative. CHSH at the standard settings:
+      \(|S| = 2.8284267\) from integer counts, within \(5\times10^{-7}\) of the quantum value
+      \(2\sqrt 2\). Control run: inserting a sector record (the which-path analog) forces per-class
+      summation and \(|S|\) falls to 1.4142, below the local bound &mdash; the entire violation is
+      carried by the cross terms the record removes. No-signaling by counting: each wing&rsquo;s
+      marginal counts are computed from that wing&rsquo;s structure alone and are exactly independent
+      of the other wing&rsquo;s setting, tested down to \(N = 20\). The residue
+      \(\bigl||S| - 2\sqrt2\bigr|\) scales as \(O(1/N)\), landing on both sides of the Tsirelson
+      bound &mdash; the scale robust, the sign conditional on the model&rsquo;s integer-apportionment
+      rule.
+    </p>
+    <figure>
+      <img src="figures/chsh_results.png" alt="Counted correlators track -cos(a-b); counted |S| vs bounds; O(1/N) residue around Tsirelson" />
+      <figcaption>Counted correlators track \(-\cos\Delta\) for the coherent class and the common-cause form for the recorded control (left); counted \(|S|\) against the local and Tsirelson bounds (center); \(O(1/N)\) residue, both sides of Tsirelson (right).</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<section id="code">
+  <h2>5. Code &amp; Data</h2>
+  <p>
+    All scripts are plain Python (NumPy; Matplotlib for figures) and run in seconds. Each prints its
+    tests and verdicts to the console and regenerates the corresponding figure.
+  </p>
+  <ul>
+    <li><a href="code/cr_toy_model.py"><code>cr_toy_model.py</code></a> — Born by counting: splits, interference, decoherence, conditionalization, exponent uniqueness, \(O(1/N)\) scaling.</li>
+    <li><a href="code/step1_multiplicativity.py"><code>step1_multiplicativity.py</code></a> — product consistency vs. conservation; entanglement and the quantum eraser by counting.</li>
+    <li><a href="code/step4_stability.py"><code>step4_stability.py</code></a> — einselection, redundancy \((\cos\chi)^k\), and \(V^2+D^2=1\) from integer counts.</li>
+    <li><a href="code/chsh_by_counting.py"><code>chsh_by_counting.py</code></a> — CHSH at \(2\sqrt 2\) by counting; sector-record control; exact no-signaling; residue scaling.</li>
+    <li><a href="code/chsh_figure.py"><code>chsh_figure.py</code></a> — generates the CHSH results figure.</li>
+  </ul>
+  <pre>pip install numpy matplotlib
+python3 cr_toy_model.py
+python3 step1_multiplicativity.py
+python3 step4_stability.py
+python3 chsh_by_counting.py</pre>
+</section>
+
+<!-- ================================================================ -->
+<section id="about">
+  <h2>6. Author, Citation, History</h2>
+  <p>
+    <strong>Author</strong><br>
     Russell Tillitt<br>
     Independent Researcher<br>
     San Francisco, California
-</p>
-<p>
-<strong>Suggested Citation</strong><br>
-    Tillitt, R. (2026). <em>Configuration Realism: A Foundational Ontology of Physical Reality</em>.
-</p>
-<p>
-<strong>Revision History</strong><br>
-    Version 0.1 -- March 2026
-</p>
-<p>
-© 2026 Russell Tillitt. All rights reserved.
-</p>
+  </p>
+  <p>
+    <strong>Suggested Citation</strong><br>
+    Tillitt, R. (2026). <em>The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology</em>. configurationrealism.com.<br>
+    Tillitt, R. (2026). <em>CHSH by Counting: Bell Violation in a Finite Configuration Ontology</em>. configurationrealism.com.<br>
+    Tillitt, R. (2026). <em>Configuration Realism: Foundations and Research Program</em>. configurationrealism.com.
+  </p>
+  <p>
+    <strong>Revision History</strong><br>
+    Version 0.2 &mdash; July 2026: three papers (Born exponent v5, CHSH v2, Foundations v5), toy models and results, postulates updated to the relational-phase formulation.<br>
+    Version 0.1 &mdash; March 2026: initial postulates.
+  </p>
+  <p>
+    &copy; 2026 Russell Tillitt. All rights reserved.
+  </p>
+</section>
 
 </body>
 </html>
