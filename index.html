@@ -95,6 +95,7 @@
   <p>Contents</p>
   <ol>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#predictions">What Differs from Standard Quantum Mechanics</a></li>
     <li><a href="#papers">Papers</a></li>
     <li><a href="#postulates">Postulates</a></li>
     <li><a href="#models">Toy Models &amp; Results</a></li>
@@ -107,8 +108,8 @@
 <section id="overview">
   <h2>1. Overview</h2>
   <p>
-    Configuration Realism (CR) is the framework obtained by taking three of the best-confirmed
-    results in physics at their word. The relativity of simultaneity, read ontically, yields a block
+    Configuration Realism (CR) is the framework obtained by reading three of the best-confirmed
+    results in physics at face value. The relativity of simultaneity, read ontically, yields a block
     universe: all events exist, none privileged as present. The Wheeler&ndash;DeWitt constraint of
     canonical quantum gravity, read at face value, eliminates fundamental temporal evolution. And the
     Born rule of quantum probability, if its exponent is a fact about the world rather than a
@@ -119,7 +120,7 @@
     ordering of an observer&rsquo;s records &mdash; with time as the emergent coordinate that labels it.
   </p>
   <p>
-    The work is organized by epistemic status, and every claim is priced &mdash; postulate, theorem,
+    The work is organized by epistemic status, and every claim is classified &mdash; postulate, theorem,
     verified, argument, conjecture, or open &mdash; in a ledger at the end of each paper. The derived
     core is quantum probability: the population of an outcome class is proved to equal
     \(N|\alpha|^2\) under named structural assumptions (the Born exponent as a counting theorem), and
@@ -132,8 +133,46 @@
 </section>
 
 <!-- ================================================================ -->
+<section id="predictions">
+  <h2>2. What Differs from Standard Quantum Mechanics</h2>
+  <p>
+    A framework that reproduced quantum statistics exactly, in every regime, would be an
+    interpretation. Configuration Realism is not in that position: finiteness leaves fingerprints,
+    none shared by any continuum formulation. Full statements, mechanisms, and the falsifiability
+    analysis are in the <a href="papers/foundations.pdf">foundations paper</a>; in brief:
+  </p>
+  <ul>
+    <li><strong>Rational probabilities.</strong> Every probability is a ratio of two cardinalities,
+      hence a rational number; irrational Born values like \(\cos^2 15^\circ\) are approximated,
+      never attained, with error of order \(1/N\). Every precision test of quantum mechanics is,
+      on this framework, a lower-bound measurement of \(N\): conformity at precision \(\epsilon\)
+      implies \(N \gtrsim 1/\epsilon\). Resolving the offset outright requires
+      \(T \gtrsim N^2\) trials.</li>
+    <li><strong>Two-sided Tsirelson deviations.</strong> The counted CHSH quantity differs from
+      \(2\sqrt{2}\) by \(O(1/N)\) &mdash; and, because counted correlators are rational, can land
+      <em>above</em> the Tsirelson bound, as it does in the enumeration. A statistically resolved
+      excess over \(2\sqrt 2\) is compatible with no continuum formulation of quantum mechanics.</li>
+    <li><strong>Refinement-graded graininess.</strong> The deviation scale for an experiment is set
+      by the measured sector&rsquo;s own unresolved multiplicity (environment multiplicity cancels
+      in the counting ratios), so the deviation from Born statistics is not a constant of the world
+      but grows with how completely the measured sector has been recorded &mdash; maximal near
+      closure saturation, the framework&rsquo;s rendering of horizons. Because this is a predicted
+      <em>relation</em> rather than a single number, it is the framework&rsquo;s genuine refutation
+      channel: where the multiplicity can be independently estimated, graininess must track
+      refinement, or the counting ontology is wrong.</li>
+    <li><strong>Logarithmic run-length bound.</strong> A stored \(k\)-run outcome sequence has
+      population \(\sim M_s\prod_i p_i\), which depopulates once \(k\) exceeds roughly
+      \(\log M_s\): a finite world supports literal-counting frequency statistics only over runs
+      shorter than the logarithm of its unresolved multiplicity.</li>
+    <li><strong>Entropy caps.</strong> No record&rsquo;s entropy exceeds the log of its class
+      population, and nothing exceeds \(\log|\Omega|\) &mdash; a native maximum-entropy statement,
+      aligning with the Bekenstein and de Sitter bounds that independently motivate finiteness.</li>
+  </ul>
+</section>
+
+<!-- ================================================================ -->
 <section id="papers">
-  <h2>2. Papers</h2>
+  <h2>3. Papers</h2>
   <p>Three papers, drafted July 2026. The two derivation papers are self-contained; the foundations paper states the full framework and integrates them.</p>
 
   <div class="paper">
@@ -196,8 +235,8 @@
       from that wing&rsquo;s structure alone, so the counting form of no-signaling holds by
       construction and is tested exactly, including at small \(N\). On the no-go ledger the ontology
       keeps locality and free settings; for the plain Bell scenario its operative escape is the
-      absence of counterfactual values, with the denial of absolute outcomes priced where it is
-      actually needed, in Wigner&rsquo;s-friend extensions. One in-model prediction distinguishes the
+      absence of counterfactual values, with the denial of absolute outcomes required only in
+      Wigner&rsquo;s-friend extensions. One in-model prediction distinguishes the
       framework from continuum quantum mechanics: \(\bigl||S| - 2\sqrt 2\bigr| = O(1/N)\), with the
       residue&rsquo;s scale robust and its sign conditional on the model&rsquo;s integer-apportionment
       rule, which is flagged as a postulate. This paper is a demonstration and a disentangling, not a
@@ -208,7 +247,7 @@
 
   <div class="paper">
     <h3>Configuration Realism: Foundations and Research Program</h3>
-    <p class="meta">Draft v5, July 2026 &mdash; postulates, the derived core, consequences, and conjectures, with every claim priced</p>
+    <p class="meta">Draft v5, July 2026 &mdash; postulates, the derived core, consequences, and conjectures, with the status of every claim tabulated</p>
     <p class="links">
       <a href="papers/foundations.pdf">PDF</a> &middot;
       <a href="papers/foundations.tex">LaTeX source</a>
@@ -229,7 +268,7 @@
       quantum probability as counting: the population of an outcome class is proved to equal
       \(N|\alpha|^2\) under named structural assumptions, with the frequency reading consuming
       exactly one typicality principle; and the CHSH quantity assembled from integer counts reaches
-      the quantum value \(2\sqrt 2\), the ontology pricing counterfactual definiteness in the plain
+      the quantum value \(2\sqrt 2\), the ontology giving up counterfactual definiteness in the plain
       Bell scenario &mdash; and the absoluteness of outcomes where Wigner&rsquo;s-friend extensions
       demand it &mdash; rather than locality or free settings. Direct consequences follow for entropy
       (two entropies of opposite sign along refinement, the arrow of time carried by the increasing
@@ -244,7 +283,7 @@
 
 <!-- ================================================================ -->
 <section id="postulates">
-  <h2>3. Postulates</h2>
+  <h2>4. Postulates</h2>
   <p>The framework rests on six postulates. Condensed statements follow; full statements, with the remarks that price them, are in the <a href="papers/foundations.pdf">foundations paper</a>.</p>
 
   <div class="postulate">
@@ -304,7 +343,7 @@
 
 <!-- ================================================================ -->
 <section id="models">
-  <h2>4. Toy Models &amp; Results</h2>
+  <h2>5. Toy Models &amp; Results</h2>
   <p>
     Every derived claim is checked by literal enumeration in explicit finite models: configurations
     are materialized as lists, probabilities are computed by counting elements, the counting rule was
@@ -402,7 +441,7 @@
 
 <!-- ================================================================ -->
 <section id="code">
-  <h2>5. Code &amp; Data</h2>
+  <h2>6. Code &amp; Data</h2>
   <p>
     All scripts are plain Python (NumPy; Matplotlib for figures) and run in seconds. Each prints its
     tests and verdicts to the console and regenerates the corresponding figure.
@@ -423,7 +462,7 @@ python3 chsh_by_counting.py</pre>
 
 <!-- ================================================================ -->
 <section id="about">
-  <h2>6. Author, Citation, History</h2>
+  <h2>7. Author, Citation, History</h2>
   <p>
     <strong>Author</strong><br>
     Russell Tillitt<br>
