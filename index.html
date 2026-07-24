@@ -177,11 +177,11 @@
 <!-- ================================================================ -->
 <section id="papers">
   <h2>3. Papers</h2>
-  <p>Three papers, drafted July 2026. The two derivation papers are self-contained; the foundations paper states the full framework and integrates them.</p>
+  <p>Three papers, July 2026 &mdash; Release 1.0 of the framework. Each paper is versioned independently, starting at v1 with this release. The two derivation papers are self-contained; the foundations paper states the full framework and integrates them. All three papers are licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
 
   <div class="paper">
     <h3>The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology</h3>
-    <p class="meta">Draft v5, July 2026</p>
+    <p class="meta">v1, July 2026</p>
     <p class="links">
       <a href="papers/born-exponent.pdf">PDF</a> &middot;
       <a href="papers/born-exponent.tex">LaTeX source</a>
@@ -190,31 +190,33 @@
       We prove that, in a finite and timeless configuration ontology with relational phase structure,
       the population of an outcome class &mdash; the number of configurations compatible with an
       observer&rsquo;s records &mdash; equals \(N|\alpha|^2\), where \(N\) is the population of the
-      class being partitioned and \(\alpha\) is the coherent sum of stage-relative configuration
-      phases over the outcome class. Phase enters the ontology at two levels: it attaches additively
-      to degrees of freedom, which makes phase additivity a lemma rather than an assumption; and it
-      is relational &mdash; the phase of a configuration is defined relative to a stage of an
-      observer chain, accumulated along the refinement ordering. The relational character is not
-      optional: we prove that no context-free phase assignment is consistent with the existence of
-      nontrivial devices. The derivation then has two steps, each by contradiction: a population rule
-      that is not a pure power of \(|\alpha|\) contradicts the multiplicativity of counting for
-      independent subsystems; a power other than two contradicts the conservation of the number of
-      configurations &mdash; which is free of charge, because a device stands between two stages
-      whose records differ by no outcome information, and whose compatibility class is therefore one
-      fixed set. The mathematical core is classical; the contribution is the premise: the conserved
-      quantity is a cardinality, not a normalization convention. A necessity argument shows that an
-      ontic Born exponent requires canonically measurable &mdash; finite &mdash; outcome classes.
-      Because probability is defined as a counting ratio, the Born rule follows from the population
-      theorem; the further claim that observed frequencies track these ratios consumes exactly one
-      stated typicality assumption, on which the value of the exponent does not depend. All results
-      are verified by literal enumeration in an explicit finite model whose stage-relative phase
-      bookkeeping matches the ontology exactly.
+      parent class and \(\alpha\) is the coherent sum of stage-relative configuration phases over the
+      outcome class. Because probability in this ontology is <em>defined</em> as a counting ratio,
+      the Born rule follows: quantum probability is quadratic because counting is quadratic. The
+      mathematical core of the argument is classical; the contribution is the premise: the conserved
+      quantity is a cardinality, not a normalization convention. Phase enters the ontology at two
+      levels: it attaches additively to degrees of freedom, making phase additivity a lemma rather
+      than an assumption; and it is relational, defined for each configuration relative to a stage of
+      an observer chain &mdash; we prove that no context-free phase assignment is consistent with the
+      existence of nontrivial devices. Given the linear composition of devices, the derivation
+      proceeds in two steps, each by contradiction. First, a population rule that is not a pure power
+      of \(|\alpha|\) contradicts the multiplicativity of counting for independent subsystems.
+      Second, an exponent other than two contradicts conservation of the number of configurations,
+      which holds automatically because a device stands between two stages whose records differ by no
+      outcome information and therefore share one fixed compatibility class. A necessity argument
+      shows that an ontic Born exponent requires canonically measurable &mdash; hence finite &mdash;
+      outcome classes; passing from populations to observed frequencies requires exactly one
+      explicitly stated typicality assumption, on which the value of the exponent does not depend.
+      All results are verified by literal enumeration in an explicit finite model with class
+      populations up to \(4.2\times10^6\), and finiteness yields falsifiable departures from
+      continuum quantum mechanics: every probability is rational, and Born statistics hold to
+      \(O(1/N)\).
     </p>
   </div>
 
   <div class="paper">
     <h3>CHSH by Counting: Bell Violation in a Finite Configuration Ontology</h3>
-    <p class="meta">Draft v2, July 2026</p>
+    <p class="meta">v1, July 2026</p>
     <p class="links">
       <a href="papers/chsh-by-counting.pdf">PDF</a> &middot;
       <a href="papers/chsh-by-counting.tex">LaTeX source</a>
@@ -228,12 +230,12 @@
       \(N|\alpha|^2\) &mdash; the CHSH quantity assembled from ratios of integer counts reaches the
       quantum value \(2\sqrt{2}\) to \(O(1/N)\); at \(N = 4.2\times 10^6\), counted
       \(|S| = 2.8284267\). The instinct fails for three separable reasons, each with a counting
-      formulation: structural exclusion (which configurations exist) is relative to the instantiated
-      measurement bases and fixes only the aligned-basis correlations; configurations bear outcome
-      records only for devices their correlation structure contains, so no configuration answers two
-      incompatible settings and, by Fine&rsquo;s theorem, no Bell inequality can be derived; and the
-      skew-angle statistics are carried by the phase structure of the class &mdash; the same cross
-      terms that carry two-slit interference. A control run makes the mechanism visible: inserting a
+      formulation. Structural exclusion &mdash; which configurations exist &mdash; is relative to the
+      instantiated measurement bases and fixes only the aligned-basis correlations. Configurations
+      bear outcome records only for the devices their correlation structure contains, so no
+      configuration answers two incompatible settings and, by Fine&rsquo;s theorem, no Bell
+      inequality can be derived. And the skew-angle statistics are carried by the phase structure of
+      the class &mdash; the same cross terms that carry two-slit interference. A control run makes the mechanism visible: inserting a
       sector record, the which-path analog, forces per-class summation, the cross terms never form,
       and counted \(|S|\) falls below the local bound. Marginal counts are computed for each wing
       from that wing&rsquo;s structure alone, so the counting form of no-signaling holds by
@@ -251,7 +253,7 @@
 
   <div class="paper">
     <h3>Configuration Realism: Foundations and Research Program</h3>
-    <p class="meta">Draft v5, July 2026 &mdash; postulates, the derived core, consequences, and conjectures, with the status of every claim tabulated</p>
+    <p class="meta">v1, July 2026 &mdash; postulates, the derived core, consequences, and conjectures, with the status of every claim tabulated</p>
     <p class="links">
       <a href="papers/foundations.pdf">PDF</a> &middot;
       <a href="papers/foundations.tex">LaTeX source</a>
@@ -259,28 +261,31 @@
     <p class="abstract"><span class="label">Abstract.</span>
       We propose Configuration Realism (CR): physical reality consists of a finite, timeless
       configuration space, each configuration a complete arrangement of fundamental degrees of
-      freedom. Phase enters at two levels: it attaches additively to degrees of freedom, and it is
-      relational &mdash; defined for a configuration relative to a stage of an observer chain,
-      accumulated along the refinement ordering. Configurations do not evolve. Information exists
-      only as finite physical records &mdash; lossy encodings of correlations &mdash; and each record
-      defines a compatibility class, the configurations it cannot distinguish. Closure laws express
-      the implication structure among correlations and order records by refinement; observers are
-      chains of record-bearing stages along this ordering; change is difference read along a
-      refinement chain, and time is the emergent coordinate that labels it. Closure distance,
-      accumulating in discrete quanta, measures the physical restructuring refinement requires. The
-      paper is organized by epistemic status. Its derived core, developed in two companion papers, is
-      quantum probability as counting: the population of an outcome class is proved to equal
-      \(N|\alpha|^2\) under named structural assumptions, with the frequency reading consuming
-      exactly one typicality principle; and the CHSH quantity assembled from integer counts reaches
-      the quantum value \(2\sqrt 2\), the ontology giving up counterfactual definiteness in the plain
-      Bell scenario &mdash; and the absoluteness of outcomes where Wigner&rsquo;s-friend extensions
-      demand it &mdash; rather than locality or free settings. Direct consequences follow for entropy
-      (two entropies of opposite sign along refinement, the arrow of time carried by the increasing
-      one), for the classical limit, and for objectivity as redundancy. The remainder is a labeled
-      research program: causal structure, Lorentzian geometry, geodesic dynamics, and horizon
-      thermodynamics as conjectured continuum limits of closure geometry, with the constructions that
-      would establish them stated as open problems. Every claim in the paper is tabulated with its
-      status &mdash; postulate, theorem, verified, argument, conjecture, or open.
+      freedom, with phase attaching additively to degrees of freedom and defined relationally &mdash;
+      relative to a stage of an observer chain. Configurations do not evolve. Information exists only
+      as finite, lossy physical records; each record defines a compatibility class, the
+      configurations it cannot distinguish; and probability is defined as counting over these
+      classes. The framework&rsquo;s derived core, proved in two companion papers under named
+      structural assumptions, is that quantum probability is this counting: the population of an
+      outcome class equals \(N|\alpha|^2\) &mdash; the Born rule as a theorem, with the frequency
+      reading consuming exactly one typicality principle &mdash; and the CHSH quantity assembled from
+      integer counts reaches the quantum value \(2\sqrt 2\), the ontology giving up counterfactual
+      definiteness in the plain Bell scenario &mdash; and the absoluteness of outcomes where
+      Wigner&rsquo;s-friend extensions demand it &mdash; rather than locality or free settings.
+      Around this core, closure laws express the implication structure among correlations and order
+      records by refinement; observers are chains of record-bearing stages; change is difference read
+      along a refinement chain, time is the emergent coordinate that labels it, and closure distance,
+      accumulating in discrete quanta, measures the physical restructuring refinement requires.
+      Direct consequences follow for entropy (two entropies of opposite sign along refinement, the
+      arrow of time carried by the increasing one), for the classical limit, and for objectivity as
+      redundancy. The remainder is a labeled research program: causal structure, Lorentzian geometry,
+      geodesic dynamics, and horizon thermodynamics as conjectured continuum limits of closure
+      geometry, with the constructions that would establish them stated as open problems. A dedicated
+      section collects the framework&rsquo;s distinctive predictions &mdash; the \(O(1/N)\) family
+      separating a counting world from continuum quantum mechanics, including a refinement-graded
+      deviation from Born statistics whose scale grows with how completely the measured sector has
+      been recorded &mdash; each with its mechanism and in-principle test. Every claim in the paper
+      is tabulated with its status: postulate, theorem, verified, argument, conjecture, or open.
     </p>
   </div>
 </section>
@@ -485,12 +490,15 @@ python3 chsh_by_counting.py</pre>
   </p>
   <p>
     <strong>Revision History</strong><br>
+    Release 1.0 &mdash; July 2026: publication release. Abstracts revised; internal draft labels retired &mdash; each paper is now versioned independently, starting at v1; papers licensed CC BY 4.0. Release 1.0 comprises the Born exponent paper v1, the CHSH paper v1, the foundations paper v1, and the code suite.<br>
     Version 0.2 &mdash; July 2026: three papers (Born exponent, CHSH by counting, foundations), toy models and results, postulates updated to the relational-phase formulation.<br>
     Version 0.1 &mdash; March 2026: initial postulates published at this site under the name Configuration Realism.<br>
     Origin &mdash; 2024, possibly earlier: the framework was first developed in written form under the name <em>Quantum Eternalism</em>. The earliest dated summary (private correspondence, April 2024) already contains the core commitments: a timeless totality of all configurations, no evolution or branching, observation as change in an observer&rsquo;s information state, interference among configurations shaping what is observed, and an emergent arrow of time &mdash; developed in explicit relation to Barbour&rsquo;s timeless mechanics and the Wheeler&ndash;DeWitt equation.
   </p>
   <p>
-    &copy; 2026 Russell Tillitt. All rights reserved.
+    &copy; 2026 Russell Tillitt. The three papers and their LaTeX sources are licensed under a
+    <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0
+    International License (CC BY 4.0)</a>; all other site content, all rights reserved.
   </p>
 </section>
 
