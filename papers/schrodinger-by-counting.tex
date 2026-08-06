@@ -1,0 +1,215 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[colorlinks=true]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem*{example*}{Example}
+
+\title{Schr\"odinger by Counting:\\ Wavepacket Dynamics in a Finite Configuration Ontology}
+\author{Russell Tillitt\\ \small Independent Researcher, San Francisco, California}
+\date{August 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Quantum dynamics has, in the ontology of the companion papers, so far been a dictionary entry: posit a composition kernel or a closure-distance functional, and observe that a familiar equation of motion follows. This paper replaces the posit with a computation. In a finite, timeless configuration space where probability is counting and the population of an outcome class is proved to equal $N|\alpha|^2$, we construct a refinement chain from local devices---nearest-neighbour beamsplitters and per-cell phase increments, all on the 3,600-value phase lattice of the companion models---and evolve wavepacket classes by literal enumeration. The small-angle brickwork realizes the lattice Hamiltonian $H = -2\eta\cos k + V(x)$: the effective mass $m^\ast = 1/(2\eta)$ is the inverse hopping rate---mass as resistance to record restructuring, now obtained from the move set rather than posited---and the potential is a cell-dependent phase cost per closure step. Counted populations reproduce the Schr\"odinger spreading law $\sigma^2(t) = \sigma_0^2 + (t/2m^\ast\sigma_0)^2$, the group velocity to seven significant figures against the exact device chain, and harmonic oscillation at $\omega = \sqrt{2\eta\kappa}$, with $\sum_x n_x = N$ exact at every stage---the counting form of unitarity, tested exactly. Two findings go beyond agreement. First, the counted packet has a literal edge: populations fall to one configuration and then to zero exactly where the Born value crosses $1/N$, so a counting world's particle has finite support where the continuum Gaussian merely thins---the rational-probability prediction rendered in position space. Second, the ontology's record-relative definition of classes is load-bearing for dynamics: counting once at the measurement stage (the chain as one composite device) yields residues of $O(1/N)$, measured log--log slope $-0.94$, whereas imputing an integer census to unrecorded intermediate stages---partitions where no records are---degrades the scaling to slope $-0.62$ through the amplitude granularity of few-configuration tail classes. A philosophical-looking clause is worth a factor of $\sqrt{N}$. What is not shown is a derivation of the Schr\"odinger equation from the postulates. The cell structure is a named input [CS]---but not a foreign one: its three clauses are the discrete shadow of the framework's own emergent-space program, and we locate each, finding that a preferred partition is what the stability criterion already selects, that adjacency is what the elementary refinement move set already supplies, and that only the graph's large-scale regularity---together with an assumed uniformity of hopping rate, which is a flatness assumption---remains genuinely open. Reading the cells as emergent space has an immediate dividend: the construction's maximal group velocity is one instance of the framework's conjectured invariant speed, computed rather than posited, since a single elementary move defines both the refinement step and the spatial adjacency. Relaxing uniformity---a position-dependent hopping rate, hence a position-dependent effective mass---is the discrete form of curvature, and is the natural next model.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+The framework paper of this series \cite{TillittCR} treats dynamics by dictionary: if closure distance has a stated functional form, Newtonian mechanics is its variational structure; if amplitudes compose by a stated kernel, the Schr\"odinger equation is its conjectured continuum limit. The dictionary entries demonstrate compatibility, not mechanism---the functional forms are inputs, and the framework paper says so, classifying the Schr\"odinger claim as a conjecture with a stated derivation path. This paper walks a stretch of that path, in the manner the series has used before \cite{TillittCHSH}: not by proving the continuum theorem, but by constructing the discrete object the theorem would be about, and computing.
+
+The construction consumes the companion results \cite{TillittBorn}: a finite, timeless configuration space; probability defined as counting; the population of an outcome class proved equal to $N|\alpha|^2$, with $\alpha$ the coherent sum of stage-relative configuration phases at the parent-relative scale. To these it adds one named input: a position-cell structure on the measured sector, with the closure laws licensing elementary devices only within a cell and between adjacent cells. Locality of the move set is the physical content; everything else is arithmetic under the derived rule.
+
+That input deserves its proper name at the outset, because it is easy to mistake for an import from continuum physics. The Schr\"odinger equation is a statement about where a particle is at a given time, and this ontology has neither positions nor times fundamentally---both are emergent, time as the label of the refinement ordering (framework paper, Postulate on observer chains) and space as the structure the framework's Part IV conjectures from closure geometry. The cell structure assumed here is not an additional commitment alongside that program: it is that program's discrete shadow, assumed at the level the enumeration needs. Section~\ref{sec:moveset} decomposes it into three clauses and locates each against what the framework already possesses.
+
+The register is the same as the CHSH companion's, and is stated at the outset. This is a consistency computation for a mechanical theory: the companion derivation is a principle-theory construction---measured regularities elevated to postulates, the Born exponent returned as a counting theorem---and the present question is whether the counting ontology, equipped with a local move set, propagates like quantum mechanics. The enumeration below shows that it does, exhibits where the familiar dynamical quantities live in the ontology, and surfaces one structural fact about the framework that only the computation could have priced.
+
+\paragraph{What is shown, and what is not.}
+The status of the result, stated exactly, in the manner of the companion papers.
+\begin{itemize}
+\item \emph{Not a derivation of the Schr\"odinger equation from the postulates.} The cell structure of the refinement graph is assumed, as the named input [CS] of Section~\ref{sec:moveset}, and the claims here are conditional on it exactly as the companion theorems are conditional on [AS], [LC], [PR]. What Section~\ref{sec:moveset} adds is an accounting: of [CS]'s three clauses, the existence of a preferred partition is what the companion's stability criterion selects, and adjacency is read off the elementary refinement move set the closure postulates already commit to; what remains genuinely assumed is the graph's large-scale regularity---dimension and lattice structure---which is the framework's own open continuum-limit problem, not a new debt. [CS] is thus an assumption of exactly what Part IV conjectures, no more.
+\item \emph{The dictionary entries become consequences of the move set.} Given [CS], the effective mass and the potential are no longer posited: $m^\ast = 1/(2\eta)$ is the inverse hopping rate of the elementary refinement---mass as resistance to record restructuring, now with the identification computed rather than asserted---and $V(x)$ is a cell-dependent phase cost per closure step. The Schr\"odinger phenomenology (spreading, drift, oscillation) is then computed by enumeration under the derived counting rule, with $\sum_x n_x = N$ exact at every stage.
+\item \emph{One structural finding.} The ontology defines classes by records (companion Postulate on compatibility classes), so at unrecorded intermediate stages of a propagation chain no cell partition exists. The enumeration prices this clause: counting once at the measurement stage yields residues of $O(1/N)$; imputing an integer census to every intermediate stage degrades the scaling to $\sim N^{-0.6}$. Record-relativity of partitions is not interpretive decoration; it is what protects the framework's $O(1/N)$ prediction family under time evolution (Section~\ref{sec:models}).
+\item \emph{One prediction rendered.} Because populations are integers, the counted packet has finite support, terminating exactly where the Born value crosses $1/N$---the companion's rational-probability prediction (P1 of the framework paper) in position space, with the outermost cells holding populations of literally one (Section~\ref{sec:pred}).
+\end{itemize}
+
+\paragraph{Scope.} Everything is conditional on the companion results and their assumptions ([AS] aggregate structure, [LC] linear composition, [PR] the population rule; phase additivity a lemma; frequencies consuming [T]) \cite{TillittBorn}, plus [CS]. The phase texture instantiated is an admissible one, not a derived one, and the integer-apportionment rule is a model postulate, both as in the CHSH companion \cite{TillittCHSH}. The demonstrated regime is the small-wavenumber corner of a lattice band---which is where nonrelativistic quantum mechanics lives in any discrete local construction (Remark~\ref{rem:band})---on a one-dimensional cell chain.
+
+\paragraph{Plan.} Section~\ref{sec:ontology} compresses the ontology to what is consumed. Section~\ref{sec:moveset} states [CS], constructs the device chain, and computes its effective Hamiltonian. Section~\ref{sec:models} poses the licensing question---where may the counting rule be applied?---and answers it from the postulates. Section~\ref{sec:enum} reports the enumeration; Section~\ref{sec:pred} the predictions; Section~\ref{sec:ledger} the status of every claim; Section~\ref{sec:prior} relations to prior work; Section~\ref{sec:concl} limitations and conclusion.
+
+\section{The Ontology, Compressed}\label{sec:ontology}
+Full statements are in the companions \cite{TillittBorn,TillittCR}; what follows is the minimum this paper consumes. Physical reality is a timeless configuration space $\Omega$, $|\Omega| < \infty$; each configuration is a complete arrangement of fundamental degrees of freedom. Phase attaches additively to degrees of freedom and is relational---defined for each configuration relative to a stage of an observer chain, accumulated along the refinement ordering, with successive stages related by increments; no context-free assignment is consistent with nontrivial devices \cite{TillittBorn}. Information exists only as records; a record $r$ defines its compatibility class $\Omega_r$, and \emph{classes are defined by records}---a partition of a sector exists at a stage only if a record distinguishes its cells. Probability is counting, $P(r_i \mid r) = |\Omega_{r_i}|/|\Omega_r|$, with $N = |\Omega_r|$; the companion theorems give $n_i = N|\alpha_i|^2$ under [AS], [LC], [PR]. A device stands between two stages whose records differ by no outcome information; the stages share one compatibility class---the same fixed set of $N$ configurations, re-partitioned---so $\sum_i n_i = N$ holds free of charge, which is the premise that forces the exponent. All sequential language below (``a step is applied,'' ``the packet spreads,'' ``downstream'') is position in the refinement ordering of an observer chain, never temporal process, per the companions' anchor.
+
+\section{Locality as the Move Set}\label{sec:moveset}
+
+\subsection{Cell structure as emergent space}
+\begin{assumption}[{[CS]} Cell structure]\label{ass:cs}
+Three clauses. \emph{(i) Partition.} The measured sector's degrees of freedom carry a distinguished partition into cells $x = 0, \dots, L-1$. \emph{(ii) Adjacency.} The cells carry an adjacency relation, and the closure laws license exactly two species of elementary device on the sector: \emph{within-cell} phase increments, and \emph{between-adjacent-cell} recombinations; no elementary device couples non-adjacent cells. \emph{(iii) Regularity and uniformity.} The adjacency graph is a one-dimensional chain, and the recombination angle $\eta$ is the same on every adjacent pair.
+\end{assumption}
+
+The clauses are separated because they do not have the same standing, and the accounting is the point of this subsection. What the Schr\"odinger equation describes---where a particle is, at a given time---names two structures this ontology does not have fundamentally. Time is already handled: it is the label of the refinement ordering, emergent by the framework's own postulates. Space is what [CS] supplies, and the question is whether supplying it imports something foreign or merely assumes, in discrete form, what the framework's Part IV already conjectures.
+
+\emph{Clause (i) is close to a companion result.} The framework does not need to posit that \emph{some} preferred partition of a sector exists: the stability criterion of the Born companion \cite{TillittBorn} selects one---the partition whose classes carry no downstream cross-interference, hence can be redundantly recorded without disturbance. That criterion is the counting form of einselection, and einselection's standard verdict is that position is the selected basis, because environmental interactions are position-dependent. Clause (i) is therefore not a new commitment so much as an appeal to a result the series already has; making the appeal rigorous---showing that the stable partition of a sector coupled to a local environment \emph{is} the cell partition---is a well-posed problem in the framework's own terms, and is recorded as such.
+
+\emph{Clause (ii) is read off the move set.} The closure postulates already commit to a discrete family of elementary refinements, each encoding one minimal increment of correlational content at the cost of one closure quantum. Adjacency need not be posited on top of that structure: two cells are adjacent precisely when one elementary refinement carries correlational content between them. The neighbour relation is the move set's own graph, and clause (ii) says only that the sector's moves are of this local species---which is the framework's locality clause, made concrete.
+
+\emph{Clause (iii) is where the genuine assumption lives.} Nothing in the framework yet entails that the refinement graph is a chain, a lattice, or three-dimensional rather than a tree or an expander; and nothing entails that the cost of a one-cell move is the same everywhere. These are exactly the open questions of the framework's continuum-limit programme---in the edit-distance language of its Section on closure geometry, the coarse geometry of the refinement graph. Assuming clause (iii) is assuming what Part IV conjectures, at the level of detail this enumeration needs. It is not a new debt; it is the existing one, discharged provisionally.
+
+\begin{remark}[No bootstrap]\label{rem:loop}
+The relation between this paper and the emergent-space program must be stated precisely, because it resembles a circle and is not one. This paper does not argue that space emerges because Schr\"odinger dynamics is recovered; it assumes [CS] and computes. The framework, separately, conjectures emergent spatial structure from closure geometry on grounds that make no reference to this construction. The two are a consistency loop of the kind the framework paper's Part~0 already describes---each an argument with its own premises, neither consuming the other's conclusion---and the ledger classifies [CS] as assumed throughout.
+\end{remark}
+
+\begin{remark}[Uniformity is flatness; its relaxation is the next model]\label{rem:flat}
+Clause (iii)'s uniformity is worth naming for what it is. A single $\eta$ on every adjacent pair means one closure cost per unit of spatial displacement everywhere: a flat geometry, assumed rather than derived. Relaxing it is immediate and computable. Let the recombination angle vary, $\eta \to \eta(x)$; then by Proposition~\ref{prop:heff} the effective mass varies with it, $m^\ast(x) = 1/(2\eta(x))$, and with it the local propagation speed. A spatially varying closure cost is a spatially varying metric---curvature in the discrete---and the framework's gravitational material becomes computable in the same style as this paper: prepare a packet, impose a gradient in $\eta$, count, and ask whether the trajectory bends as a geodesic of the induced geometry should. That is the natural successor model, and it would give the closure-distance-as-metric identification the same epistemic upgrade this paper gives the dynamical dictionary entries: from posited to computed. It is stated here as a research direction, not a result.
+\end{remark}
+
+\subsection{The device chain}
+The elementary between-cell device is the beamsplitter of the companion models, acting on the arrows of an adjacent pair:
+\[
+B(\eta):\ (\alpha_a, \alpha_b) \;\longmapsto\; (\cos\eta\,\alpha_a + i\sin\eta\,\alpha_b,\ i\sin\eta\,\alpha_a + \cos\eta\,\alpha_b),
+\]
+with the angle $\eta$ drawn from the 3,600-value phase lattice. One refinement step is the brickwork
+\[
+U_{\mathrm{step}} \;=\; \Phi \circ B_{\mathrm{odd}} \circ B_{\mathrm{even}},
+\]
+where $B_{\mathrm{even}}$ applies $B(\eta)$ to the pairs $(0,1), (2,3), \dots$, $B_{\mathrm{odd}}$ to the pairs $(1,2), (3,4), \dots$ (periodic), and $\Phi$ is the optional within-cell layer $\alpha_x \mapsto e^{i\varphi_x}\alpha_x$ with each $\varphi_x$ on the lattice. Every entry of $U_{\mathrm{step}}$ is thereby a correlation structure built from lattice increments; derived arrow directions are exact complex sums, as in the companions. The chain of $T$ steps is a sequence of stages of an observer chain, and---this matters in Section~\ref{sec:models}---none of its intermediate stages bears a record of cell membership.
+
+\subsection{The effective Hamiltonian, and where mass lives}
+\begin{proposition}[Hopping form of the step]\label{prop:heff}
+For small $\eta$, $U_{\mathrm{step}} = e^{-i H_{\mathrm{eff}}}$ with
+\[
+H_{\mathrm{eff}} \;=\; -\eta \sum_x \big(|x\rangle\langle x{+}1| + |x{+}1\rangle\langle x|\big) \;+\; \sum_x V_x\,|x\rangle\langle x| \;+\; O(\eta^2),
+\qquad V_x = -\varphi_x,
+\]
+in units where the cell spacing and the step are unity. Its dispersion is $E(k) = -2\eta\cos k + V$, whence, near $k = 0$,
+\[
+E(k) \;\approx\; -2\eta + \frac{k^2}{2m^\ast} + V, \qquad m^\ast = \frac{1}{2\eta},
+\]
+with group velocity $v(k) = 2\eta \sin k$ and, for $V_x = \tfrac{1}{2}\kappa\,(x - x_c)^2$, harmonic frequency $\omega = \sqrt{\kappa/m^\ast} = \sqrt{2\eta\kappa}$.
+\end{proposition}
+The content is standard Trotter arithmetic \cite{Trotter1959}; what the framework adds is the reading of the constants. The effective mass is the inverse rate at which one closure step moves arrow content between adjacent cells: a sector whose elementary refinements restructure it slowly is heavy. This is the framework paper's dictionary entry---mass as resistance to record restructuring---returned as a computation rather than an assertion. The potential is a cell-dependent phase cost per closure step: spatial variation in what refinement charges, which is the closure-distance-density reading of force. And $\hbar$, appearing nowhere above because the units absorb it, enters exactly as the framework paper says it must: as the conversion between closure phase and action, one constant for the whole move set, its uniformity supplied by the closure-quantum postulate.
+
+\begin{remark}[Generator existence was already implicit]\label{rem:stone}
+[LC] supplies continuously parameterized, invertible, linearly composing devices; a continuous one-parameter family composing as $U(a)U(b) = U(a+b)$ has a self-adjoint generator by Stone's theorem \cite{Stone1932}. The \emph{existence} of a Hamiltonian is therefore not news in this ontology---it is a corollary of the device structure the Born derivation already consumes. What [CS] and Proposition~\ref{prop:heff} add is the generator's \emph{form}: locality of the move set makes it a hopping operator, and a nearest-neighbour hopping operator is a discrete Laplacian. The division of labor is exact: [LC] gives $i\,\partial_\tau \psi = H\psi$; [CS] gives $H = -\tfrac{1}{2m^\ast}\Delta + V$.
+\end{remark}
+
+\begin{remark}[The band is the whole object; Schr\"odinger is its corner]\label{rem:band}
+The construction's dispersion is $-2\eta\cos k$ on the full Brillouin zone, and the quadratic form holds only near $k = 0$; at larger wavenumber the dynamics is that of the band, not of the Schr\"odinger equation---the harmonic suite of Section~\ref{sec:enum} exhibits the deviation on schedule. This is not a defect to hide but a structure the discrete-dynamics literature has long recognized: local unitary lattice evolution generically yields relativistic wave equations in the continuum, from Feynman's checkerboard \cite{FeynmanHibbs1965} through lattice cellular automata \cite{BB1994,Meyer1996} and quantum walks \cite{Kempe2003}, with the nonrelativistic equation as the small-$k$, small-angle corner. Read inside the framework, the band's maximal group velocity $2\eta$ is a signal-speed bound native to the move set---the causal-cone material of the framework paper arriving from the same construction that houses Schr\"odinger. This is worth one further sentence, because on the reading of Section~\ref{sec:moveset} it is not a coincidence. A single elementary move defines both the refinement step and the spatial adjacency: read longitudinally the move set is time, read transversally it is space, so a bound of one cell per step is structural rather than imposed. The framework paper conjectures the invariant speed as a maximal refinement rate---closure quanta per clock tick---and classifies it as a conjecture with a stated derivation path; the present construction contains a computed instance of it. Developing the identification in general (and the Dirac-type structure at the zone boundary) is program, and the ledger records it as such.
+\end{remark}
+
+\section{Two Counting Models, and Which One the Ontology Licenses}\label{sec:models}
+The counting rule assigns integer populations to the classes of a partition. A propagation chain poses a question the single-device suites of the companions never had to ask: \emph{at which stages may the rule be applied?} Two models answer differently, and the ontology adjudicates.
+
+\paragraph{Model A (one composite device; counting at record-forming stages).} The $T$-step chain stands between a preparation stage and a measurement stage, and no intermediate stage bears a record of cell membership. By the record-relativity of classes, no cell partition \emph{exists} at those stages: there is nothing there for populations to be populations of. The chain is one composite device in exactly the companion's sense---two stages sharing one fixed class of $N$ configurations, re-partitioned at the stage where a record forms---and the counting rule is applied once per readout: $n_x(t) = \mathrm{apportion}\!\left(N\,|\psi_x(t)|^2\right)$, with the arrows carried exactly by the closure structure in between.
+
+\paragraph{Model B (census at every stage).} Alternatively, impute an integer census to every intermediate stage: apportion populations at each step, and read the next stage's arrow magnitudes back through the derived rule, $|\alpha_x| = \sqrt{n_x/N}$, retaining the derived directions. Model B treats cell populations as stage-wise facts whether or not any record distinguishes cells.
+
+\begin{proposition}[The ontology licenses Model A]\label{prop:license}
+Under the companion's compatibility-class postulate, a partition of a sector exists at a stage only if the stage's records distinguish its cells. The intermediate stages of the chain bear no such records; hence no intermediate cell partition, no intermediate populations, and no intermediate application of the counting rule. Model A is the ontology's reading; Model B imputes partitions where no records are.
+\end{proposition}
+The proposition is definitional---it spends no new physics---but it is not empty, because the two models are quantitatively separable, and the separation prices the definition.
+
+\paragraph{The price of imputed partitions.} In Model B, apportionment perturbs each cell's population by $|\delta n_x| \lesssim 1$, hence its arrow magnitude by $|\delta \alpha_x| \approx |\delta n_x| / (2\sqrt{N n_x})$. For bulk cells ($n_x \sim N/L$) this is $O(1/N)$-benign; for \emph{tail} cells, where $n_x$ is a few, it is $O(N^{-1/2})$---the amplitude of a one-configuration class is $\sqrt{1/N}$, and nothing exists between it and $\sqrt{2/N}$. Each step injects this granularity and unitary propagation transports it into the bulk, so the accumulated residue scales between $N^{-1}$ and $N^{-1/2}$. The enumeration measures log--log slope $-0.62$ for Model B against $-0.94$ for Model A (Section~\ref{sec:enum}): the record-relative definition of classes is worth a factor of order $\sqrt{N}$ in dynamical accuracy. Two glosses guard against misreading. Model B is not continuous measurement---it retains full phase coherence, so it is not the quantum Zeno configuration; it is bookkeeping without records, exactly the move the ontology forbids, and the enumeration exhibits what the prohibition is for. And the finding runs in the framework's favor: the $O(1/N)$ prediction family of the companions survives time evolution \emph{because} partitions are record-relative; an ontology of stage-wise absolute cell populations would predict $N^{-0.6}$-scale deviations and be in correspondingly earlier empirical trouble.
+
+\section{The Enumeration}\label{sec:enum}
+The suite extends the companions' discipline, stated here exactly. The counting rule was fixed before any case was computed. Devices are correlation structures with all phase increments---the beamsplitter angle $\eta = 11.5^\circ$ and the per-cell potential increments $\varphi_x$---rounded once to the 3,600-value lattice and held fixed; derived arrow directions are exact complex sums. Populations are integer-apportioned by largest remainder, ties broken by cell index; the apportionment rule is a model postulate, as in the CHSH companion, and its selection by the ontology is open. $\sum_x n_x = N$ is asserted exactly at every readout: the counting form of unitarity---norm preservation as conservation of cardinality---tested exactly, at every stage, and never violated. Chain length $L = 128$, periodic; $m^\ast = 1/(2\eta) = 2.4911$; $N = 4.2 \times 10^6$ except where swept. Code: \texttt{schrodinger\_by\_counting.py}.
+
+\begin{itemize}
+\item \textbf{Free spreading.} A Gaussian class, $\sigma_0 = 6$, evolved $T = 360$ steps. Counted variance $\sigma^2(360) = 183.866$ against the exact device chain's $183.867$ and the Schr\"odinger law $\sigma_0^2 + (t/2m^\ast\sigma_0)^2 = 181.03$---agreement with the device to $L_1 = 8.6\times10^{-6}$, and with the continuum law to the $1.6\%$ lattice-and-Trotter correction that is the finite-step face of the open continuum limit (Fig.~\ref{fig:results}, top left and top center).
+\item \textbf{Drift.} A boosted class, $k_0 = 0.3$. Counted velocity $0.1195212$ against the exact chain's $0.1195214$---seven significant figures---and the small-angle formula $2\eta\sin k_0 = 0.1186294$, the $0.75\%$ gap being the $O(\eta^2)$ Trotter correction, present identically in both (Fig.~\ref{fig:results}, bottom center).
+\item \textbf{Harmonic well.} $V_x = \tfrac{1}{2}\kappa(x - x_c)^2$ with $\kappa = 10^{-3}$, coherent-state width, amplitude $8$ cells, two full periods ($T = 627$). Counted $\langle x\rangle(t)$ oscillates at $\omega = \sqrt{2\eta\kappa} = 0.020036$ with maximum deviation $1.6$ cells from the cosine over both periods---the band anharmonicity of Remark~\ref{rem:band} at the suite's $k_{\max} \approx 0.4$, carried identically by the exact chain (counted-vs-exact $L_1 = 6.2\times10^{-6}$) (Fig.~\ref{fig:results}, top right).
+\item \textbf{The literal edge.} At $t = 200$ the counted profile occupies cells $[19, 109]$: the outermost occupied cells hold populations of exactly $1$, and beyond them the population is zero, the continuum Gaussian at the support edge standing at $1.7\times10^{-7} \approx 0.7/N$---the profile terminates where the count runs out of integers (Fig.~\ref{fig:results}, bottom left; Section~\ref{sec:pred}).
+\item \textbf{Residue scaling.} $L_1$ distance between counted and exact-chain distributions at $t = 200$, swept over $N = 10^3$ to $10^7$: Model A slope $-0.94$ against the $O(1/N)$ prediction; Model B slope $-0.62$, the degradation of Section~\ref{sec:models} (Fig.~\ref{fig:results}, bottom right).
+\end{itemize}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{schrodinger_results.png}
+\caption{Schr\"odinger by counting. Top: counted free-packet profiles against exact arrows; counted $\sigma^2(t)$ against the Schr\"odinger spreading law; counted harmonic oscillation against $x_c - A\cos(\omega t)$, $\omega = \sqrt{2\eta\kappa}$. Bottom: the literal edge---the counted profile (log scale) terminates at population $1$ where the continuum tail crosses $1/N$; counted drift against the group velocity; residue scaling in $N$ for Model A (one composite device, slope $-0.94$) and Model B (census at every stage, slope $-0.62$).}
+\label{fig:results}
+\end{figure}
+
+\section{Predictions}\label{sec:pred}
+All entries are conditional on [CS] in addition to the companion assumptions, and are in-model statements in the sense of the CHSH paper's finite-$N$ prediction.
+
+\paragraph{Finite support: P1 in position space.} Because every population is an integer, a counted wavepacket has finite support: the profile terminates exactly where the Born value crosses $1/N$, with the outermost cells holding populations of a few, then one, then none. Continuum quantum mechanics asserts a nonzero tail at every distance; a counting world asserts, with population zero, that the particle is definitely \emph{not} almost everywhere. This is the framework paper's rational-probability prediction P1 rendered in position space, and it inherits P1's test structure: conformity of observed tails to continuum statistics at precision $\epsilon$ bounds the relevant class population from below, $N \gtrsim 1/\epsilon$, and by the framework's refinement-graded mechanism (P3) the operative multiplicity is the measured sector's own, floored by record capacity---which is why tails look continuum-exact in every laboratory. In-principle, not near-term.
+
+\paragraph{Dynamical $O(1/N)$ residues.} Under the licensed Model A, propagation preserves the $O(1/N)$ residue family: deviations of counted dynamical distributions from continuum predictions scale as $1/N$ (measured slope $-0.94$), the dynamical extension of the companions' static residue results. The contrast with Model B doubles as an internal consistency statement: had the ontology defined cell populations as stage-wise absolute facts, its predicted deviations would scale near $N^{-0.6}$ and be correspondingly closer to empirical exposure. The record-relativity of classes is thus not only licensed but protective.
+
+\paragraph{The band as signature.} In-model, deviations from Schr\"odinger dynamics at large wavenumber are band effects---dispersion $-2\eta\cos k$ rather than $k^2/2m^\ast$---with a maximal group velocity native to the move set. Whether this is a \emph{framework} prediction depends on the standing of [CS], and specifically of its regularity clause; it is recorded as a candidate signature attached to the causal-cone program, not as a present claim. The same qualification attaches to the flat-geometry reading: the velocity bound computed here is uniform because $\eta$ is (Remark~\ref{rem:flat}).
+
+\section{Status of Every Claim}\label{sec:ledger}
+\begin{center}\footnotesize
+\begin{tabular}{@{}lll@{}}
+\toprule
+Item & Status & Where\\
+\midrule
+Ontology; counting rule; Born populations & Inherited (proved in companion) & \S\ref{sec:ontology}, \cite{TillittBorn}\\
+Assumptions consumed: [AS], [LC], [PR], ([T]) & Inherited assumptions & \cite{TillittBorn}\\
+{[CS]}(i) preferred partition exists & Assumed; stability criterion selects one & Ass.~\ref{ass:cs}, \cite{TillittBorn}\\
+{[CS]}(ii) adjacency $=$ one elementary refinement & Assumed; read off the closure move set & Ass.~\ref{ass:cs}\\
+{[CS]}(iii) chain regularity; uniform $\eta$ (flatness) & Assumption proper (inherited open problem) & Ass.~\ref{ass:cs}, Rem.~\ref{rem:flat}\\
+Cells as emergent space; no bootstrap & Reading + consistency-loop statement & Rem.~\ref{rem:loop}\\
+Hopping form; $m^\ast = 1/(2\eta)$; $V$ as phase cost & Derived from move set, small $\eta$ & Prop.~\ref{prop:heff}\\
+Generator existence from [LC] & Noted (Stone); form from [CS] & Rem.~\ref{rem:stone}\\
+Band structure; Schr\"odinger as small-$k$ corner & Derived + computed & Rem.~\ref{rem:band}, \S\ref{sec:enum}\\
+Max group velocity as invariant-speed instance & Computed instance of framework Conj.~1 & Rem.~\ref{rem:band}\\
+Varying $\eta$ as discrete curvature & Research direction (successor model) & Rem.~\ref{rem:flat}\\
+Model A licensed; Model B unlicensed & Definitional consequence & Prop.~\ref{prop:license}\\
+Tail-granularity degradation of Model B & Argued + computed (slope $-0.62$) & \S\ref{sec:models}, \S\ref{sec:enum}\\
+Counting form of unitarity: $\sum n_x = N$ & By construction + tested exactly & \S\ref{sec:enum}\\
+Spreading law; group velocity; harmonic $\omega$ & Computed by enumeration & \S\ref{sec:enum}\\
+Residues $O(1/N)$ under Model A (slope $-0.94$) & Computed by enumeration & \S\ref{sec:enum}\\
+Finite support; edge at $N\!\cdot\!P < 1$ & Computed (P1 in position space) & \S\ref{sec:enum}, \S\ref{sec:pred}\\
+Band as observational signature & Candidate, conditional on [CS] & \S\ref{sec:pred}\\
+Apportionment rule & Model postulate; selection open (inherited) & \S\ref{sec:enum}, \cite{TillittCHSH}\\
+Admissible phase texture instantiated & Assumption (inherited open problem) & \cite{TillittBorn}\\
+Continuum limit (formal) & Open (inherited) & \cite{TillittCR}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Relation to Prior Work}\label{sec:prior}
+The mathematics of local unitary lattice dynamics is not new, and none is claimed: that discrete local evolution yields band dispersions with relativistic continuum limits and Schr\"odinger behavior in the small-$k$ corner is the accumulated content of Feynman's checkerboard \cite{FeynmanHibbs1965}, unitary lattice automata \cite{BB1994,Meyer1996}, and the quantum-walk literature \cite{Kempe2003}, with the Trotter decomposition \cite{Trotter1959} supplying the small-angle arithmetic. The contribution is the premise and the bookkeeping, as in the companions: here the evolving object is a census---populations are cardinalities of compatibility classes, unitarity is conservation of a count of configurations, mass is the restructuring rate of records, and the potential is a phase cost of closure. Two questions become askable only on that premise. The licensing question of Section~\ref{sec:models}---at which stages do integer populations exist at all?---has no analog in a formalism whose amplitudes are primitive, and its answer (partitions only where records are) is what protects the $O(1/N)$ family; 't~Hooft's cellular-automaton program \cite{tHooft2016}, the nearest deterministic-substrate neighbor, faces no such question because its ontic states are stage-wise absolute, which is precisely the Model-B commitment this framework declines. And the finite-support result has no continuum analog to compare against: it is a statement about where configurations run out. The framework and Born companions \cite{TillittCR,TillittBorn} supply everything consumed; the CHSH companion \cite{TillittCHSH} supplies the genre.
+
+\section{Limitations and Conclusion}\label{sec:concl}
+The conditions are the companions' plus one, and the four proper to this paper are stated explicitly. \emph{[CS] is assumed}, though its clauses do not stand alike: a preferred partition is what the companion's stability criterion selects, adjacency is read off the elementary move set, and what remains assumed proper is the graph's regularity and the uniformity of its hopping cost---the framework's own open continuum-limit problem. Nothing here derives space; what is claimed is that assuming the cells assumes no more than Part IV already conjectures. \emph{Uniformity is a flatness assumption}, and its relaxation---position-dependent $\eta$, hence position-dependent effective mass---is the successor model rather than a limitation resolved here (Remark~\ref{rem:flat}). \emph{The phase texture is instantiated, not derived}, inheriting the companion's open problem. \emph{The apportionment rule is a model postulate}, as in the CHSH paper, and Model A's residue slope, though not its scale's order, could shift under a different admissible rule. \emph{The demonstrated regime is the small-$k$ corner of a one-dimensional band}: continuous space, higher dimension, and the zone-boundary (Dirac-type) structure are program.
+
+Within these limits, the finding is clean, and it is three findings. First, the framework paper's dynamical dictionary entries are no longer free-standing posits: given a local move set, the effective mass is the inverse hopping rate of elementary refinement, the potential is a cell-dependent closure phase cost, and the counted dynamics reproduces the Schr\"odinger spreading law, group velocity, and harmonic oscillation to the stated precision, with the number of configurations conserved exactly at every stage. Second, the counted packet has a literal edge---finite support terminating where the Born value crosses one configuration---the sharpest everyday-object rendering yet of what distinguishes a counting world from a continuum one. Third, and least anticipated, the enumeration priced a definition: the clause that classes exist only where records do, which reads as philosophy, is worth a factor of $\sqrt{N}$ in dynamical accuracy, because it forbids exactly the stage-wise census whose tail granularity would otherwise degrade the framework's residue predictions. And one structural reading came with them: because a single elementary move defines both the refinement step and the spatial adjacency, the construction's velocity bound is a computed instance of the framework's conjectured invariant speed---space and time appearing as the transverse and longitudinal readings of one move set. That reading also exposes what the model quietly assumed: a uniform cost per cell, which is flatness. Letting the cost vary is letting the geometry curve, and it is computable in exactly this style.
+
+The companion papers derived the Born exponent from the conservation of a count; this paper finds that the same bookkeeping discipline, applied to motion, is what keeps a finite world's dynamics indistinguishable from quantum mechanics---to one part in $N$, and no further.
+
+\section*{Acknowledgments}
+The author used large language models (OpenAI ChatGPT; Anthropic Claude) to assist in the preparation of this work. The author takes full responsibility for all content.
+
+\begin{thebibliography}{99}
+\bibitem{BB1994} I. Bialynicki-Birula, ``Weyl, Dirac, and Maxwell equations on a lattice as unitary cellular automata,'' Phys. Rev. D \textbf{49}, 6920 (1994).
+\bibitem{FeynmanHibbs1965} R. P. Feynman and A. R. Hibbs, \emph{Quantum Mechanics and Path Integrals} (McGraw-Hill, 1965).
+\bibitem{Kempe2003} J. Kempe, ``Quantum random walks: an introductory overview,'' Contemp. Phys. \textbf{44}, 307 (2003).
+\bibitem{Meyer1996} D. A. Meyer, ``From quantum cellular automata to quantum lattice gases,'' J. Stat. Phys. \textbf{85}, 551 (1996).
+\bibitem{Stone1932} M. H. Stone, ``On one-parameter unitary groups in Hilbert space,'' Ann. Math. \textbf{33}, 643 (1932).
+\bibitem{tHooft2016} G. 't Hooft, \emph{The Cellular Automaton Interpretation of Quantum Mechanics} (Springer, 2016).
+\bibitem{TillittBorn} R. Tillitt, ``The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology,'' companion paper, Zenodo (2026), \texttt{doi:10.5281/zenodo.21523492}.
+\bibitem{TillittCHSH} R. Tillitt, ``CHSH by Counting: Bell Violation in a Finite Configuration Ontology,'' companion paper, Zenodo (2026), \texttt{doi:10.5281/zenodo.21523901}.
+\bibitem{TillittCR} R. Tillitt, ``Configuration Realism: The Born Rule as a Counting Theorem,'' companion paper, Zenodo (2026), \texttt{doi:10.5281/zenodo.21523984}.
+\bibitem{Trotter1959} H. F. Trotter, ``On the product of semi-groups of operators,'' Proc. Amer. Math. Soc. \textbf{10}, 545 (1959).
+\end{thebibliography}
+
+\vspace{1em}
+\noindent\small Code and data: \texttt{schrodinger\_by\_counting.py}, \texttt{schrodinger\_by\_counting\_results.json} (available with this paper), extending the companion suites \texttt{cr\_toy\_model.py}, \texttt{chsh\_by\_counting.py}.
+
+\vspace{0.5em}
+\noindent\small \copyright{} 2026 Russell Tillitt. This work is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+\end{document}
