@@ -539,7 +539,9 @@
   <h2>6. Code &amp; Data</h2>
   <p>
     All scripts are plain Python (NumPy; Matplotlib for figures) and run in seconds. Each prints its
-    tests and verdicts to the console and regenerates the corresponding figure.
+    tests and verdicts to the console; the model scripts regenerate their figures, and the
+    Schr&ouml;dinger suite writes its raw numbers to a results file. The code suite is licensed
+    <a href="code/LICENSE">MIT</a>, with authorship and license headers in every script.
   </p>
   <ul>
     <li><a href="code/cr_toy_model.py"><code>cr_toy_model.py</code></a> — Born by counting: splits, interference, decoherence, conditionalization, exponent uniqueness, \(O(1/N)\) scaling.</li>
@@ -547,7 +549,7 @@
     <li><a href="code/step4_stability.py"><code>step4_stability.py</code></a> — einselection, redundancy \((\cos\chi)^k\), and \(V^2+D^2=1\) from integer counts.</li>
     <li><a href="code/chsh_by_counting.py"><code>chsh_by_counting.py</code></a> — CHSH at \(2\sqrt 2\) by counting; sector-record control; exact no-signaling; residue scaling.</li>
     <li><a href="code/chsh_figure.py"><code>chsh_figure.py</code></a> — generates the CHSH results figure.</li>
-    <li><a href="code/schrodinger_by_counting.py"><code>schrodinger_by_counting.py</code></a> — wavepacket dynamics by counting: spreading, drift, harmonic oscillation, the literal edge, Model A vs. Model B residue scaling.</li>
+    <li><a href="code/schrodinger_by_counting.py"><code>schrodinger_by_counting.py</code></a> — wavepacket dynamics by counting: spreading, drift, harmonic oscillation, the literal edge, Model A vs. Model B residue scaling; writes <code>schrodinger_by_counting_results.json</code>.</li>
   </ul>
   <pre>pip install numpy matplotlib
 python3 cr_toy_model.py
@@ -579,7 +581,7 @@ python3 schrodinger_by_counting.py</pre>
   </p>
   <p>
     <strong>Revision History</strong><br>
-    Release 2.0 &mdash; August 2026: fourth paper added, <em>Schr&ouml;dinger by Counting</em> &mdash; wavepacket dynamics computed by enumeration under a named cell structure [CS]. Foundations paper retitled <em>Configuration Realism: Foundations</em>, with the dynamics results integrated into the derived core (new Part II section), the invariant-speed conjecture upgraded by a computed instance, and the principle-theory framing carried throughout. Editorial revision across all four papers.<br>
+    Release 2.0 &mdash; August 2026: fourth paper added, <em>Schr&ouml;dinger by Counting</em> &mdash; wavepacket dynamics computed by enumeration under a named cell structure [CS]. Foundations paper retitled <em>Configuration Realism: Foundations</em>, with the dynamics results integrated into the derived core (new Part II section), the invariant-speed conjecture upgraded by a computed instance, and the principle-theory framing carried throughout. Editorial revision across all four papers. Code suite licensed MIT, with authorship and license headers added to every script.<br>
     Release 1.0 &mdash; July 2026: publication release. Abstracts revised; internal draft labels retired &mdash; each paper is now versioned independently, starting at v1; papers licensed CC BY 4.0. Release 1.0 comprises the Born exponent paper v1, the CHSH paper v1, the foundations paper v1, and the code suite.<br>
     Version 0.2 &mdash; July 2026: three papers (Born exponent, CHSH by counting, foundations), toy models and results, postulates updated to the relational-phase formulation.<br>
     Version 0.1 &mdash; March 2026: initial postulates published at this site under the name Configuration Realism.<br>
@@ -588,7 +590,9 @@ python3 schrodinger_by_counting.py</pre>
   <p>
     &copy; 2026 Russell Tillitt. The four papers and their LaTeX sources are licensed under a
     <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0
-    International License (CC BY 4.0)</a>; all other site content, all rights reserved.
+    International License (CC BY 4.0)</a>; the code suite is licensed under the
+    <a href="https://opensource.org/licenses/MIT">MIT License</a>; all other site content,
+    all rights reserved.
   </p>
 </section>
 
