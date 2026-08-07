@@ -5,7 +5,7 @@
   <meta name="robots" content="noai, noimageai, nosnippet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuration Realism</title>
-  <meta name="description" content="Configuration Realism: a finite, timeless configuration ontology — the Born exponent as a counting theorem, Bell violation by counting, and a labeled research program toward emergent time and geometry." />
+  <meta name="description" content="Configuration Realism: a finite, timeless configuration ontology — the Born rule as a counting theorem, Bell violation by counting, wavepacket dynamics by counting, and a labeled research program toward emergent time and geometry." />
   <script>
     MathJax = {
       tex: {
@@ -89,7 +89,7 @@
 <body>
 
 <h1>Configuration Realism</h1>
-<p>A finite, timeless configuration ontology for physics: quantum probability derived as a counting theorem, Bell violation exhibited by counting, and a labeled research program toward emergent time and geometry.</p>
+<p>A finite, timeless configuration ontology for physics: quantum probability derived as a counting theorem, Bell violation exhibited by counting, Schr&ouml;dinger wavepacket dynamics computed by counting, and a labeled research program toward emergent time and geometry.</p>
 
 <nav>
   <p>Contents</p>
@@ -126,11 +126,14 @@
   <p>
     The work is organized by epistemic status, and every claim is classified &mdash; postulate, theorem,
     verified, argument, conjecture, or open &mdash; in a ledger at the end of each paper. The derived
-    core is quantum probability: the population of an outcome class is proved to equal
-    \(N|\alpha|^2\) under named structural assumptions (the Born exponent as a counting theorem), and
-    the CHSH quantity assembled from ratios of integer counts reaches the quantum value
+    core is quantum probability and its dynamics. The population of an outcome class is proved to equal
+    \(N|\alpha|^2\) under named structural assumptions (the Born rule as a counting theorem). The
+    CHSH quantity assembled from ratios of integer counts reaches the quantum value
     \(2\sqrt{2}\) &mdash; a finite ensemble of definite configurations is not a hidden-variable
-    model, and the papers show exactly why. The conjectural program &mdash; causal structure,
+    model, and the papers show exactly why. And equipped with a local move set, counted populations
+    propagate as wavepackets: the effective mass is the inverse hopping rate of elementary
+    refinement, and the counted dynamics reproduces Schr&ouml;dinger phenomenology with the number
+    of configurations conserved exactly at every stage. The conjectural program &mdash; causal structure,
     Lorentzian geometry, geodesic dynamics, horizon thermodynamics as continuum limits of closure
     geometry &mdash; is stated as such, with its open problems named.
   </p>
@@ -151,7 +154,9 @@
       never attained, with error of order \(1/N\). Every precision test of quantum mechanics is,
       on this framework, a lower-bound measurement of \(N\): conformity at precision \(\epsilon\)
       implies \(N \gtrsim 1/\epsilon\). Resolving the offset outright requires
-      \(T \gtrsim N^2\) trials.</li>
+      \(T \gtrsim N^2\) trials. Rendered in position space, the same prediction gives a counted
+      wavepacket finite support: the profile terminates exactly where the Born value crosses
+      \(1/N\), where the continuum Gaussian merely thins.</li>
     <li><strong>Two-sided Tsirelson deviations.</strong> The counted CHSH quantity differs from
       \(2\sqrt{2}\) by \(O(1/N)\) &mdash; and, because counted correlators are rational, can land
       <em>above</em> the Tsirelson bound, as it does in the enumeration. A statistically resolved
@@ -163,7 +168,10 @@
       closure saturation, the framework&rsquo;s rendering of horizons. Because this is a predicted
       <em>relation</em> rather than a single number, it is the framework&rsquo;s genuine refutation
       channel: where the multiplicity can be independently estimated, graininess must track
-      refinement, or the counting ontology is wrong.</li>
+      refinement, or the counting ontology is wrong. The record-relativity mechanism behind this
+      prediction has dynamical support: counting only at record-forming stages preserves the
+      \(O(1/N)\) family under propagation, while a stage-wise census would degrade it to
+      \(\sim N^{-0.6}\).</li>
     <li><strong>Logarithmic run-length bound.</strong> A stored \(k\)-run outcome sequence has
       population \(\sim M_s\prod_i p_i\), which depopulates once \(k\) exceeds roughly
       \(\log M_s\): a finite world supports literal-counting frequency statistics only over runs
@@ -177,11 +185,11 @@
 <!-- ================================================================ -->
 <section id="papers">
   <h2>3. Papers</h2>
-  <p>Three papers, July 2026 &mdash; Release 1.0 of the framework. Each paper is versioned independently, starting at v1 with this release. The two derivation papers are self-contained; the foundations paper states the full framework and integrates them. All three papers are licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+  <p>Four papers, August 2026. Each paper is versioned independently. The three companion papers are self-contained; the foundations paper states the full framework and integrates them. All four papers are licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
 
   <div class="paper">
     <h3>The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology</h3>
-    <p class="meta">July 2026</p>
+    <p class="meta">August 2026</p>
     <p class="links">
       <a href="papers/born-exponent.pdf">PDF</a> &middot;
       <a href="papers/born-exponent.tex">LaTeX source</a> &middot;
@@ -217,7 +225,7 @@
 
   <div class="paper">
     <h3>CHSH by Counting: Bell Violation in a Finite Configuration Ontology</h3>
-    <p class="meta">July 2026</p>
+    <p class="meta">August 2026</p>
     <p class="links">
       <a href="papers/chsh-by-counting.pdf">PDF</a> &middot;
       <a href="papers/chsh-by-counting.tex">LaTeX source</a> &middot;
@@ -254,41 +262,92 @@
   </div>
 
   <div class="paper">
-    <h3>Configuration Realism: Foundations and Research Program</h3>
-    <p class="meta">July 2026 &mdash; postulates, the derived core, consequences, and conjectures, with the status of every claim tabulated</p>
+    <h3>Schr&ouml;dinger by Counting: Wavepacket Dynamics in a Finite Configuration Ontology</h3>
+    <p class="meta">August 2026</p>
+    <p class="links">
+      <a href="papers/schrodinger-by-counting.pdf">PDF</a> &middot;
+      <a href="papers/schrodinger-by-counting.tex">LaTeX source</a>
+      <!-- TODO: add Zenodo DOI link once deposited -->
+    </p>
+    <p class="abstract"><span class="label">Abstract.</span>
+      Quantum dynamics has, in the ontology of the companion papers, so far been a dictionary entry:
+      posit a composition kernel or a closure-distance functional, and observe that a familiar
+      equation of motion follows. This paper replaces the posit with a computation. In a finite,
+      timeless configuration space where probability is counting and the population of an outcome
+      class is proved to equal \(N|\alpha|^2\), we construct a refinement chain from local devices
+      &mdash; nearest-neighbour beamsplitters and per-cell phase increments, all on the 3,600-value
+      phase lattice of the companion models &mdash; and evolve wavepacket classes by literal
+      enumeration. The small-angle brickwork realizes the lattice Hamiltonian
+      \(H = -2\eta\cos k + V(x)\): the effective mass \(m^\ast = 1/(2\eta)\) is the inverse hopping
+      rate &mdash; mass as resistance to record restructuring, now obtained from the move set rather
+      than posited &mdash; and the potential is a cell-dependent phase cost per closure step. Counted
+      populations reproduce the Schr&ouml;dinger spreading law
+      \(\sigma^2(t) = \sigma_0^2 + (t/2m^\ast\sigma_0)^2\), the group velocity to seven significant
+      figures against the exact device chain, and harmonic oscillation at
+      \(\omega = \sqrt{2\eta\kappa}\), with \(\sum_x n_x = N\) exact at every stage &mdash; the
+      counting form of unitarity, tested exactly. Two findings go beyond agreement. First, the
+      counted packet has a literal edge: populations fall to one configuration and then to zero
+      exactly where the Born value crosses \(1/N\), so a counting world&rsquo;s particle has finite
+      support where the continuum Gaussian merely thins &mdash; the rational-probability prediction
+      rendered in position space. Second, the ontology&rsquo;s record-relative definition of classes
+      is load-bearing for dynamics: counting once at the measurement stage (the chain as one
+      composite device) yields residues of \(O(1/N)\), measured log&ndash;log slope \(-0.94\),
+      whereas imputing an integer census to unrecorded intermediate stages &mdash; partitions where
+      no records are &mdash; degrades the scaling to slope \(-0.62\) through the amplitude
+      granularity of few-configuration tail classes. A definitional clause changes dynamical
+      accuracy by a factor of order \(\sqrt{N}\). What is not shown is a derivation of the
+      Schr&ouml;dinger equation from the postulates. The cell structure is a named input [CS]
+      &mdash; but not a foreign one: its three clauses are the discrete shadow of the
+      framework&rsquo;s own emergent-space program, and we locate each, finding that a preferred
+      partition is what the stability criterion already selects, that adjacency is what the
+      elementary refinement move set already supplies, and that only the graph&rsquo;s large-scale
+      regularity &mdash; together with an assumed uniformity of hopping rate, which is a flatness
+      assumption &mdash; remains open. Reading the cells as emergent space has an immediate
+      consequence: the construction&rsquo;s maximal group velocity is one instance of the
+      framework&rsquo;s conjectured invariant speed, computed rather than posited, since a single
+      elementary move defines both the refinement step and the spatial adjacency. Relaxing
+      uniformity &mdash; a position-dependent hopping rate, hence a position-dependent effective
+      mass &mdash; is the discrete form of curvature, and is the natural next model.
+    </p>
+  </div>
+
+  <div class="paper">
+    <h3>Configuration Realism: Foundations</h3>
+    <p class="meta">August 2026 &mdash; postulates, the derived core, consequences, and conjectures, with the status of every claim tabulated</p>
     <p class="links">
       <a href="papers/foundations.pdf">PDF</a> &middot;
       <a href="papers/foundations.tex">LaTeX source</a> &middot;
       <a href="https://doi.org/10.5281/zenodo.21523984">doi:10.5281/zenodo.21523984</a>
     </p>
     <p class="abstract"><span class="label">Abstract.</span>
-      We propose Configuration Realism (CR): physical reality consists of a finite, timeless
-      configuration space, each configuration a complete arrangement of fundamental degrees of
-      freedom, with phase attaching additively to degrees of freedom and defined relationally &mdash;
-      relative to a stage of an observer chain. Configurations do not evolve. Information exists only
-      as finite, lossy physical records; each record defines a compatibility class, the
-      configurations it cannot distinguish; and probability is defined as counting over these
-      classes. The framework&rsquo;s derived core, proved in two companion papers under named
-      structural assumptions, is that quantum probability is this counting: the population of an
-      outcome class equals \(N|\alpha|^2\) &mdash; the Born rule as a theorem, with the frequency
-      reading consuming exactly one typicality principle &mdash; and the CHSH quantity assembled from
-      integer counts reaches the quantum value \(2\sqrt 2\), the ontology giving up counterfactual
-      definiteness in the plain Bell scenario &mdash; and the absoluteness of outcomes where
-      Wigner&rsquo;s-friend extensions demand it &mdash; rather than locality or free settings.
-      Around this core, closure laws express the implication structure among correlations and order
-      records by refinement; observers are chains of record-bearing stages; change is difference read
-      along a refinement chain, time is the emergent coordinate that labels it, and closure distance,
-      accumulating in discrete quanta, measures the physical restructuring refinement requires.
-      Direct consequences follow for entropy (two entropies of opposite sign along refinement, the
-      arrow of time carried by the increasing one), for the classical limit, and for objectivity as
-      redundancy. The remainder is a labeled research program: causal structure, Lorentzian geometry,
-      geodesic dynamics, and horizon thermodynamics as conjectured continuum limits of closure
-      geometry, with the constructions that would establish them stated as open problems. A dedicated
-      section collects the framework&rsquo;s distinctive predictions &mdash; the \(O(1/N)\) family
-      separating a counting world from continuum quantum mechanics, including a refinement-graded
-      deviation from Born statistics whose scale grows with how completely the measured sector has
-      been recorded &mdash; each with its mechanism and in-principle test. Every claim in the paper
-      is tabulated with its status: postulate, theorem, verified, argument, conjecture, or open.
+      Configuration Realism (CR) is a physical ontology consisting of a finite, timeless
+      configuration space. Each configuration is a complete arrangement of fundamental degrees of
+      freedom; none evolves; phase attaches additively to degrees of freedom and is defined
+      relationally, relative to a stage of an observer chain. Information exists only as finite,
+      lossy physical records. Each record defines a compatibility class, the configurations it
+      cannot distinguish, and probability is defined as counting over these classes. The
+      framework&rsquo;s derived core is proved and computed in three companion papers under named
+      structural assumptions. The population of an outcome class equals \(N|\alpha|^2\): the Born
+      rule as a theorem, with the frequency reading consuming exactly one typicality principle. The
+      CHSH quantity assembled from integer counts reaches \(2\sqrt{2}\) to \(O(1/N)\), the ontology
+      giving up counterfactual definiteness in the plain Bell scenario &mdash; and the absoluteness
+      of outcomes where Wigner&rsquo;s-friend extensions demand it &mdash; rather than locality or
+      free settings. And equipped with a local move set, counted populations propagate as
+      wavepackets: the effective mass is the inverse hopping rate of elementary refinement, the
+      potential is a cell-dependent phase cost, and the counted dynamics reproduces
+      Schr&ouml;dinger phenomenology with the number of configurations conserved exactly at every
+      stage. Around this core, closure laws order records by refinement. Observers are chains of
+      record-bearing stages; change is difference read along a refinement chain; time is the
+      emergent coordinate that labels it; and closure distance, accumulating in discrete quanta,
+      measures the restructuring refinement requires. Direct consequences follow for entropy and
+      the arrow of time, for the classical limit, and for objectivity as redundancy. The remainder
+      is a labeled research program: causal structure, Lorentzian geometry, geodesic dynamics, and
+      horizon thermodynamics as conjectured continuum limits of closure geometry, with the
+      constructions that would establish them stated as open problems. A dedicated section collects
+      the framework&rsquo;s distinctive predictions &mdash; the \(O(1/N)\) family separating a
+      counting world from continuum quantum mechanics &mdash; each with its mechanism and
+      in-principle test. Every claim in the paper is tabulated with its status: postulate, theorem,
+      verified, argument, conjecture, or open.
     </p>
   </div>
 </section>
@@ -449,6 +508,30 @@
       <figcaption>Counted correlators track \(-\cos\Delta\) for the coherent class and the common-cause form for the recorded control (left); counted \(|S|\) against the local and Tsirelson bounds (center); \(O(1/N)\) residue, both sides of Tsirelson (right).</figcaption>
     </figure>
   </div>
+
+  <div class="model">
+    <h3>Schr&ouml;dinger by counting</h3>
+    <p class="file">code/schrodinger_by_counting.py</p>
+    <p class="results">
+      Wavepacket dynamics from a brickwork of nearest-neighbour beamsplitters and per-cell phase
+      increments, on a 128-cell chain with \(N = 4.2\times10^6\). Free spreading: counted variance
+      tracks the Schr&ouml;dinger law \(\sigma_0^2 + (t/2m^\ast\sigma_0)^2\), with the exact device
+      chain matched to \(L_1 = 8.6\times10^{-6}\). Drift: counted group velocity matches the exact
+      chain to seven significant figures. Harmonic well: counted \(\langle x\rangle(t)\) oscillates
+      at \(\omega = \sqrt{2\eta\kappa}\) over two full periods. Counting unitarity:
+      \(\sum_x n_x = N\) exact at every stage, never violated. The literal edge: the counted
+      profile has finite support, terminating at population 1 exactly where the continuum tail
+      crosses \(1/N\). Residue scaling: counting once at the record-forming measurement stage
+      (Model A) gives \(O(1/N)\) residues, log&ndash;log slope \(-0.94\); imputing an integer
+      census to unrecorded intermediate stages (Model B) degrades the slope to \(-0.62\) &mdash;
+      the record-relative definition of classes changes dynamical accuracy by a factor of order
+      \(\sqrt N\).
+    </p>
+    <figure>
+      <img src="figures/schrodinger_results.png" alt="Counted packet profiles vs exact arrows; spreading law; harmonic oscillation; the literal edge; drift; Model A vs Model B residue scaling" />
+      <figcaption>Counted free-packet profiles against exact arrows, the spreading law, and harmonic oscillation (top); the literal edge, counted drift, and residue scaling for Model A (slope \(-0.94\)) against Model B (slope \(-0.62\)) (bottom).</figcaption>
+    </figure>
+  </div>
 </section>
 
 <!-- ================================================================ -->
@@ -464,12 +547,14 @@
     <li><a href="code/step4_stability.py"><code>step4_stability.py</code></a> — einselection, redundancy \((\cos\chi)^k\), and \(V^2+D^2=1\) from integer counts.</li>
     <li><a href="code/chsh_by_counting.py"><code>chsh_by_counting.py</code></a> — CHSH at \(2\sqrt 2\) by counting; sector-record control; exact no-signaling; residue scaling.</li>
     <li><a href="code/chsh_figure.py"><code>chsh_figure.py</code></a> — generates the CHSH results figure.</li>
+    <li><a href="code/schrodinger_by_counting.py"><code>schrodinger_by_counting.py</code></a> — wavepacket dynamics by counting: spreading, drift, harmonic oscillation, the literal edge, Model A vs. Model B residue scaling.</li>
   </ul>
   <pre>pip install numpy matplotlib
 python3 cr_toy_model.py
 python3 step1_multiplicativity.py
 python3 step4_stability.py
-python3 chsh_by_counting.py</pre>
+python3 chsh_by_counting.py
+python3 schrodinger_by_counting.py</pre>
 </section>
 
 <!-- ================================================================ -->
@@ -489,17 +574,19 @@ python3 chsh_by_counting.py</pre>
     <strong>Suggested Citation</strong><br>
     Tillitt, R. (2026). <em>The Born Exponent from Counting: Quantum Probability in a Finite Configuration Ontology</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.21523492">doi:10.5281/zenodo.21523492</a><br>
     Tillitt, R. (2026). <em>CHSH by Counting: Bell Violation in a Finite Configuration Ontology</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.21523901">doi:10.5281/zenodo.21523901</a><br>
-    Tillitt, R. (2026). <em>Configuration Realism: Foundations and Research Program</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.21523984">doi:10.5281/zenodo.21523984</a>
+    Tillitt, R. (2026). <em>Schr&ouml;dinger by Counting: Wavepacket Dynamics in a Finite Configuration Ontology</em>. Zenodo.<!-- TODO: add DOI when deposited --><br>
+    Tillitt, R. (2026). <em>Configuration Realism: Foundations</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.21523984">doi:10.5281/zenodo.21523984</a>
   </p>
   <p>
     <strong>Revision History</strong><br>
+    Release 2.0 &mdash; August 2026: fourth paper added, <em>Schr&ouml;dinger by Counting</em> &mdash; wavepacket dynamics computed by enumeration under a named cell structure [CS]. Foundations paper retitled <em>Configuration Realism: Foundations</em>, with the dynamics results integrated into the derived core (new Part II section), the invariant-speed conjecture upgraded by a computed instance, and the principle-theory framing carried throughout. Editorial revision across all four papers.<br>
     Release 1.0 &mdash; July 2026: publication release. Abstracts revised; internal draft labels retired &mdash; each paper is now versioned independently, starting at v1; papers licensed CC BY 4.0. Release 1.0 comprises the Born exponent paper v1, the CHSH paper v1, the foundations paper v1, and the code suite.<br>
     Version 0.2 &mdash; July 2026: three papers (Born exponent, CHSH by counting, foundations), toy models and results, postulates updated to the relational-phase formulation.<br>
     Version 0.1 &mdash; March 2026: initial postulates published at this site under the name Configuration Realism.<br>
     Origin &mdash; 2024, possibly earlier: the framework was first developed in written form under the name <em>Quantum Eternalism</em>. The earliest dated summary (private correspondence, April 2024) already contains the core commitments: a timeless totality of all configurations, no evolution or branching, observation as change in an observer&rsquo;s information state, interference among configurations shaping what is observed, and an emergent arrow of time &mdash; developed in explicit relation to Barbour&rsquo;s timeless mechanics and the Wheeler&ndash;DeWitt equation.
   </p>
   <p>
-    &copy; 2026 Russell Tillitt. The three papers and their LaTeX sources are licensed under a
+    &copy; 2026 Russell Tillitt. The four papers and their LaTeX sources are licensed under a
     <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0
     International License (CC BY 4.0)</a>; all other site content, all rights reserved.
   </p>
