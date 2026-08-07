@@ -40,8 +40,10 @@ of the bundle law, by configuration counting
 =====================================================================
 
 QUESTION
-  Can [RI] (record-level indifference) be derived from a stability
-  criterion stated in CR primitives, rather than assumed?
+  Which partitions can carry stable records? The stability criterion
+  fixes the domain of the Born rule (the domain theorem of the Born
+  paper: stable partitions are exactly those whose classes carry no
+  downstream cross-interference).
 
 STABILITY, DEFINED IN COUNTING TERMS
   A partition of a compatibility class is RECORDABLE if correlating a
@@ -62,18 +64,17 @@ CLAIMS TESTED
        V^2 + D^2 = 1 (Englert 1996; Wootters-Zurek 1979) with V and D
        both obtained from integer configuration counts.
 
-CONSEQUENCE FOR [RI]
+CONSEQUENCE
   Observer-accessible partitions are exactly the stable ones; on stable
-  partitions the record-level description closes by construction. RI is
-  thereby upgraded from axiom to consequence-of-stability, for every
-  partition an observer can actually hold records of. The remaining
-  primitive is the phase/linear structure itself ([PA] + arrows).
+  partitions the record-level description closes by construction — the
+  Born paper's domain theorem, by counting. The remaining primitive is
+  the linear/phase structure itself ([LC]).
 
-PHASE CONVENTION (aligned with Postulate 1, v5)
+PHASE CONVENTION (Postulate 1 of the Born paper)
   Arrows here are composed through device sequences (U @ a0) and counted at
   the record stage: phases are stage-relative, accumulated along the
-  refinement ordering — the relational phase structure of the revised
-  ontology, not a context-free per-configuration constant.
+  refinement ordering — the relational phase structure of the ontology,
+  not a context-free per-configuration constant.
 """
 
 import numpy as np

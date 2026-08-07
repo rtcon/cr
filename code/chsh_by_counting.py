@@ -33,15 +33,15 @@
 # If you use this code, please cite the paper above.
 # ---------------------------------------------------------------------
 """
-CHSH by Counting  (v2)
-======================
+CHSH by Counting
+================
 Verification-suite extension for Configuration Realism (companion to
 cr_toy_model.py, step1_multiplicativity.py, step4_stability.py).
 
 Discipline (fixed before any case was computed):
   * Configurations are materialized as explicit arrays (sector, phase-index);
     phases live on a lattice of 3,600 values. Phases are STAGE-RELATIVE
-    (Postulate 1, v5): the phase of a class relative to the current chain
+    (Postulate 1 of the Born paper): the phase of a class relative to the current chain
     stage, accumulated along the refinement ordering. No micro-ids: the
     ontology supplies no cross-preparation identity tags, and their absence
     is principled -- identity tags across setting-preparations would reopen
@@ -83,7 +83,7 @@ Checks:
 
 import numpy as np
 
-LATTICE = 3600  # phase lattice, as in the existing suite
+LATTICE = 3600  # phase lattice, as in the companion suites
 
 
 # ----------------------------------------------------------------------

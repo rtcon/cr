@@ -35,26 +35,28 @@
 # If you use this code, please cite the paper above.
 # ---------------------------------------------------------------------
 """
-Configuration Realism — Born-rule toy model v1
-==============================================
+Configuration Realism — Born-rule enumeration model
+===================================================
 
-Tests the Multiplicity Lemma program of the Born Derivation Memo.
+Enumeration suite for "The Born Exponent from Counting": the
+multiplicativity and conservation constraints that fix the counting rule.
 
 ONTOLOGY (fundamental register)
   A configuration is a tuple (sector, micro_id, phase_idx, record).
-  Configuration space is FINITE (ruling D11): |Omega| = N, fixed forever.
+  Configuration space is FINITE: |Omega| = N, fixed forever.
   Phases live on a discrete lattice of Q-th roots of unity (delta_c-quantized).
-  PHASE IS RELATIONAL AND STAGE-RELATIVE (Postulate 1, v5): phase_idx is the
+  PHASE IS RELATIONAL AND STAGE-RELATIVE (Postulate 1 of the Born paper):
+  phase_idx is the
   phase of a class RELATIVE TO THE CURRENT CHAIN STAGE — accumulated along
   the refinement ordering, re-derived at each device — not a context-free
   constant attached to a configuration once and for all. (A context-free
   assignment cannot serve two partitions of one class under a nontrivial
-  device; see the companion paper's impossibility remark. This code has
-  always carried phases stage-relative, which is why it works.)
+  device; see the Born paper's impossibility remark. The model's phases
+  are stage-relative accordingly.)
   A compatibility class Omega_r = the set of configurations consistent with
   record content r. Probability = |Omega_r'| / |Omega_r|  — literal counting.
 
-CLOSURE LAW v0 (the "bundle law") — POSTULATED, exponent DERIVED
+THE BUNDLE LAW — POSTULATED, exponent DERIVED
   (i)  Linear composition: preparation devices are correlation structures
        whose composition acts linearly on a combining object alpha_i
        (one per sector), via unitary matrices. Theta enters ONLY here —
@@ -78,7 +80,7 @@ EMERGENT REGISTER NOTE
   phase assignment, whose increments the device matrices encode.
 
 WHAT IS AND IS NOT DEMONSTRATED
-  Demonstrated: multiplicity lemma holds under bundle law v0; exponent 2 is
+  Demonstrated: multiplicativity holds under the bundle law; exponent 2 is
   forced by finiteness + linearity; interference, decoherence,
   conditionalization, qutrit generalization, O(1/N) rational residue —
   all by literal enumeration of configuration sets.
@@ -138,7 +140,7 @@ def tritter():
     return np.array([[1,1,1],[1,w,w**2],[1,w**2,w**4]], dtype=complex)/sqrt(3)
 
 # ----------------------------------------------------------------------
-# Bundle law v0: populations from combining objects, exponent p.
+# Bundle law: populations from combining objects, exponent p.
 # ----------------------------------------------------------------------
 def combining(pops_phases, N):
     """alpha_i = sqrt(n_i/N) e^{i phi_i}, on the discrete phase lattice."""
