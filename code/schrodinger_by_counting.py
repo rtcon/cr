@@ -1,8 +1,8 @@
 # ---------------------------------------------------------------------
 # schrodinger_by_counting.py
 # Enumeration suite for "Schrodinger by Counting: Wavepacket Dynamics
-# in a Finite Configuration Ontology" (Zenodo, 2026).
-#   [TODO: add doi once deposited]
+# in a Finite Configuration Ontology"
+# (Zenodo, doi:10.5281/zenodo.21842637).
 #
 # Part of the Configuration Realism series:
 # "Configuration Realism: Foundations" (doi:10.5281/zenodo.21523984).
